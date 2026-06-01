@@ -186,7 +186,7 @@ const TEAM = [
     tone: 'brand',
     // TODO: CLIENT WILL REPLACE THIS IMAGE URL
     src: null,
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/cimcimparkk/',
     whatsapp: 'https://wa.me/905392437606',
   },
   {
