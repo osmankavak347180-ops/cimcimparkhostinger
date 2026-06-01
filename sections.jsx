@@ -192,7 +192,7 @@ function Hero() {
   return (
     <section
       data-screen-label="01 Hero"
-      className="relative overflow-hidden bg-ink min-h-[600px] flex"
+      className="relative overflow-hidden bg-ink min-h-[680px] flex"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -225,7 +225,7 @@ function Hero() {
       </div>
 
       {/* Content — mobilde 100svh içinde dikey ortalanır, masaüstünde padding ile nefes alır */}
-      <div className="relative w-full max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10 py-20 sm:py-32 lg:py-40 text-center text-white flex flex-col justify-center items-center min-h-[600px]">
+      <div className="relative w-full max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10 py-20 sm:py-32 lg:py-40 text-center text-white flex flex-col justify-center items-center min-h-[680px]">
         <div className="reveal flex justify-center" style={{ '--d': '0ms' }}>
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[12px] font-semibold tracking-wide uppercase bg-white/12 ring-1 ring-white/30 backdrop-blur-sm text-white">
             <span className="w-1.5 h-1.5 rounded-full bg-brand"></span>
