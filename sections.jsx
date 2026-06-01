@@ -153,6 +153,7 @@ const HERO_SLIDES = [
   {
     src: 'assets/hero/cimcimpark-cocuk-hareket.png',
     alt: 'CimCimPark çocuk hareket alanı — minder, çember ve koni parkuru',
+    focal: 'center 20%',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
     titleAccent: 'En Modern Cimnastik Merkezi',
@@ -211,7 +212,7 @@ function Hero() {
               src={s.src}
               alt={s.alt}
               className="absolute inset-0 w-full h-full object-cover hero-kenburns"
-              style={{ objectPosition: 'center center' }}
+              style={{ objectPosition: s.focal || 'center center' }}
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
               loading={i === 0 ? 'eager' : 'lazy'}
             />
