@@ -1,5 +1,6 @@
-// sections.jsx — page sections
-const { useState: useStateS, useEffect: useEffectS, useRef: useRefS } = React;
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, Eyebrow, Section, Photo, Img, IconTile, Counter, Logo, I } from './primitives';
+
 
 /* ====================================================================== */
 /* SOCIAL RAIL — official brand colors                                    */
@@ -27,10 +28,10 @@ function SocialRail() {
 /* NAVBAR                                                                 */
 /* ====================================================================== */
 function Navbar({ route }) {
-  const [scrolled, setScrolled] = useStateS(false);
-  const [open, setOpen] = useStateS(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  useEffectS(() => {
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -38,7 +39,7 @@ function Navbar({ route }) {
   }, []);
 
   // Close mobile sheet on route change
-  useEffectS(() => { setOpen(false); }, [route]);
+  useEffect(() => { setOpen(false); }, [route]);
 
   const items = [
     { to: '/',             label: 'Ana Sayfa' },
@@ -128,7 +129,7 @@ const HERO_SLIDES = [
   },
   // Slayt 2 — gerçek CimCimPark çocuk cimnastik dersi
   {
-    src: 'assets/hero/cimcimpark-cimnastik-cocuk.png',
+    src: '/assets/hero/cimcimpark-cimnastik-cocuk.png',
     alt: 'CimCimPark çocuk cimnastik dersi — minder & çember çalışması',
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
@@ -139,7 +140,7 @@ const HERO_SLIDES = [
   },
 
   {
-    src: 'assets/hero-2.jpg',
+    src: '/assets/hero-2.jpg',
     alt: 'CimCimPark çocuk cimnastik dersi',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
@@ -152,11 +153,11 @@ const HERO_SLIDES = [
 ];
 
 function Hero() {
-  const [active, setActive] = useStateS(0);
-  const [paused, setPaused] = useStateS(false);
-  const copyRef = useRefS(null);
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const copyRef = useRef(null);
 
-  useEffectS(() => {
+  useEffect(() => {
     if (paused) return;
     const id = setInterval(() => setActive((a) => (a + 1) % HERO_SLIDES.length), 3000);
     return () => clearInterval(id);
@@ -165,7 +166,7 @@ function Hero() {
   // Replay the reveal animation on every slide change. The page-level
   // IntersectionObserver in useReveal only observes nodes that exist at mount,
   // so for slide-driven content we manage the .in class manually.
-  useEffectS(() => {
+  useEffect(() => {
     const root = copyRef.current;
     if (!root) return;
     const els = root.querySelectorAll('.reveal');
@@ -385,7 +386,7 @@ function BranchCard({ b }) {
 }
 
 function Branches() {
-  const [tab, setTab] = useStateS('kids');
+  const [tab, setTab] = useState('kids');
   const list = BRANCHES[tab];
   return (
     <Section id="branches" label="03 Branches" className="py-20 sm:py-28">
@@ -514,7 +515,7 @@ function Founder() {
           <div className="reveal-fade relative">
             {/* TODO: CLIENT WILL REPLACE THIS IMAGE URL */}
             <Img
-              src="assets/founder.jpg"
+              src="/assets/founder.jpg"
               alt="Büşra FISTIK — Baş Antrenör"
               caption="KURUCU • Büşra FISTIK portresi"
               tone="aqua" aspect="4/5" className="shadow-card"
@@ -636,8 +637,8 @@ const GALLERY = [
 ];
 
 function Gallery() {
-  const [open, setOpen] = useStateS(null);
-  useEffectS(() => {
+  const [open, setOpen] = useState(null);
+  useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') setOpen(null);
       if (e.key === 'ArrowLeft')  setOpen((o) => o !== null ? (o - 1 + GALLERY.length) % GALLERY.length : null);
@@ -753,8 +754,8 @@ function Testimonials() {
 /* CONTACT                                                                */
 /* ====================================================================== */
 function Contact() {
-  const [form, setForm] = useStateS({ name: '', phone: '', branch: 'Temel Cimnastik', message: '' });
-  const [status, setStatus] = useStateS(null); // null | 'loading' | 'sent'
+  const [form, setForm] = useState({ name: '', phone: '', branch: 'Temel Cimnastik', message: '' });
+  const [status, setStatus] = useState(null); // null | 'loading' | 'sent'
 
   const branches = [
     'Temel Cimnastik', 'Çocuk Taekwondo', 'Çocuk Kick Boks',
@@ -940,6 +941,5 @@ function Footer() {
   );
 }
 
-Object.assign(window, {
-  SocialRail, Navbar, Hero, Trust, Branches, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer,
-});
+export { SocialRail, Navbar, Hero, Trust, Branches, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer };
+
