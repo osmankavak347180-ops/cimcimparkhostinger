@@ -1,4 +1,4 @@
-// app.jsx — Hash-based multi-page router & layout.
+// app.jsx — History-based multi-page router & layout.
 
 const ROUTES = {
   '/':              { Component: () => <HomePage />,     label: 'Ana Sayfa',    desc: "Kahramanmaraş Onikişubat'ta 4-65 yaş için cimnastik, pilates, taekwondo ve kick boks. Ücretsiz deneme dersi için hemen ulaşın." },

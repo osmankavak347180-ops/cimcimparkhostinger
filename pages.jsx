@@ -389,7 +389,7 @@ const BLOG_POSTS = [
 
 <h2>Ücretsiz Deneme Dersi</h2>
 
-<p><strong>CİMCİMPARK</strong> olarak tüm yeni katılımcılara ücretsiz deneme dersi sunuyoruz. Çocuğunuz stüdyomuzu, eğitmenlerimizi ve diğer sporcu arkadaşlarını tanısın, sonra birlikte karar verelim. Dulkadiroğlu ve Onikişubat'ın her yerinden kolaylıkla ulaşabileceğiniz tesisimizde sizi bekliyoruz. Randevu için <a href="#/iletisim">iletişim formunu</a> doldurun.</p>`,
+<p><strong>CİMCİMPARK</strong> olarak tüm yeni katılımcılara ücretsiz deneme dersi sunuyoruz. Çocuğunuz stüdyomuzu, eğitmenlerimizi ve diğer sporcu arkadaşlarını tanısın, sonra birlikte karar verelim. Dulkadiroğlu ve Onikişubat'ın her yerinden kolaylıkla ulaşabileceğiniz tesisimizde sizi bekliyoruz. Randevu için <a href="/iletisim">iletişim formunu</a> doldurun.</p>`,
   },
   {
     slug: 'kahramanmaras-pilates-dersleri',
@@ -450,7 +450,7 @@ const BLOG_POSTS = [
 
 <p>Kahramanmaraş pilates programlarımız 18–65 yaş arası herkese açıktır. Sırt fıtığı, diz sorunları veya hamilelik/doğum sonrası dönem gibi özel durumlar için eğitmenlerimiz bireysel program oluşturmaktadır. Başlamadan önce kısa bir ön değerlendirme görüşmesi yapılmakta; bu sayede sizi en doğru gruba yerleştiriyoruz.</p>
 
-<p>Kahramanmaraş'ta pilates arayanlar için ilk adım çok kolay: <a href="#/iletisim">ücretsiz deneme seansı</a> formunu doldurun, sizi en uygun gruba davet edelim.</p>`,
+<p>Kahramanmaraş'ta pilates arayanlar için ilk adım çok kolay: <a href="/iletisim">ücretsiz deneme seansı</a> formunu doldurun, sizi en uygun gruba davet edelim.</p>`,
   },
   {
     slug: 'onikisubat-taekwondo-kursu',
@@ -499,7 +499,7 @@ const BLOG_POSTS = [
 
 <p><strong>CİMCİMPARK</strong>'ta <strong>onikişubat taekwondo</strong> seanslarında tüm koruyucu ekipmanlar zorunlu olarak kullanılmaktadır. Kask, göğüs koruyucu, ön kol ve bacak koruyucular ile ağız koruyucu, sparing çalışmalarının ayrılmaz parçasıdır. Eğitmenlerimiz her antrenmanın başında güvenlik kontrolü yapar.</p>
 
-<p>Çocuğunuzun taekwondo yolculuğu <strong>CİMCİMPARK</strong>'ta başlasın. <a href="#/iletisim">Ücretsiz deneme dersi</a> için hemen formu doldurun.</p>`,
+<p>Çocuğunuzun taekwondo yolculuğu <strong>CİMCİMPARK</strong>'ta başlasın. <a href="/iletisim">Ücretsiz deneme dersi</a> için hemen formu doldurun.</p>`,
   },
   {
     slug: 'dulkadiroglukick-boks-kursu',
@@ -556,7 +556,7 @@ const BLOG_POSTS = [
 
 <h2>Ücretsiz Deneme Dersi</h2>
 
-<p><strong>CİMCİMPARK</strong>, <strong>kahramanmaraş kick boks</strong> deneyimini herkesin tatmasını sağlamak amacıyla ücretsiz deneme dersi imkânı sunmaktadır. Dulkadiroğlu ve Onikişubat'tan gelen her yeni sporcu bu fırsattan yararlanabilir. Güçlü bir başlangıç için bugün <a href="#/iletisim">ücretsiz deneme dersi formunu</a> doldurun.</p>`,
+<p><strong>CİMCİMPARK</strong>, <strong>kahramanmaraş kick boks</strong> deneyimini herkesin tatmasını sağlamak amacıyla ücretsiz deneme dersi imkânı sunmaktadır. Dulkadiroğlu ve Onikişubat'tan gelen her yeni sporcu bu fırsattan yararlanabilir. Güçlü bir başlangıç için bugün <a href="/iletisim">ücretsiz deneme dersi formunu</a> doldurun.</p>`,
   },
   {
     slug: 'kahramanmaras-reformer-pilates',
@@ -609,7 +609,7 @@ const BLOG_POSTS = [
 
 <p><strong>Sırt fıtığım var, reformer yapabilir miyim?</strong> Evet, ancak önce doktorunuzla görüşmenizi öneririz. Eğitmenlerimiz özel protokoller konusunda deneyimlidir.</p>
 
-<p>Kahramanmaraş'ın en iyi reformer pilates stüdyosunu denemek için <a href="#/iletisim">ilk seans ücretsiz</a> fırsatımızdan yararlanın.</p>`,
+<p>Kahramanmaraş'ın en iyi reformer pilates stüdyosunu denemek için <a href="/iletisim">ilk seans ücretsiz</a> fırsatımızdan yararlanın.</p>`,
   },
   {
     slug: 'kahramanmaras-cocuk-spor-programlari',
@@ -660,7 +660,7 @@ const BLOG_POSTS = [
 
 <p><strong>CİMCİMPARK</strong>'ta şeffaflık temel değerimizdir. Her dönem sonunda teknik ilerleme, disiplin ve sosyal uyum kriterlerini kapsayan yazılı gelişim raporu velilerimizle paylaşılmaktadır. WhatsApp grubu aracılığıyla haftalık etkinlik takibi yapılabilmektedir.</p>
 
-<p>Çocuğunuz için en uygun branşı birlikte belirleyelim. <a href="#/iletisim">Ücretsiz tanışma seansı</a> için formunuzu doldurun.</p>`,
+<p>Çocuğunuz için en uygun branşı birlikte belirleyelim. <a href="/iletisim">Ücretsiz tanışma seansı</a> için formunuzu doldurun.</p>`,
   },
 
   /* ---- Grup 2: Genel Bilgi / SEO ---- */
@@ -724,7 +724,7 @@ const BLOG_POSTS = [
 
 <p>Yaşlanmayla birlikte azalan hareket kabiliyeti ve eklem esnekliği, düzenli pilates pratiğiyle yavaşlatılabilir. 60–70'li yaşlarda bile başlanabilen pilates, aktif yaşlanma stratejisinin önemli bir parçasıdır.</p>
 
-<p>Bu faydaları bizzat deneyimlemek için <a href="#/iletisim">CİMCİMPARK'ta ücretsiz bir deneme seansı</a> talep edebilirsiniz.</p>`,
+<p>Bu faydaları bizzat deneyimlemek için <a href="/iletisim">CİMCİMPARK'ta ücretsiz bir deneme seansı</a> talep edebilirsiniz.</p>`,
   },
   {
     slug: 'cocuk-cimnastik-faydalari',
@@ -778,7 +778,7 @@ const BLOG_POSTS = [
 
 <p>Doğru bir eğitmen ve destekleyici bir ortamda cimnastik, çocuklar için büyük bir zevk kaynağı olur. Bu olumlu deneyim, spora karşı kalıcı bir sevgi ve tutkunun tohumunu atar — bu da yaşam boyu sürecek sağlıklı bir yaşam tarzının en güçlü güvencesidir.</p>
 
-<p>Çocuğunuzun cimnastik yolculuğu için <a href="#/iletisim">CİMCİMPARK'ta ücretsiz deneme dersini</a> kaçırmayın.</p>`,
+<p>Çocuğunuzun cimnastik yolculuğu için <a href="/iletisim">CİMCİMPARK'ta ücretsiz deneme dersini</a> kaçırmayın.</p>`,
   },
   {
     slug: 'taekwondo-nedir-nasil-yapilir',
@@ -860,7 +860,7 @@ const BLOG_POSTS = [
 
 <p>Taekwondoya başlamak için herhangi bir ön bilgi ya da fiziksel hazırlık gerekmez. Rahat bir eşofman veya dobok (taekwondo giysisi) yeterlidir. Ilk sınavdan itibaren geleneksel dobok giyilmesi önerilir.</p>
 
-<p>Taekwondo yolculuğunuzu başlatmak için <a href="#/iletisim">CİMCİMPARK'ta ücretsiz deneme dersini</a> deneyin.</p>`,
+<p>Taekwondo yolculuğunuzu başlatmak için <a href="/iletisim">CİMCİMPARK'ta ücretsiz deneme dersini</a> deneyin.</p>`,
   },
   {
     slug: 'kick-boks-nedir-baslangic-rehberi',
@@ -943,7 +943,7 @@ const BLOG_POSTS = [
 <li>Rehber bir eğitmen bulun; teknik hatalar sonradan kırılması zor alışkanlıklar oluşturur</li>
 </ol>
 
-<p>Kick boksun tadını çıkarmak için <a href="#/iletisim">CİMCİMPARK'ta ücretsiz deneme dersine</a> katılın.</p>`,
+<p>Kick boksun tadını çıkarmak için <a href="/iletisim">CİMCİMPARK'ta ücretsiz deneme dersine</a> katılın.</p>`,
   },
   {
     slug: 'reformer-mat-pilates-farki',
@@ -1014,7 +1014,7 @@ const BLOG_POSTS = [
 
 <p>Pilates deneyimi yoksa mat pilatesle başlayıp temel prensipleri kavramak tavsiye edilir. Bununla birlikte, özel bir sağlık durumu (bel sorunları, doğum sonrası dönem, spor sakatlanması) varsa doğrudan reformerla başlamak daha uygun olabilir. En doğru karar, bir pilates uzmanıyla kısa bir değerlendirme görüşmesi yapıldıktan sonra alınır.</p>
 
-<p>İkisini de denemek mi istiyorsunuz? <a href="#/iletisim">CİMCİMPARK'ta ücretsiz deneme seansı</a> formunu doldurun; sizin için en uygun formatı birlikte belirleyelim.</p>`,
+<p>İkisini de denemek mi istiyorsunuz? <a href="/iletisim">CİMCİMPARK'ta ücretsiz deneme seansı</a> formunu doldurun; sizin için en uygun formatı birlikte belirleyelim.</p>`,
   },
   {
     slug: 'cocuklarda-spor-aliskanligı-nasil-kazandirilir',
@@ -1062,7 +1062,7 @@ const BLOG_POSTS = [
 
 <p>Araştırmalar, 4–6 yaş döneminin temel motor becerilerin kazanımı için kritik bir pencere olduğunu göstermektedir. Ancak spora "başlamak için geç kaldım" diye bir şey yoktur; her yaşta başlanan spor, o yaşın ihtiyaçlarına uygun faydalar sağlar.</p>
 
-<p>Çocuğunuzun ilk adımını atmaya hazır olduğunu düşünüyorsanız, <a href="#/iletisim">CİMCİMPARK'ta ücretsiz tanışma seansı</a> talep edin. Branş seçiminden program planlamasına kadar size rehberlik edelim.</p>`,
+<p>Çocuğunuzun ilk adımını atmaya hazır olduğunu düşünüyorsanız, <a href="/iletisim">CİMCİMPARK'ta ücretsiz tanışma seansı</a> talep edin. Branş seçiminden program planlamasına kadar size rehberlik edelim.</p>`,
   },
 ];
 
