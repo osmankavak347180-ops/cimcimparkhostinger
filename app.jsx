@@ -8,6 +8,9 @@ const ROUTES = {
   '/galeri':        { Component: () => <GalleryPage />,  label: 'Galeri',       desc: "CİMCİMPARK'ın aydınlık, ferah ve modern stüdyolarını fotoğraflarla keşfedin." },
   '/blog':          { Component: () => <BlogPage />,     label: 'Blog',         desc: "Cimnastik, pilates ve dövüş sanatları üzerine uzman ipuçları, gelişim rehberleri ve antrenman önerileri." },
   '/iletisim':      { Component: () => <ContactPage />,  label: 'İletişim',     desc: "CİMCİMPARK ile iletişime geçin. Onikişubat/Kahramanmaraş. Tel: 0539 243 76 06. Ücretsiz deneme dersi için formu doldurun." },
+  '/gizlilik':      { Component: () => <GizlilikPage />, label: 'Gizlilik',      desc: "CİMCİMPARK Gizlilik Politikası — kişisel verilerinizin nasıl korunduğunu öğrenin." },
+  '/kvkk':          { Component: () => <KVKKPage />,     label: 'KVKK Aydınlatma', desc: "CİMCİMPARK KVKK Aydınlatma Metni — 6698 sayılı Kanun kapsamında kişisel veri işleme bilgilendirmesi." },
+  '/cerez':         { Component: () => <CerezPage />,    label: 'Çerez Politikası', desc: "CİMCİMPARK Çerez Politikası — sitemizde kullanılan çerezler hakkında bilgi edinin." },
 };
 
 function App() {

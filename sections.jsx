@@ -942,9 +942,9 @@ function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[12.5px] text-ink-muted">
           <div>© 2026 CİMCİMPARK · Tüm hakları saklıdır.</div>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-ink">Gizlilik</a>
-            <a href="#" className="hover:text-ink">KVKK Aydınlatma</a>
-            <a href="#" className="hover:text-ink">Çerez Politikası</a>
+            <Link to="/gizlilik" className="hover:text-ink">Gizlilik</Link>
+            <Link to="/kvkk" className="hover:text-ink">KVKK Aydınlatma</Link>
+            <Link to="/cerez" className="hover:text-ink">Çerez Politikası</Link>
           </div>
         </div>
       </div>

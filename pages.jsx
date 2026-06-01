@@ -1276,7 +1276,96 @@ function NotFoundPage() {
   );
 }
 
+function GizlilikPage() {
+  return (
+    <Section className="py-20 sm:py-28">
+      <div className="max-w-[760px] mx-auto">
+        <div className="font-mono text-[11px] text-brand-deep font-semibold tracking-wider uppercase mb-3">Yasal</div>
+        <h1 className="font-display font-extrabold text-[32px] sm:text-[44px] leading-[1.15] tracking-[-0.02em] text-ink mb-6">Gizlilik Politikası</h1>
+        <div className="prose-like space-y-5 text-[15px] text-ink-soft leading-relaxed">
+          <p>CİMCİMPARK Spor &amp; Cimnastik Merkezi olarak kişisel verilerinizin gizliliğine önem veriyoruz. Bu politika, web sitemizi (<strong>cimcimpark.com</strong>) kullanırken toplanan verilerin nasıl işlendiğini açıklar.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Toplanan Veriler</h2>
+          <p>İletişim formu aracılığıyla adınız, telefon numaranız ve e-posta adresiniz toplanabilir. Bu veriler yalnızca sizinle iletişim kurmak amacıyla kullanılır.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Verilerin Kullanımı</h2>
+          <p>Toplanan kişisel veriler; üçüncü taraflarla paylaşılmaz, satılmaz veya kiralanmaz. Yalnızca CİMCİMPARK hizmetlerinin sunulması amacıyla kullanılır.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Veri Güvenliği</h2>
+          <p>Verileriniz teknik ve idari tedbirlerle korunmaktadır. Detaylı bilgi için <strong>info@cimcimpark.com</strong> adresine ulaşabilirsiniz.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">İletişim</h2>
+          <p>Gizlilik politikamıza ilişkin sorularınız için: <a href="mailto:info@cimcimpark.com" className="text-brand hover:underline">info@cimcimpark.com</a></p>
+        </div>
+        <div className="mt-10">
+          <Link to="/" className="btn-ghost inline-flex items-center gap-2"><I.Arrow className="rotate-180" width="16" height="16" /> Ana Sayfaya Dön</Link>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function KVKKPage() {
+  return (
+    <Section className="py-20 sm:py-28">
+      <div className="max-w-[760px] mx-auto">
+        <div className="font-mono text-[11px] text-brand-deep font-semibold tracking-wider uppercase mb-3">Yasal</div>
+        <h1 className="font-display font-extrabold text-[32px] sm:text-[44px] leading-[1.15] tracking-[-0.02em] text-ink mb-6">KVKK Aydınlatma Metni</h1>
+        <div className="space-y-5 text-[15px] text-ink-soft leading-relaxed">
+          <p>6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında veri sorumlusu sıfatıyla <strong>CİMCİMPARK Spor &amp; Cimnastik Merkezi</strong> (Tavşan Tepe, 69002. Sk No 88/A, Onikişubat/Kahramanmaraş) olarak kişisel verilerinizi aşağıda açıklanan amaçlar doğrultusunda işlemekteyiz.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">İşlenen Kişisel Veriler</h2>
+          <p>Ad, soyad, telefon numarası, e-posta adresi ve iletişim formuna girilen diğer bilgiler.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">İşleme Amaçları</h2>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Hizmetlerimiz hakkında bilgi vermek ve randevu oluşturmak</li>
+            <li>Ücretsiz deneme dersi taleplerini değerlendirmek</li>
+            <li>Yasal yükümlülükleri yerine getirmek</li>
+          </ul>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Hukuki Dayanak</h2>
+          <p>KVKK madde 5/2 kapsamında; sözleşmenin ifası, meşru menfaat ve açık rıza hukuki sebeplerine dayanılmaktadır.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Haklarınız (KVKK m. 11)</h2>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+            <li>İşlenmişse bilgi talep etme</li>
+            <li>Düzeltme veya silme talep etme</li>
+            <li>İşlemeye itiraz etme</li>
+          </ul>
+          <p className="mt-4">Başvurularınızı <a href="mailto:info@cimcimpark.com" className="text-brand hover:underline">info@cimcimpark.com</a> adresine iletebilirsiniz.</p>
+        </div>
+        <div className="mt-10">
+          <Link to="/" className="btn-ghost inline-flex items-center gap-2"><I.Arrow className="rotate-180" width="16" height="16" /> Ana Sayfaya Dön</Link>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function CerezPage() {
+  return (
+    <Section className="py-20 sm:py-28">
+      <div className="max-w-[760px] mx-auto">
+        <div className="font-mono text-[11px] text-brand-deep font-semibold tracking-wider uppercase mb-3">Yasal</div>
+        <h1 className="font-display font-extrabold text-[32px] sm:text-[44px] leading-[1.15] tracking-[-0.02em] text-ink mb-6">Çerez Politikası</h1>
+        <div className="space-y-5 text-[15px] text-ink-soft leading-relaxed">
+          <p><strong>cimcimpark.com</strong> web sitesi, kullanıcı deneyimini iyileştirmek amacıyla çerezler kullanmaktadır.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Çerez Nedir?</h2>
+          <p>Çerezler, tarayıcınız aracılığıyla cihazınıza kaydedilen küçük metin dosyalarıdır. Siteyi her ziyaretinizde tercihlerinizi hatırlamaya yardımcı olur.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Kullandığımız Çerezler</h2>
+          <ul className="list-disc pl-5 space-y-2">
+            <li><strong>Zorunlu Çerezler:</strong> Sitenin düzgün çalışması için gereklidir. Devre dışı bırakılamaz.</li>
+            <li><strong>Analitik Çerezler:</strong> Sayfa ziyaretlerini anonim olarak analiz etmek için kullanılabilir.</li>
+          </ul>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">Çerezleri Kontrol Etme</h2>
+          <p>Tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz. Ancak bu durumda bazı işlevler düzgün çalışmayabilir.</p>
+          <h2 className="text-[18px] font-semibold text-ink mt-8">İletişim</h2>
+          <p>Sorularınız için: <a href="mailto:info@cimcimpark.com" className="text-brand hover:underline">info@cimcimpark.com</a></p>
+        </div>
+        <div className="mt-10">
+          <Link to="/" className="btn-ghost inline-flex items-center gap-2"><I.Arrow className="rotate-180" width="16" height="16" /> Ana Sayfaya Dön</Link>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 Object.assign(window, {
   PageHeader, FinalCTA,
   HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, ContactPage, NotFoundPage,
+  GizlilikPage, KVKKPage, CerezPage,
 });
