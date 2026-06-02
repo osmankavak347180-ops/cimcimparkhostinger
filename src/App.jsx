@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRoute, useReveal } from './primitives';
-import { SocialRail, Navbar, Footer } from './sections';
+import { SocialRail, ScrollToTop, Navbar, Footer } from './sections';
 import {
   HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, ContactPage,
   GizlilikPage, KVKKPage, CerezPage, NotFoundPage,
@@ -54,6 +54,7 @@ function App() {
     <div className="min-h-screen flex flex-col" data-screen-label={`Page · ${label}`}>
       {/* GLOBAL persistent layout */}
       <SocialRail />
+      <ScrollToTop />
       <Navbar route={route} />
       <main key={route} className="flex-1 page-fade">
         <Component />
