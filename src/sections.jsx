@@ -137,18 +137,7 @@ function Navbar({ route }) {
 /* HERO — full-bleed 3-slide background slider                            */
 /* ====================================================================== */
 const HERO_SLIDES = [
-  // Slayt 1 — yetişkin pilates / genel kitle
-  {
-    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1800&q=80',
-    alt: 'Yetişkin kadın pilates seansı',
-    tint: 'from-aqua/40 to-brand/30',
-    title: 'Kendi Sınırlarını Keşfet,',
-    titleAccent: 'Gücünü Zirveye Taşı!',
-    subtitle: 'Profesyonel eğitmenlerimizle hayalindeki forma kavuşmak için daha fazla bekleme. Gücünü ve potansiyelini bugünden keşfet.',
-    cta: 'Ücretsiz Deneme Dersi Al!',
-    ctaTo: '/iletisim',
-  },
-  // Slayt 2 — gerçek CimCimPark çocuk cimnastik dersi
+  // Slayt 1 — gerçek CimCimPark çocuk cimnastik dersi (lokal, preload ile eşleşir)
   {
     src: '/hero/cimcimpark-cimnastik-cocuk.jpg',
     alt: 'CimCimPark çocuk cimnastik dersi — minder & çember çalışması',
@@ -159,7 +148,7 @@ const HERO_SLIDES = [
     cta: 'Programları Keşfet ve Kaydol!',
     ctaTo: '/branslarimiz',
   },
-
+  // Slayt 2 — gerçek CimCimPark çocuk hareket
   {
     src: '/hero/cimcimpark-cocuk-hareket.jpg',
     alt: 'CimCimPark çocuk cimnastik dersi',
@@ -170,6 +159,17 @@ const HERO_SLIDES = [
     cta: 'Hemen Başla!',
     ctaTo: '/iletisim',
     focal: 'center top',
+  },
+  // Slayt 3 — yetişkin pilates / genel kitle
+  {
+    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=75',
+    alt: 'Yetişkin kadın pilates seansı',
+    tint: 'from-aqua/40 to-brand/30',
+    title: 'Kendi Sınırlarını Keşfet,',
+    titleAccent: 'Gücünü Zirveye Taşı!',
+    subtitle: 'Profesyonel eğitmenlerimizle hayalindeki forma kavuşmak için daha fazla bekleme. Gücünü ve potansiyelini bugünden keşfet.',
+    cta: 'Ücretsiz Deneme Dersi Al!',
+    ctaTo: '/iletisim',
   },
 ];
 
@@ -225,6 +225,7 @@ function Hero() {
               style={{ objectPosition: s.focal || 'center center' }}
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
               loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'auto'}
             />
           </div>
         ))}
