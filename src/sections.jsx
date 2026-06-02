@@ -326,150 +326,89 @@ function Trust() {
 /* ====================================================================== */
 /* BRANCHES                                                               */
 /* ====================================================================== */
-const BRANCHES = {
-  kids: [
-    { icon: 'Sparkles', name: 'Temel Cimnastik', age: '4 — 12 yaş', desc: 'Denge, esneklik ve özgüvenin temellerini eğlenceli minder oyunlarıyla atıyoruz.', tag: 'En popüler', tone: 'brand' },
-    { icon: 'ShieldCheck', name: 'Çocuk Taekwondo', age: '6 — 14 yaş', desc: 'Disiplin ve saygı temelli, kuşak sistemi ile motive edici uzun soluklu bir yolculuk.', tag: 'Disiplin', tone: 'aqua' },
-    { icon: 'Zap', name: 'Çocuk Kick Boks', age: '8 — 14 yaş', desc: 'Koordinasyon, refleks ve özgüveni yüksek tempolu güvenli antrenmanlarla geliştirir.', tag: 'Enerji', tone: 'brand' },
-  ],
-  adults: [
-    { icon: 'Wind', name: 'Mat Pilates', age: '16 — 65 yaş', desc: 'Postür, çekirdek kuvveti ve nefes kontrolü. Ofis yorgunluğuna birebir.', tag: 'Yeni Başlayan ✓', tone: 'aqua' },
-    { icon: 'Dumbbell', name: 'Reformer Pilates', age: '18 — 65 yaş', desc: 'Yaylı reformer sistemiyle birebir & 3 kişilik küçük grup seansları.', tag: 'Birebir', tone: 'brand' },
-    { icon: 'Flame', name: 'Yetişkin Kick Boks', age: '16 — 45 yaş', desc: 'Yüksek kalori yakımı + teknik gelişim. Stresten arınmanın en hızlı yolu.', tag: 'Yoğun', tone: 'aqua' },
-  ],
-};
+const BRANCH_PHOTOS = [
+  { name: 'Çocuk Jimnastik Kursu',        age: '4-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand' },
+  { name: 'Genç Jimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua'  },
+  { name: 'Jimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand' },
+  { name: 'Okul Öncesi Jimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand' },
+  { name: 'Artistik Jimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik.webp',          tone: 'aqua'  },
+  { name: 'Reformer Pilates',              age: '18-65 Yaş',    src: 'assets/branch-reformer-pilates.webp',  tone: 'aqua'  },
+  { name: 'Mat Pilates',                   age: '16-65 Yaş',    src: 'assets/branch-mat-pilates.webp',       tone: 'aqua'  },
+  { name: 'Çocuk Taekwondo',               age: '6-14 Yaş',     src: 'assets/branch-cocuk-taekwondo.webp',   tone: 'brand' },
+  { name: 'Çocuk Kick Boks',               age: '8-14 Yaş',     src: 'assets/branch-cocuk-kickboks.webp',    tone: 'brand' },
+  { name: 'Yetişkin Kick Boks',            age: '16-45 Yaş',    src: 'assets/branch-yetiskin-kickboks.webp', tone: 'aqua'  },
+];
 
-function BranchCard({ b }) {
-  const IconCmp = I[b.icon];
-  const isBrand = b.tone !== 'aqua';
-  const accentBg   = isBrand ? 'bg-brand'          : 'bg-aqua';
-  const accentText = isBrand ? 'text-brand-deep'   : 'text-aqua-deep';
-  const accentSoft = isBrand ? 'bg-brand-soft'     : 'bg-aqua-soft';
-  const tagColor   = isBrand ? 'text-brand-deep bg-brand-soft ring-brand/20' : 'text-aqua-deep bg-aqua-soft ring-aqua/20';
-  const borderHover = isBrand ? 'group-hover:border-brand/40' : 'group-hover:border-aqua/40';
-  const linkHover   = isBrand ? 'group-hover:text-brand'     : 'group-hover:text-aqua-deep';
-
+function BranchPhotoCard({ b }) {
   return (
-    <article className={`group relative flex flex-col overflow-hidden bg-white rounded-card border border-line ${borderHover} shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300`}>
-
-      {/* Top accent bar */}
-      <span className={`block h-[4px] w-full ${accentBg} transition-all duration-300`}></span>
-
-      <div className="flex flex-col flex-1 p-6 sm:p-7">
-
-        {/* Header row: icon + tag */}
-        <div className="flex items-start justify-between gap-3">
-          <IconTile tone={b.tone} size={52}>
-            <IconCmp width="26" height="26" />
-          </IconTile>
-          <span className={`mt-1 inline-flex items-center text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ring-1 ${tagColor}`}>
-            {b.tag}
-          </span>
-        </div>
-
-        {/* Title */}
-        <h3 className="mt-5 font-display font-bold text-[21px] leading-[1.2] text-ink tracking-tight">
+    <Link
+      to="/branslarimiz"
+      className="group relative block overflow-hidden rounded-card"
+      style={{ aspectRatio: '3/4' }}
+    >
+      {/* Gradient fallback */}
+      <div className={`absolute inset-0 ${b.tone === 'brand' ? 'bg-gradient-to-br from-brand to-brand-deep' : 'bg-gradient-to-br from-aqua to-aqua-deep'}`} />
+      {/* Photo */}
+      <img
+        src={b.src}
+        alt={b.name}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+        loading="lazy"
+        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+      />
+      {/* Dark gradient overlay bottom-up */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+      {/* Age badge top-left */}
+      <span
+        className={`absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full text-white ${b.tone === 'brand' ? 'bg-brand' : 'bg-aqua'}`}
+      >
+        {b.age}
+      </span>
+      {/* Branch name bottom */}
+      <div className="absolute bottom-0 left-0 right-0 p-4">
+        <h3 className="font-display font-bold text-[15px] sm:text-[16px] leading-[1.25] text-white">
           {b.name}
         </h3>
-
-        {/* Description */}
-        <p className="mt-2.5 text-[14px] text-ink-soft leading-[1.65] flex-1">
-          {b.desc}
-        </p>
-
-        {/* Age badge */}
-        <div className={`mt-5 self-start inline-flex items-center gap-1.5 text-[12px] font-mono font-medium ${accentText} ${accentSoft} rounded-full px-3 py-1`}>
-          <I.Clock width="11" height="11" />
-          {b.age}
-        </div>
-
-        {/* Divider */}
-        <div className="mt-6 h-px bg-line"></div>
-
-        {/* CTA link */}
-        <Link
-          to="/branslarimiz"
-          className={`mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-ink-soft ${linkHover} transition-colors duration-200`}
-        >
-          Programı incele
-          <I.Arrow
-            width="14"
-            height="14"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
-
       </div>
-
-      {/* Bottom accent line: w-10 → full on hover */}
-      <span className={`absolute left-0 bottom-0 h-[3px] w-10 ${accentBg} group-hover:w-full transition-all duration-500`}></span>
-    </article>
+    </Link>
   );
 }
 
-function Branches() {
-  const [tab, setTab] = useStateS('kids');
-  const list = BRANCHES[tab];
+function BranchPhotoGrid() {
   return (
     <Section id="branches" label="03 Branches" className="py-20 sm:py-28">
-      <div className="grid lg:grid-cols-12 gap-8 items-end">
-        <div className="lg:col-span-7 reveal">
-          <Eyebrow tone="aqua">Branşlarımız</Eyebrow>
-          <h2 className="mt-4 font-display font-extrabold tracking-[-0.025em] text-[34px] sm:text-[44px] leading-[1.05] text-ink">
-            Her yaşa, her hedefe<br /><span className="text-aqua-deep">özel bir program.</span>
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 reveal">
+        <div>
+          <Eyebrow tone="brand">Branşlarımız</Eyebrow>
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.025em] text-[30px] sm:text-[42px] leading-[1.08] text-ink">
+            CİMCİMPARK'ta Hangi<br />
+            <span className="text-brand-deep">Branş Seni Bekliyor?</span>
           </h2>
         </div>
-        <div className="lg:col-span-5 lg:text-right reveal" style={{ '--d': '120ms' }}>
-          <p className="text-[15.5px] text-ink-soft max-w-[440px] lg:ml-auto">
-            Çocuk gelişiminden yetişkin fitness'a; CİMCİMPARK'ta 6 disiplin, küçük gruplar ve birebir
-            seanslarla sunuluyor.
-          </p>
-        </div>
-      </div>
-
-      {/* Tabs */}
-      <div className="mt-8 flex items-center gap-2 reveal-up-sm">
-        <div className="inline-flex p-1 bg-white border border-line rounded-pill shadow-soft">
-          {[
-            { id: 'kids',   label: 'Çocuk Branşları' },
-            { id: 'adults', label: 'Yetişkin Branşları' },
-          ].map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              aria-pressed={tab === t.id}
-              className={`px-4 sm:px-5 py-2 rounded-pill text-[13.5px] font-semibold transition-all ${
-                tab === t.id
-                  ? 'bg-brand text-white shadow-soft'
-                  : 'bg-white text-ink-muted hover:text-ink hover:bg-paper-soft'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Cards — outer key={tab} remounts the grid so tab-fade replays;
-          inner key={b.name + tab} guarantees each card is a fresh node per tab. */}
-      <div key={tab} className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 tab-fade">
-        {list.map((b) => <BranchCard key={b.name + tab} b={b} />)}
-      </div>
-
-      {/* Bottom strip */}
-      <div className="reveal mt-12 rounded-card bg-gradient-to-br from-brand-soft to-aqua-soft border border-line p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-8 justify-between">
-        <div>
-          <div className="font-display font-bold text-[20px] sm:text-[22px] tracking-tight text-ink">İlk dersin bizden hediye.</div>
-          <div className="text-[14px] text-ink-soft mt-1">Branşına karar veremedin mi? Önce dene, sonra karar ver.</div>
-        </div>
-        <Link to="/iletisim" className="btn-primary inline-flex items-center gap-2 whitespace-nowrap">
+        <a
+          href="https://wa.me/905392437606"
+          target="_blank"
+          rel="noreferrer"
+          className="btn-primary inline-flex items-center gap-2 whitespace-nowrap self-start sm:self-auto"
+        >
+          <I.Whatsapp width="17" height="17" />
           Ücretsiz Deneme Dersi
-          <I.Arrow width="16" height="16" />
-        </Link>
+        </a>
+      </div>
+
+      {/* Grid */}
+      <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal" style={{ '--d': '80ms' }}>
+        {BRANCH_PHOTOS.map((b) => (
+          <BranchPhotoCard key={b.name} b={b} />
+        ))}
       </div>
     </Section>
   );
 }
+
+/* Keep old Branches as alias so BranchesPage still works */
+const Branches = BranchPhotoGrid;
 
 /* ====================================================================== */
 /* WHY / FEATURES                                                         */
@@ -1014,7 +953,7 @@ function SplitPromo() {
 }
 
 Object.assign(window, {
-  SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo,
+  SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo,
 });
 
-export { SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo };
+export { SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo };
