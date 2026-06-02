@@ -1,28 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 
-/* ---------------- History router ---------------- */
+/* ---------------- Hash router ---------------- */
 function getPath() {
-  const p = window.location.pathname || '/';
-  return p === '' ? '/' : p;
+  const hash = window.location.hash.slice(1) || '/';
+  return hash === '' ? '/' : hash;
 }
 
 function useRoute() {
   const [path, setPath] = useState(getPath);
   useEffect(() => {
     const onChange = () => setPath(getPath());
-    window.addEventListener('popstate', onChange);
-    return () => window.removeEventListener('popstate', onChange);
+    window.addEventListener('hashchange', onChange);
+    return () => window.removeEventListener('hashchange', onChange);
   }, []);
   return path;
 }
 
 function navigate(to, opts = {}) {
   const target = to.startsWith('/') ? to : '/' + to;
-  if (getPath() !== target) {
-    history.pushState(null, '', target);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  }
+  window.location.hash = target;
   if (opts.scroll !== false) {
     window.scrollTo({ top: 0, behavior: 'scrollBehavior' in document.documentElement.style ? 'instant' : 'auto' });
   }
@@ -30,14 +27,13 @@ function navigate(to, opts = {}) {
 
 function Link({ to, children, className, onClick, ...rest }) {
   const handle = (e) => {
-    // Allow modifier-click / middle-click default behavior
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
     e.preventDefault();
     if (onClick) onClick(e);
     navigate(to);
   };
   return (
-    <a href={to} onClick={handle} className={className} {...rest}>
+    <a href={`#${to}`} onClick={handle} className={className} {...rest}>
       {children}
     </a>
   );
