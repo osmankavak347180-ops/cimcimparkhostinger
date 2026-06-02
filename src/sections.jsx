@@ -1,5 +1,6 @@
 // sections.jsx — page sections
-const { useState: useStateS, useEffect: useEffectS, useRef: useRefS } = React;
+import React, { useState as useStateS, useEffect as useEffectS, useRef as useRefS } from 'react';
+import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I, useReveal } from './primitives';
 
 /* ====================================================================== */
 /* SOCIAL RAIL — official brand colors                                    */
