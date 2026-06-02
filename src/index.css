@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 /* ---------- Base ---------- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
 html { scroll-behavior: smooth; }
 body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 :root {
@@ -212,6 +216,12 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   transition: transform .25s ease, opacity .25s ease;
 }
 .mobile-sheet.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+/* ---------- Social rail — mobile smaller tiles ---------- */
+@media (max-width: 639px) {
+  .social-rail-brand { right: 6px; gap: 6px; }
+  .social-rail-brand .social-tile { width: 36px; height: 36px; }
+}
 
 /* ---------- Scrollbar polish ---------- */
 ::-webkit-scrollbar { width: 10px; height: 10px; }

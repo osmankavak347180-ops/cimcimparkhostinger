@@ -234,8 +234,8 @@ function Eyebrow({ children, tone = 'brand' }) {
 function Section({ id, label, children, className = '', tone = 'paper' }) {
   const bg = tone === 'soft' ? 'bg-paper-soft' : 'bg-paper';
   return (
-    <section id={id} data-screen-label={label} className={`relative ${bg} ${className}`}>
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+    <section id={id} data-screen-label={label} className={`relative overflow-hidden ${bg} ${className}`}>
+      <div className="max-w-[1200px] mx-auto px-5 pr-[60px] sm:px-8 lg:px-10">
         {children}
       </div>
     </section>
