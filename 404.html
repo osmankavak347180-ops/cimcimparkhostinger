@@ -1,1 +1,10 @@
-<!DOCTYPE html><html><head><script>window.location.replace('/#' + window.location.pathname);</script></head><body></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+  var path = window.location.pathname;
+  window.location.href = window.location.origin + '/?redirect=' + path;
+</script>
+</head>
+<body></body>
+</html>

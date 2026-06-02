@@ -5,6 +5,12 @@ const { useEffect, useRef, useState } = React;
 
 /* ---------------- History router ---------------- */
 function getPath() {
+  const params = new URLSearchParams(window.location.search);
+  const redirect = params.get('redirect');
+  if (redirect) {
+    window.history.replaceState(null, '', redirect);
+    return redirect === '' ? '/' : redirect;
+  }
   const p = window.location.pathname || '/';
   return p === '' ? '/' : p;
 }
