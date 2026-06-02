@@ -129,7 +129,7 @@ const HERO_SLIDES = [
   },
   // Slayt 2 — gerçek CimCimPark çocuk cimnastik dersi
   {
-    src: '/hero/cimcimpark-cimnastik-cocuk.png',
+    src: '/hero/cimcimpark-cimnastik-cocuk.jpg',
     alt: 'CimCimPark çocuk cimnastik dersi — minder & çember çalışması',
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
@@ -140,7 +140,7 @@ const HERO_SLIDES = [
   },
 
   {
-    src: '/hero/cimcimpark-cocuk-hareket.png',
+    src: '/hero/cimcimpark-cocuk-hareket.jpg',
     alt: 'CimCimPark çocuk cimnastik dersi',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
