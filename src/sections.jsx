@@ -1363,7 +1363,7 @@ function SplitPromo() {
             <div className="mt-4 w-9 rounded-full bg-white/45" style={{ height: 3 }}></div>
             <h2 className="mt-5 font-display font-extrabold text-[28px] sm:text-[36px] leading-[1.13] tracking-[-0.02em] text-white">
               Güvenli Eller, Mutlu Çocuklar:
-              <span className="block" style={{ color: 'rgba(255,255,255,.88)' }}>Jimnastiğin İlk Adımları Bizimle!</span>
+              <span className="block" style={{ color: 'rgba(255,255,255,.88)' }}>Cimnastiğin İlk Adımları Bizimle!</span>
             </h2>
             <a
               href="https://wa.me/905392437606"
