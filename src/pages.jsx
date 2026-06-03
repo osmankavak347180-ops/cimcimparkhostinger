@@ -89,18 +89,285 @@ function FinalCTA() {
 /* HAKKIMIZDA                                                             */
 /* ====================================================================== */
 function AboutPage() {
+  const courses = [
+    { n: 'Çocuk Cimnastik Kursu',    age: '4-12 Yaş',      dot: 'brand' },
+    { n: 'Genç Cimnastik Kursu',     age: '12-18 Yaş',     dot: 'brand' },
+    { n: 'Cimnastik Kursu',          age: 'Tüm Yaşlar',    dot: 'brand' },
+    { n: 'Okul Öncesi Cimnastik',    age: '4-6 Yaş',       dot: 'brand' },
+    { n: 'Artistik Cimnastik Kursu', age: 'İleri Seviye',  dot: 'brand' },
+    { n: 'Reformer Pilates',         age: '18-65 Yaş',     dot: 'aqua'  },
+    { n: 'Mat Pilates',              age: '16-65 Yaş',     dot: 'aqua'  },
+    { n: 'Çocuk Taekwondo',         age: '6-14 Yaş',      dot: 'brand' },
+    { n: 'Çocuk Kick Boks',         age: '8-14 Yaş',      dot: 'brand' },
+    { n: 'Yetişkin Kick Boks',      age: '16-45 Yaş',     dot: 'brand' },
+  ];
+  const values = [
+    { n: '01', t: 'Öğrenci Odaklılık',         d: 'Her öğrencinin bireysel ihtiyacını ve potansiyelini merkeze alarak programlarımızı tasarlıyoruz.' },
+    { n: '02', t: 'Güven ve Saygı',             d: 'Öğrenci, veli ve eğitmen üçgeninde karşılıklı güven ve saygı, tüm ilişkilerimizin temelidir.' },
+    { n: '03', t: 'Kalite ve Sürekli Gelişim',  d: 'Eğitim kalitemizi ve ekipmanlarımızı sürekli güncelleyerek en iyi deneyimi sunmayı hedefliyoruz.' },
+    { n: '04', t: 'Pozitif Yaklaşım',           d: 'Olumlu, destekleyici ve motive edici bir ortamda sporu sevdirmek en büyük önceliğimizdir.' },
+  ];
+
   return (
     <>
-      <PageHeader
-        crumbs="Hakkımızda"
-        eyebrow="Hakkımızda"
-        title="Kahramanmaraş'ın aydınlık spor evi."
-        lede="2026 yılında tek bir hedefle yola çıktık: Sizin ve çocuğunuzun sağlıklı gelişimi. Modern stüdyolarımız, uzman kadromuz ve disiplinli ama sıcak ortamımızla her yaşa hitap ediyoruz."
-      />
-      <About />
-      <Founder />
-      <WhyUs />
-      <FinalCTA />
+      {/* 1 — PAGE HERO */}
+      <section className="relative overflow-hidden py-20 sm:py-28" style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 70% 50%, rgba(249,115,22,.12) 0%, transparent 60%)' }}></div>
+        <div className="relative max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <nav className="reveal flex items-center gap-2 text-[12.5px] mb-6" style={{ color: 'rgba(255,255,255,.5)' }}>
+            <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
+            <span>/</span>
+            <span style={{ color: 'rgba(255,255,255,.8)' }}>Hakkımızda</span>
+          </nav>
+          <h1 className="reveal font-display font-extrabold text-[38px] sm:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.03em] text-white max-w-[860px]" style={{ '--d': '80ms' }}>
+            CimcimPark'ı{' '}
+            <span className="text-brand">Yakından Tanıyın</span>
+          </h1>
+          <p className="reveal mt-5 text-[17px] leading-relaxed max-w-[560px]" style={{ color: 'rgba(255,255,255,.7)', '--d': '160ms' }}>
+            Her yaştan bireyin potansiyelini keşfettiği, sporu sevgiyle öğrendiği sıcak bir yuva.
+          </p>
+        </div>
+      </section>
+
+      {/* 2 — HAKKIMIZDA 2 sütun */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Sol */}
+            <div>
+              <div className="reveal">
+                <Eyebrow tone="brand">Biz Kimiz?</Eyebrow>
+                <h2 className="mt-4 font-display font-extrabold text-[30px] sm:text-[40px] leading-[1.15] text-ink tracking-[-0.02em]">
+                  Kahramanmaraş'ın Spor ve Cimnastik Merkezi
+                </h2>
+              </div>
+              <div className="reveal mt-6 space-y-4 text-[15.5px] text-ink-soft leading-relaxed" style={{ '--d': '80ms' }}>
+                <p>CİMCİMPARK, 2026 yılında Kahramanmaraş Onikişubat'ta, her yaştan bireyin spora ilk adımını güvenle atabileceği modern bir merkez olarak kapılarını açtı. Uzman kadromuz ve uluslararası standartlara uygun donanımımızla fark yaratıyoruz.</p>
+                <p>4 yaşından 65 yaşına kadar uzanan geniş yaş yelpazesinde cimnastik, pilates, taekwondo ve kick boks branşlarında profesyonel eğitim sunuyoruz. Her öğrencimize özel, küçük grup seanslarıyla bireysel ilgi garantisi veriyoruz.</p>
+                <p>TCF lisanslı eğitmenlerimiz, yalnızca fiziksel değil; disiplin, özgüven ve sosyal beceriler açısından da öğrencilerimizin gelişimine katkı sağlıyor. Bize göre spor sadece hareket değil, bir yaşam biçimidir.</p>
+              </div>
+              <div className="reveal mt-8" style={{ '--d': '160ms' }}>
+                <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-3 bg-brand text-white font-display font-bold rounded-btn px-7 py-4 text-[15px] hover:bg-brand-deep hover:-translate-y-1 transition-all duration-300 shadow-lift">
+                  <I.Whatsapp width="22" height="22" />
+                  WhatsApp ile İletişime Geç
+                </a>
+              </div>
+            </div>
+            {/* Sağ — collage grid */}
+            <div className="reveal grid grid-cols-2 gap-3" style={{ '--d': '120ms' }}>
+              <div className="col-span-2 overflow-hidden rounded-card" style={{ height: '240px' }}>
+                <img src="assets/branch-cocuk-jimnastik.webp" alt="Çocuk cimnastik dersi" loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+              </div>
+              <div className="overflow-hidden rounded-card" style={{ height: '180px' }}>
+                <img src="assets/branch-artistik.webp" alt="Artistik cimnastik" loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+              </div>
+              <div className="overflow-hidden rounded-card" style={{ height: '180px' }}>
+                <img src="assets/branch-reformer-pilates.webp" alt="Reformer pilates" loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — STAT STRIP */}
+      <section className="py-14 sm:py-16" style={{ backgroundColor: '#1F2937' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="reveal grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {[
+              { n: '500+', l: 'Mutlu Öğrenci' },
+              { n: '%98', l: 'Öğrenci Memnuniyeti' },
+              { n: '10+', l: 'Branş Programı' },
+            ].map((s, i) => (
+              <div key={i} style={{ '--d': `${i * 100}ms` }} className="reveal">
+                <div className="font-display font-extrabold text-[48px] sm:text-[56px] leading-none text-brand">{s.n}</div>
+                <div className="mt-2 text-[15px] font-medium" style={{ color: 'rgba(255,255,255,.7)' }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 — VİZYON (görsel sağda) */}
+      <section className="py-20 sm:py-28" style={{ backgroundColor: '#F8F9FA' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="reveal">
+              <Eyebrow tone="brand">Vizyonumuz</Eyebrow>
+              <h2 className="mt-4 font-display font-extrabold text-[28px] sm:text-[38px] leading-[1.15] text-ink tracking-[-0.02em]">
+                Her Bireyin Potansiyelini{' '}
+                <span className="text-brand">Keşfettiği Öncü Merkez</span>
+              </h2>
+              <div className="mt-6 space-y-4 text-[15.5px] text-ink-soft leading-relaxed">
+                <p>Vizyonumuz, Kahramanmaraş'ta sporun merkezine insan odaklı bir anlayış yerleştirerek bölgenin en güvenilir ve yenilikçi spor merkezi olmaktır. Her yaştan bireyin potansiyelini keşfedebileceği, sınırlarını genişletebileceği bir ortam sunmayı hedefliyoruz.</p>
+                <p>Uluslararası standartlarda eğitim metodolojimiz ve sürekli güncellenen programlarımızla öğrencilerimizi yalnızca bugüne değil, geleceğe de hazırlıyoruz. CİMCİMPARK, sporu bir yaşam tarzı olarak benimseyen bireyler yetiştirme misyonuyla var olmaya devam edecek.</p>
+              </div>
+            </div>
+            <div className="reveal overflow-hidden rounded-card shadow-card" style={{ '--d': '120ms', height: '380px' }}>
+              <img src="assets/branch-genc-jimnastik.webp" alt="Genç cimnastik eğitimi" loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 — MİSYON (görsel solda) */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="reveal overflow-hidden rounded-card shadow-card order-2 lg:order-1" style={{ height: '380px' }}>
+              <img src="assets/branch-cocuk-taekwondo.webp" alt="Çocuk taekwondo eğitimi" loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+            </div>
+            <div className="reveal order-1 lg:order-2" style={{ '--d': '80ms' }}>
+              <Eyebrow tone="aqua">Misyonumuz</Eyebrow>
+              <h2 className="mt-4 font-display font-extrabold text-[28px] sm:text-[38px] leading-[1.15] text-ink tracking-[-0.02em]">
+                Güvenli Ortamda{' '}
+                <span className="text-brand">Nitelikli Eğitim</span>
+              </h2>
+              <div className="mt-6 space-y-4 text-[15.5px] text-ink-soft leading-relaxed">
+                <p>Misyonumuz; her yaştan bireye güvenli, destekleyici ve bilimsel temelli bir eğitim ortamı sunarak sporun olumlu etkilerini hayatlarına taşımaktır. Fiziksel gelişimin ötesinde, disiplin, özgüven ve sosyal becerilerin geliştirilmesini de önceliğimiz olarak görüyoruz.</p>
+                <p>TCF lisanslı eğitmenlerimiz, pedagojik yaklaşımlarla her öğrencinin kendine özgü öğrenme hızına saygı göstererek çalışmaktadır. Aile ile iş birliği içinde yürütülen bu süreç, öğrencinin hem stüdyo içinde hem de günlük yaşamda başarılı olmasını destekler.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 — DEĞERLER */}
+      <section className="py-20 sm:py-28 bg-white border-t border-line">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="reveal text-center max-w-[580px] mx-auto mb-12">
+            <Eyebrow tone="brand">Temel Değerlerimiz</Eyebrow>
+            <h2 className="mt-4 font-display font-extrabold text-[28px] sm:text-[38px] leading-[1.15] text-ink tracking-[-0.02em]">
+              Bizi Biz Yapan{' '}
+              <span className="text-brand">Temel Değerler</span>
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {values.map((v, i) => (
+              <div key={i} className="reveal bg-paper-soft border border-line rounded-card p-7 transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lift" style={{ '--d': `${i * 70}ms` }}>
+                <div className="font-display font-extrabold text-[40px] leading-none text-brand/20 mb-4">{v.n}</div>
+                <h3 className="font-display font-bold text-[16px] text-ink leading-snug mb-3">{v.t}</h3>
+                <p className="text-[13.5px] text-ink-soft leading-relaxed">{v.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7 — UZMAN EĞİTMENLER */}
+      <section className="py-20 sm:py-28" style={{ backgroundColor: '#F8F9FA' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="reveal">
+              <Eyebrow tone="aqua">Uzman Kadromuz</Eyebrow>
+              <h2 className="mt-4 font-display font-extrabold text-[28px] sm:text-[38px] leading-[1.15] text-ink tracking-[-0.02em]">
+                Deneyimli ve Sertifikalı Eğitmen Kadrosu
+              </h2>
+              <div className="mt-6 space-y-4 text-[15.5px] text-ink-soft leading-relaxed">
+                <p>CİMCİMPARK'ın en büyük gücü, alanında uzmanlaşmış ve sürekli kendini geliştiren eğitmen kadrosudur. TCF lisanslı antrenörlerimiz, yalnızca sportif teknik değil; pedagoji, psikoloji ve çocuk gelişimi konularında da donanımlıdır.</p>
+                <p>Her eğitmenimiz düzenli yenileme eğitimleri alarak güncel metodolojileri takip etmektedir. İlk yardım sertifikalı kadromuz, güvenliği her zaman ön planda tutar ve acil durumlara hazırlıklı olarak görev yapar.</p>
+                <p>Küçük grup yapımız sayesinde eğitmenlerimiz her öğrenciye yeterli bireysel ilgiyi gösterebilmekte, gelişim süreçlerini yakından takip edebilmektedir.</p>
+              </div>
+              <div className="mt-8">
+                <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-3 bg-brand text-white font-display font-bold rounded-btn px-7 py-4 text-[15px] hover:bg-brand-deep hover:-translate-y-1 transition-all duration-300 shadow-lift">
+                  <I.Whatsapp width="22" height="22" />
+                  Eğitmenlerimizle Tanışın
+                </a>
+              </div>
+            </div>
+            {/* Trainer card */}
+            <div className="reveal" style={{ '--d': '120ms' }}>
+              <div className="bg-white rounded-card border border-line shadow-card overflow-hidden transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lift">
+                <div className="overflow-hidden" style={{ height: '280px' }}>
+                  <img src="assets/founder.jpg" alt="CimcimPark Eğitmen Kadrosu" loading="lazy"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                    onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display font-bold text-[18px] text-ink">CimcimPark Eğitmen Kadrosu</h3>
+                  <p className="mt-1 text-[13.5px] text-ink-muted font-medium">Uzman Spor Eğitmenleri</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {['TCF Lisanslı', 'Pedagoji Sertifikalı', 'İlk Yardım Bilgili', '7+ Yıl Deneyim'].map((tag) => (
+                      <span key={tag} className="text-[11.5px] font-semibold bg-brand-soft text-brand-deep px-2.5 py-1 rounded-pill">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8 — KURSLAR */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="reveal text-center max-w-[580px] mx-auto mb-12">
+            <Eyebrow tone="brand">Programlarımız</Eyebrow>
+            <h2 className="mt-4 font-display font-extrabold text-[28px] sm:text-[38px] leading-[1.15] text-ink tracking-[-0.02em]">
+              10 Branşta{' '}
+              <span className="text-brand">Uzman Eğitim</span>
+            </h2>
+          </div>
+          <div className="reveal grid sm:grid-cols-2 lg:grid-cols-3 gap-4" style={{ '--d': '80ms' }}>
+            {courses.map((c, i) => (
+              <div key={i} className="flex items-center gap-3 bg-paper-soft border border-line rounded-card px-5 py-4 transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lift hover:bg-white">
+                <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: c.dot === 'brand' ? '#F97316' : '#06B6D4' }}></span>
+                <div>
+                  <div className="font-display font-semibold text-[14.5px] text-ink leading-snug">{c.n}</div>
+                  <div className="text-[12px] text-ink-muted mt-0.5">{c.age}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="reveal mt-8 text-center" style={{ '--d': '200ms' }}>
+            <Link to="/branslarimiz" className="inline-flex items-center gap-2 text-[14px] font-semibold text-brand-deep hover:text-brand">
+              Tüm Branşları İncele <I.Arrow width="14" height="14" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 9 — BOTTOM CTA */}
+      <section className="py-20 sm:py-28 text-center" style={{ backgroundColor: '#1F2937' }}>
+        <div className="max-w-[700px] mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="reveal">
+            <h2 className="font-display font-extrabold text-[32px] sm:text-[46px] leading-[1.12] tracking-[-0.025em] text-white">
+              Haydi Harekete Geç!{' '}
+              <span className="text-brand">Spor Serüvenin Başlasın!</span>
+            </h2>
+            <p className="mt-5 text-[16px] leading-relaxed" style={{ color: 'rgba(255,255,255,.65)' }}>
+              Ücretsiz deneme dersinizi alın, stüdyomuzu tanıyın ve CİMCİMPARK ailesine katılın.
+            </p>
+          </div>
+          <div className="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" style={{ '--d': '120ms' }}>
+            <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-3 text-white font-display font-bold rounded-btn px-8 py-4 text-[15px] hover:-translate-y-1 transition-all duration-300 shadow-lift"
+              style={{ backgroundColor: '#F97316' }}>
+              <I.Whatsapp width="22" height="22" />
+              WhatsApp ile Yaz
+            </a>
+            <a href="tel:+905392437606"
+              className="inline-flex items-center gap-3 font-semibold rounded-btn px-8 py-4 text-[15px] transition-colors border"
+              style={{ color: '#fff', borderColor: 'rgba(255,255,255,.25)', background: 'transparent' }}
+              onMouseOver={e => e.currentTarget.style.background='rgba(255,255,255,.1)'}
+              onMouseOut={e => e.currentTarget.style.background='transparent'}>
+              <I.Phone width="20" height="20" />
+              0539 243 76 06
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
