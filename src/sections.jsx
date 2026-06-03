@@ -620,15 +620,17 @@ function About() {
 /* ====================================================================== */
 /* GALLERY                                                                */
 /* ====================================================================== */
-// TODO: CLIENT WILL REPLACE THESE IMAGE URLs
 const GALLERY = [
-  { c: 'ANA SALON • geniş açı',     t: 'brand',   a: '4/3', src: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80', span: 'lg:col-span-2 lg:row-span-2' },
-  { c: 'Çocuk minder alanı',         t: 'aqua',    a: '4/3', src: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80' },
-  { c: 'Reformer pilates köşesi',   t: 'brand',   a: '4/3', src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80' },
-  { c: 'Soyunma odası',              t: 'neutral', a: '4/3', src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80' },
-  { c: 'Bekleme & resepsiyon',       t: 'aqua',    a: '4/3', src: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=80' },
-  { c: 'Kick boks ringi',            t: 'brand',   a: '4/3', src: 'https://images.unsplash.com/photo-1517438476312-10d79c5f2c1e?auto=format&fit=crop&w=900&q=80' },
-  { c: 'Eğitmen — hareket anı',     t: 'neutral', a: '4/3', src: 'https://images.unsplash.com/photo-1593810451137-2e44a8a4d3eb?auto=format&fit=crop&w=900&q=80' },
+  { c: 'Çocuk Cimnastik',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-jimnastik.webp',    span: 'lg:col-span-2 lg:row-span-2' },
+  { c: 'Artistik Cimnastik',     t: 'aqua',    a: '4/3', src: 'assets/branch-artistik.webp' },
+  { c: 'Reformer Pilates',       t: 'brand',   a: '4/3', src: 'assets/branch-reformer-pilates.webp' },
+  { c: 'Genç Cimnastik',         t: 'neutral', a: '4/3', src: 'assets/branch-genc-jimnastik.webp' },
+  { c: 'Okul Öncesi Cimnastik',  t: 'aqua',    a: '4/3', src: 'assets/branch-okul-oncesi.webp' },
+  { c: 'Çocuk Taekwondo',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-taekwondo.webp' },
+  { c: 'Mat Pilates',            t: 'neutral', a: '4/3', src: 'assets/branch-mat-pilates.webp' },
+  { c: 'Çocuk Kick Boks',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-kickboks.webp' },
+  { c: 'Yetişkin Kick Boks',     t: 'aqua',    a: '4/3', src: 'assets/branch-yetiskin-kickboks.webp' },
+  { c: 'Cimnastik',              t: 'neutral', a: '4/3', src: 'assets/branch-jimnastik.webp' },
 ];
 
 function Gallery() {
