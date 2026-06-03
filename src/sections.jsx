@@ -162,7 +162,7 @@ const HERO_SLIDES = [
   },
   // Slayt 3 — yetişkin pilates / genel kitle
   {
-    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=75',
+    src: 'assets/hero-2.jpg',
     alt: 'Yetişkin kadın pilates seansı',
     tint: 'from-aqua/40 to-brand/30',
     title: 'Kendi Sınırlarını Keşfet,',
