@@ -139,7 +139,7 @@ const HERO_SLIDES = [
   },
 
   {
-    src: 'assets/hero-2.jpg',
+    src: 'assets/hero-slide-3-new.webp',
     alt: 'CimCimPark çocuk cimnastik dersi',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
