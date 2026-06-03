@@ -208,9 +208,9 @@ function Hero() {
         ))}
         {/* Readability overlay — light touch so the photos read brightly while keeping
             enough contrast for white text (which also carries a drop-shadow). */}
-        <div className="absolute inset-0 bg-ink/35 sm:bg-ink/25"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink/55"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(17,24,39,0.30)_95%)]"></div>
+        <div className="absolute inset-0 bg-ink/15 sm:bg-ink/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-transparent to-ink/45"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(17,24,39,0.15)_95%)]"></div>
       </div>
 
       {/* Content — mobilde 100svh içinde dikey ortalanır, masaüstünde padding ile nefes alır */}
@@ -227,7 +227,7 @@ function Hero() {
             the page-level IntersectionObserver doesn't re-observe remounted nodes. */}
         <div ref={copyRef}>
           <h1
-            className="reveal mt-5 sm:mt-6 mx-auto font-display font-extrabold tracking-[-0.025em] text-[28px] xs:text-[34px] sm:text-[52px] lg:text-[60px] leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
+            className="reveal mt-5 sm:mt-6 mx-auto font-display font-extrabold tracking-[-0.025em] text-[28px] xs:text-[34px] sm:text-[52px] lg:text-[60px] leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
             style={{ '--d': '80ms' }}
           >
             <span className="block">{HERO_SLIDES[active].title}</span>
@@ -237,7 +237,7 @@ function Hero() {
           </h1>
 
           <p
-            className="reveal mt-4 sm:mt-6 mx-auto text-[14.5px] sm:text-[18px] leading-[1.55] sm:leading-[1.6] text-white/90 max-w-[620px] text-balance"
+            className="reveal mt-4 sm:mt-6 mx-auto text-[14.5px] sm:text-[18px] leading-[1.55] sm:leading-[1.6] text-white max-w-[620px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
             style={{ '--d': '160ms' }}
           >
             {HERO_SLIDES[active].subtitle}
