@@ -139,7 +139,7 @@ function Navbar({ route }) {
 const HERO_SLIDES = [
   // Slayt 1 — gerçek CimCimPark çocuk cimnastik dersi (lokal, preload ile eşleşir)
   {
-    src: '/hero/cimcimpark-cimnastik-cocuk.jpg',
+    src: 'assets/hero-slide-1.webp',
     alt: 'CimCimPark çocuk cimnastik dersi — minder & çember çalışması',
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
@@ -150,7 +150,7 @@ const HERO_SLIDES = [
   },
   // Slayt 2 — gerçek CimCimPark çocuk hareket
   {
-    src: '/hero/cimcimpark-cocuk-hareket.jpg',
+    src: 'assets/hero-slide-2.webp',
     alt: 'CimCimPark çocuk cimnastik dersi',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
@@ -162,7 +162,7 @@ const HERO_SLIDES = [
   },
   // Slayt 3 — yetişkin pilates / genel kitle
   {
-    src: 'assets/hero-2.jpg',
+    src: 'assets/hero-slide-3-new.webp',
     alt: 'Yetişkin kadın pilates seansı',
     tint: 'from-aqua/40 to-brand/30',
     title: 'Kendi Sınırlarını Keşfet,',
