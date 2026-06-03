@@ -395,9 +395,9 @@ function BranchesPage() {
 function BranchesDetailed() {
   // Detailed branch info cards — long-form view for the dedicated page
   const detailed = [
-    { name: 'Temel Cimnastik', age: '4 — 12 yaş', duration: '60 dk', freq: 'Haftada 2-3', tone: 'brand', src: 'https://images.unsplash.com/photo-1611280889834-c4c0a05d4b34?auto=format&fit=crop&w=900&q=80', pts: ['Esneklik ve denge çalışmaları', 'Minder & paralel bar tekniği', 'Disiplinli ısınma & soğuma'] },
-    { name: 'Reformer Pilates', age: '18 — 65 yaş', duration: '50 dk', freq: '2-4 kişilik grup / birebir', tone: 'aqua', src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80', pts: ['Yaylı reformer sistemi', 'Postür ve omurga sağlığı', 'Bireysel programlama'] },
-    { name: 'Çocuk Taekwondo', age: '6 — 14 yaş', duration: '60 dk', freq: 'Haftada 2', tone: 'brand', src: 'https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=900&q=80', pts: ['Kuşak sistemi ile motivasyon', 'Refleks ve denge gelişimi', 'Saygı ve disiplin kültürü'] },
+    { name: 'Temel Cimnastik', age: '4 — 12 yaş', duration: '60 dk', freq: 'Haftada 2-3', tone: 'brand', src: 'assets/branch-cocuk-jimnastik.webp', pts: ['Esneklik ve denge çalışmaları', 'Minder & paralel bar tekniği', 'Disiplinli ısınma & soğuma'] },
+    { name: 'Reformer Pilates', age: '18 — 65 yaş', duration: '50 dk', freq: '2-4 kişilik grup / birebir', tone: 'aqua', src: 'assets/branch-reformer-pilates.webp', pts: ['Yaylı reformer sistemi', 'Postür ve omurga sağlığı', 'Bireysel programlama'] },
+    { name: 'Çocuk Taekwondo', age: '6 — 14 yaş', duration: '60 dk', freq: 'Haftada 2', tone: 'brand', src: 'assets/branch-cocuk-taekwondo.webp', pts: ['Kuşak sistemi ile motivasyon', 'Refleks ve denge gelişimi', 'Saygı ve disiplin kültürü'] },
   ];
   return (
     <section className="py-16 sm:py-20 bg-paper-soft">
@@ -616,7 +616,7 @@ const BLOG_POSTS = [
     readTime: '10 dk',
     excerpt: 'Kahramanmaraş\'ın ilk profesyonel çocuk cimnastik merkezi CİMCİMPARK\'ta 4–12 yaş arası minikler için özel tasarlanmış programları keşfedin. Esneklik, denge ve özgüven bir arada.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1611280889834-c4c0a05d4b34?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-cocuk-jimnastik.webp',
     content: `<p><strong>Kahramanmaraş çocuk cimnastik</strong> eğitiminde yeni bir dönem başlıyor. <strong>CİMCİMPARK</strong>, Onikişubat ilçesinde kurduğu modern cimnastik stüdyosuyla 4–12 yaş arası çocuklara uluslararası standartlarda eğitim sunmaktadır. Çocuğunuzun hem fiziksel hem de zihinsel gelişimine katkı sağlayan <strong>kahramanmaraş çocuk cimnastik</strong> programlarımız, alanında uzman eğitmenler gözetiminde titizlikle yürütülmektedir.</p>
 
 <h2>Neden CİMCİMPARK'ta Çocuk Cimnastiği?</h2>
@@ -669,7 +669,7 @@ const BLOG_POSTS = [
     readTime: '11 dk',
     excerpt: 'Kahramanmaraş pilates dersleri için en kapsamlı merkez: CİMCİMPARK. Mat pilates ve reformer seanslarıyla postürünüzü düzeltin, çekirdek kaslarınızı güçlendirin.',
     tone: 'aqua',
-    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-reformer-pilates.webp',
     content: `<p><strong>Kahramanmaraş pilates</strong> dünyasında <strong>CİMCİMPARK</strong>, hem mat hem de reformer pilates alanında şehrin en donanımlı merkezi olarak öne çıkmaktadır. Onikişubat'taki stüdyomuzda her yaş ve seviyeye uygun gruplar oluşturulmuş; postür bozukluğundan kronik bel ağrısına, genel toparlanmadan atletik performans geliştirmeye kadar geniş bir yelpazede çözüm sunulmaktadır.</p>
 
 <h2>Mat Pilates ve Reformer Pilates: Hangisi Size Uygun?</h2>
@@ -730,7 +730,7 @@ const BLOG_POSTS = [
     readTime: '10 dk',
     excerpt: 'Onikişubat\'ta taekwondo öğrenmek isteyen çocuklar için CİMCİMPARK profesyonel eğitim sunuyor. Kuşak sistemiyle ilerleyen program, 6 yaşından itibaren saygı ve disiplini geliştiriyor.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-cocuk-taekwondo.webp',
     content: `<p><strong>Onikişubat taekwondo</strong> eğitiminde <strong>CİMCİMPARK</strong>, çocukların ve gençlerin bu köklü Kore dövüş sanatıyla güvenli, disiplinli ve ilham verici bir ortamda buluşmasını sağlamaktadır. Dünya genelinde 80 milyondan fazla sporcu tarafından uygulanan taekwondo, 6 yaşından itibaren başlanabilen, hem karakter hem de fiziksel gelişim açısından son derece değerli bir spordur.</p>
 
 <h2>Taekwondo Neden Bu Kadar Değerli Bir Spor?</h2>
@@ -779,7 +779,7 @@ const BLOG_POSTS = [
     readTime: '12 dk',
     excerpt: 'Kahramanmaraş kick boks eğitiminde CİMCİMPARK farkını keşfedin. 8–14 yaş çocuk ve 16–45 yaş yetişkin programlarıyla Dulkadiroğlu\'nda güçlü bir başlangıç yapın.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1517438476312-10d79c5f2c1e?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-cocuk-kickboks.webp',
     content: `<p><strong>Kahramanmaraş kick boks</strong> dünyasında yeni bir dönem başlıyor. <strong>CİMCİMPARK</strong> olarak Dulkadiroğlu ilçesinde kurduğumuz modern kick boks stüdyomuzda, çocuklardan yetişkinlere kadar her yaş grubuna özel programlar sunuyoruz. Kahramanmaraş'ın spor kültürüne katkı sağlamak amacıyla tasarlanan bu programlar, yalnızca teknik beceri geliştirmekle kalmaz; özgüven, disiplin ve fiziksel dayanıklılık da kazandırır.</p>
 
 <h2>Kahramanmaraş'ta Kick Boks Neden Bu Kadar Popüler?</h2>
@@ -836,7 +836,7 @@ const BLOG_POSTS = [
     readTime: '13 dk',
     excerpt: 'Kahramanmaraş reformer pilates deneyimini CİMCİMPARK ile yaşayın. Onikişubat\'taki modern stüdyomuzda bireysel ve küçük grup seanslarıyla vücudunuzu yeniden keşfedin.',
     tone: 'aqua',
-    src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-mat-pilates.webp',
     content: `<p><strong>Kahramanmaraş reformer pilates</strong> tutkunları için şehrin en donanımlı stüdyosu artık hizmetinizde. <strong>CİMCİMPARK</strong> bünyesindeki reformer pilates merkezimiz, Onikişubat ilçesinde konuşlanmış olup en son teknoloji reformer makineleriyle donatılmıştır. Postür bozukluklarından kronik sırt ağrısına, kilo kontrolünden atletik performans geliştirmeye kadar geniş bir yelpazede çözüm arayan bireyler için <strong>kahramanmaraş reformer pilates</strong> programlarımız birebir tasarlanmıştır.</p>
 
 <h2>Reformer Pilates Nedir?</h2>
@@ -889,7 +889,7 @@ const BLOG_POSTS = [
     readTime: '14 dk',
     excerpt: 'Kahramanmaraş çocuk spor programlarında CİMCİMPARK farkını keşfedin. 4–12 yaş çocuklar için cimnastik, taekwondo ve kick boks branşlarıyla sağlıklı gelişim.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-okul-oncesi.webp',
     content: `<p><strong>Kahramanmaraş çocuk spor</strong> programlarında ailelerin en güvendiği adres olan <strong>CİMCİMPARK</strong>, 4–12 yaş arası çocuklara yönelik kapsamlı spor eğitimleri sunmaktadır. Onikişubat ilçesindeki modern tesisimizde, küçük sporcuların hem fiziksel hem de zihinsel gelişimini destekleyen programlar titizlikle hazırlanmıştır.</p>
 
 <h2>Kahramanmaraş'ta Çocuk Sporu Neden Bu Kadar Kritik?</h2>
@@ -942,7 +942,7 @@ const BLOG_POSTS = [
     readTime: '9 dk',
     excerpt: 'Pilatesi düzenli yapmak ne kazandırır? Postür düzeltmeden kronik ağrı azaltmaya, stres yönetiminden uyku kalitesine — 12 bilimsel kanıtla pilatesin faydaları.',
     tone: 'aqua',
-    src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-mat-pilates.webp',
     content: `<p>Pilates, Joseph Pilates tarafından 1920'lerde geliştirilen ve bugün dünya genelinde 11 milyondan fazla insan tarafından uygulanan bütünsel bir egzersiz metodudur. Zihin-beden bağlantısını merkeze alan bu yöntem, son on yılda bilimsel araştırmaların da odağına girmiş; <strong>pilates faydaları</strong> artık yalnızca anekdotik değil, kanıta dayalı tıpla da desteklenmektedir.</p>
 
 <h2>1. Postür ve Omurga Sağlığı</h2>
@@ -1004,7 +1004,7 @@ const BLOG_POSTS = [
     readTime: '8 dk',
     excerpt: 'Cimnastiğin çocuk gelişimine 10 temel katkısı: esneklik ve motor becerilerden özgüven ve akademik başarıya uzanan bilimsel kanıtlı faydalar.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-genc-jimnastik.webp',
     content: `<p>Cimnastik, insanlığın bilinen en eski sporlarından biridir. Antik Yunan'dan modern Olimpiyatlara uzanan köklü tarihiyle bu spor, çocukların bütünsel gelişimine katkıda bulunma konusunda benzersiz bir konumda yer almaktadır. Peki cimnastik gerçekten çocuğunuz için bu kadar önemli mi? Bilimsel araştırmalar ve uzman görüşleri aynı noktada buluşuyor: <strong>çocuklar için cimnastik</strong>, erken yaşta başlanması gereken en kapsamlı spor dallarından biridir.</p>
 
 <h2>1. Esneklik ve Eklem Sağlığı</h2>
@@ -1058,7 +1058,7 @@ const BLOG_POSTS = [
     readTime: '11 dk',
     excerpt: 'Taekwondo\'nun tarihi, temel teknikleri, kuşak sistemi ve sağlık faydaları hakkında kapsamlı bir başlangıç rehberi. Çocuktan yetişkine başlamak için bilmeniz gereken her şey.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-cocuk-taekwondo.webp',
     content: `<p><strong>Taekwondo nedir?</strong> Kore'nin ulusal dövüş sanatı olan taekwondo, el ve ayak tekniklerini birleştiren, disiplin ve felsefeyi ön plana çıkaran olimpik bir spordur. 2000 Sydney Olimpiyatları'ndan bu yana olimpik branşlar arasında yer alan taekwondo, dünya genelinde 80 milyonu aşkın sporcu tarafından uygulanmaktadır.</p>
 
 <h2>Taekwondo'nun Tarihçesi</h2>
@@ -1140,7 +1140,7 @@ const BLOG_POSTS = [
     readTime: '10 dk',
     excerpt: 'Kick boks sporunun temelleri: tarihçe, temel teknikler, ekipmanlar ve başlangıç ipuçları. Hem kondisyon hem savunma arayan yeni başlayanlar için kapsamlı rehber.',
     tone: 'aqua',
-    src: 'https://images.unsplash.com/photo-1517438476312-10d79c5f2c1e?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-yetiskin-kickboks.webp',
     content: `<p><strong>Kick boks nedir?</strong> El yumruğu ve ayak tekniklerini bir arada kullanan bu dinamik dövüş sporu, hem kişisel savunma hem de yüksek yoğunluklu kondisyon antrenmanı olarak dünya genelinde büyük popülerlik kazanmıştır. 1960'larda Japonya'da ortaya çıkan ve Kuzey Amerika'da büyük ilgi gören <strong>kick boks</strong>, bugün hem profesyonel müsabakalarda hem de fitness stüdyolarında kendine sağlam bir yer bulmuştur.</p>
 
 <h2>Kick Boksun Kısa Tarihçesi</h2>
@@ -1223,7 +1223,7 @@ const BLOG_POSTS = [
     readTime: '9 dk',
     excerpt: 'Reformer ve mat pilates arasında kararsız kaldınız mı? İkisinin farkları, birbirlerine göre avantajları ve hangi profildeki sporcu için ideal olduklarını bu rehberde bulacaksınız.',
     tone: 'aqua',
-    src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-reformer-pilates.webp',
     content: `<p>"<strong>Reformer pilates mi, mat pilates mi?</strong>" — Pilates dünyasına adım atan neredeyse herkesin sorduğu bu soru, aslında basit bir tercih meselesinin ötesinde bir içeriğe sahiptir. Her iki yöntem de Joseph Pilates'in özgün metodolojisine dayanır; ancak uygulanış biçimi, sunduğu imkânlar ve hitap ettiği hedef kitle bakımından birbirinden önemli ölçüde ayrışır.</p>
 
 <h2>Mat Pilates: Temele Dönüş</h2>
@@ -1294,7 +1294,7 @@ const BLOG_POSTS = [
     readTime: '8 dk',
     excerpt: 'Çocuğunuzu harekete geçirmek ve kalıcı bir spor alışkanlığı oluşturmak için kanıta dayalı 7 etkili yöntem. Zorlamadan, oyunlaştırarak ve aile olarak.',
     tone: 'brand',
-    src: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80',
+    src: 'assets/branch-artistik.webp',
     content: `<p>Dünya Sağlık Örgütü'nün (WHO) 2020 yılında yayımladığı kılavuz, 5–17 yaş arası çocuk ve gençlerin günde en az 60 dakika orta-yoğun fiziksel aktivite yapması gerektiğini belirtmektedir. Ancak istatistikler endişe verici: Türkiye'de çocukların büyük çoğunluğu bu hedefi karşılayamamaktadır. Ekran süresinin artması, şehir yaşamının getirdiği kısıtlamalar ve yoğun okul programları, <strong>çocuklarda spor alışkanlığı</strong> geliştirmeyi her geçen yıl daha zorlu bir görev haline getirmektedir.</p>
 
 <p>Peki bir ebeveyn olarak çocuğunuza nasıl kalıcı bir spor sevgisi aşılayabilirsiniz? İşte bilimsel temellere dayanan 7 etkili yöntem.</p>
