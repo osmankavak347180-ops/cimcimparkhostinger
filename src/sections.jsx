@@ -411,50 +411,84 @@ function BranchPhotoGrid() {
 const Branches = BranchPhotoGrid;
 
 /* ====================================================================== */
-/* WHY / FEATURES                                                         */
+/* WHY / FEATURES — enhanced                                              */
 /* ====================================================================== */
 function WhyUs() {
-  const items = [
-    { t: 'Sertifikalı Eğitmenler', d: 'Türkiye Cimnastik Federasyonu lisanslı, deneyimli kadro.' },
-    { t: 'Aydınlık & Güvenli Stüdyo', d: 'Standartlara uygun zemin, hijyen ve güvenlik protokolleri.' },
-    { t: 'Küçük Grup Seansları', d: 'Maksimum 8 kişilik gruplarla bireysel ilgi garantisi.' },
-    { t: 'Esnek Saatler', d: 'Hafta içi 09:00 — 21:00, hafta sonu çocuk programları.' },
+  const stats = [
+    { n: '10+', l: 'Branş' },
+    { n: '500+', l: 'Mutlu Öğrenci' },
+    { n: '4-65', l: 'Yaş' },
+    { n: '7+', l: 'Yıl' },
   ];
+  const cards = [
+    { ico: 'trainer', t: 'Uzman Eğitmen Kadrosu',            d: 'Yıllarca deneyim ve federasyon sertifikaları ile donanmış kadromuz her sporcuya bireysel ilgi gösterir.',    tag: 'Sertifikalı', tone: 'brand' },
+    { ico: 'shield',  t: 'Güvenli & Bakımlı Ekipmanlar',     d: 'Uluslararası standartlara uygun, periyodik bakımlı ekipmanlarımızla güvenlik her zaman önceliğimizdir.',    tag: 'Uluslararası Standart', tone: 'aqua' },
+    { ico: 'age',     t: 'Yaşa Özel Programlar',             d: '4 yaşından 65 yaşına kadar her bireye özel tasarlanmış müfredat ve seans programları.',                       tag: '4-65 Yaş', tone: 'brand' },
+    { ico: 'cert',    t: 'Federasyona Bağlı Resmi Eğitim',   d: 'TCF lisanslı antrenörlerimizle resmi müfredat dahilinde eğitim — sporun temelleri sağlam atılıyor.',          tag: 'TCF Lisanslı', tone: 'aqua' },
+    { ico: 'trophy',  t: 'Yarışma & Gösteri Deneyimi',       d: 'Yıl sonu gösterisi ve resmi yarışmalar ile öğrencilerimize sahne ve rekabet deneyimi kazandırıyoruz.',        tag: 'Yıl Sonu Gösterisi', tone: 'brand' },
+    { ico: 'heart',   t: 'Aile Dostu Sıcak Ortam',           d: 'Öğrenci ve ailelerinin kendini evinde hissedeceği samimi, güler yüzlü bir spor ailesi sizi bekliyor.',        tag: 'Aile & Öğrenci Odaklı', tone: 'aqua' },
+  ];
+  const icons = {
+    trainer: <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+    shield:  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
+    age:     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M13 7a4 4 0 11-8 0 4 4 0 018 0" /></svg>,
+    cert:    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>,
+    trophy:  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>,
+    heart:   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>,
+  };
   return (
-    <Section id="why" label="04 Why" tone="soft" className="py-20 sm:py-24">
-      <div className="grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5 reveal">
+    <section id="why-us" className="py-20 sm:py-28 bg-paper-soft">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal text-center max-w-[640px] mx-auto">
           <Eyebrow tone="brand">Neden CİMCİMPARK?</Eyebrow>
-          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[32px] sm:text-[40px] leading-[1.2] text-ink">
-            Disiplinli eğitim,<br /> sıcak bir aile ortamı.
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[32px] sm:text-[42px] leading-[1.15] text-ink">
+            Güvenilir, Sertifikalı, <span className="text-brand">Sonuç Odaklı</span>
           </h2>
-          <p className="mt-5 text-[15.5px] text-ink-soft max-w-[460px]">
-            Hedefimiz sadece sportif başarı değil; sağlıklı bir bedenin, güçlü bir karakterin
-            ve hayat boyu süren spor alışkanlığının temellerini atmak.
+          <p className="mt-4 text-[16px] text-ink-soft leading-relaxed">
+            Hedefimiz sadece sportif başarı değil; sağlıklı beden, güçlü karakter ve hayat boyu süren spor alışkanlığı.
           </p>
-          <div className="mt-7 flex items-center gap-4">
-            <Link to="/hakkimizda" className="btn-ghost inline-flex items-center gap-2">Hakkımızda</Link>
-            <Link to="/iletisim" className="text-[14px] font-semibold text-brand-deep hover:text-brand inline-flex items-center gap-1.5">
-              Bize ulaşın <I.Arrow width="14" height="14" />
-            </Link>
-          </div>
         </div>
 
-        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-          {items.map((it, i) => (
-            <div key={i} className="reveal bg-white border border-line rounded-card p-5 card-lift" style={{ '--d': `${i*80}ms` }}>
-              <div className="flex items-center gap-3">
-                <IconTile tone={i % 2 ? 'aqua' : 'brand'} size={40}>
-                  <I.Check width="20" height="20" />
-                </IconTile>
-                <div className="font-display font-semibold text-[16px] text-ink">{it.t}</div>
-              </div>
-              <p className="mt-3 text-[14px] text-ink-soft leading-relaxed">{it.d}</p>
+        {/* Stats strip */}
+        <div className="reveal mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" style={{ '--d': '80ms' }}>
+          {stats.map((s, i) => (
+            <div key={i} className="text-center bg-white rounded-card border border-line shadow-soft py-5 px-3">
+              <div className="font-display font-extrabold text-[32px] sm:text-[36px] text-brand leading-none">{s.n}</div>
+              <div className="mt-1 text-[13px] text-ink-muted font-medium">{s.l}</div>
             </div>
           ))}
         </div>
+
+        {/* 6 cards */}
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {cards.map((c, i) => (
+            <div key={i} className="reveal bg-white border border-line rounded-card p-6 transition-all duration-300 hover:-translate-y-[5px] hover:shadow-lift" style={{ '--d': `${i * 60}ms` }}>
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${c.tone === 'brand' ? 'bg-brand-soft text-brand-deep' : 'bg-aqua-soft text-aqua-deep'}`}>
+                {icons[c.ico]}
+              </div>
+              <h3 className="font-display font-bold text-[15.5px] text-ink leading-snug">{c.t}</h3>
+              <p className="mt-2 text-[13.5px] text-ink-soft leading-relaxed">{c.d}</p>
+              <div className={`mt-3 inline-block text-[11px] font-semibold px-2.5 py-1 rounded-pill ${c.tone === 'brand' ? 'bg-brand-soft text-brand-deep' : 'bg-aqua-soft text-aqua-deep'}`}>
+                {c.tag}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* WhatsApp CTA */}
+        <div className="reveal mt-10 text-center" style={{ '--d': '200ms' }}>
+          <a
+            href="https://wa.me/905392437606"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-3 bg-brand text-white font-display font-bold rounded-btn shadow-lift px-7 py-4 text-[15px] hover:bg-brand-deep hover:-translate-y-1 transition-all duration-300"
+          >
+            <I.Whatsapp width="22" height="22" />
+            Ücretsiz Deneme Dersi Al — 0539 243 76 06
+          </a>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
 
@@ -903,6 +937,403 @@ function Footer() {
 }
 
 /* ====================================================================== */
+/* AGE GROUPS                                                             */
+/* ====================================================================== */
+function AgeGroups() {
+  const groups = [
+    {
+      tag: 'Çocuklar', age: '4-12 Yaş',
+      title: 'Küçük Adımlar, Büyük Gelişimler!',
+      img: 'assets/branch-cocuk-jimnastik.webp', alt: 'Çocuk cimnastik dersi',
+      color: '#F97316', softBg: '#FFF7ED',
+      points: ['Denge ve koordinasyon gelişimi', 'Sosyal beceri ve takım ruhu', 'Kemik ve kas gelişimine katkı', 'Uzman eğitmenle güvenli ortam'],
+      reverse: false,
+    },
+    {
+      tag: 'Gençler', age: '12-18 Yaş',
+      title: 'Enerjiyi Doğru Kanalize Et!',
+      img: 'assets/branch-genc-jimnastik.webp', alt: 'Genç jimnastik dersi',
+      color: '#06B6D4', softBg: '#ECFEFF',
+      points: ['Stres azaltma ve zihinsel rahatlama', 'Özgüven ve liderlik gelişimi', 'Akran grubuyla motivasyon', 'Vücut farkındalığı ve postür'],
+      reverse: true,
+    },
+    {
+      tag: 'Yetişkinler', age: '18+ Yaş',
+      title: 'Sağlıklı Beden, Zinde Yaşam!',
+      img: 'assets/branch-reformer-pilates.webp', alt: 'Reformer pilates dersi',
+      color: '#8B5CF6', softBg: '#F5F3FF',
+      points: ['Core güçlendirme ve stabilite', 'Esneklik ve eklem sağlığı', 'Stres atma ve iç huzur', 'Pilates, jimnastik ve kickboks seçenekleri'],
+      reverse: false,
+    },
+  ];
+  return (
+    <section id="age-groups" className="py-20 sm:py-28 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal text-center max-w-[600px] mx-auto mb-16">
+          <Eyebrow tone="brand">Her Yaşa Uygun</Eyebrow>
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[32px] sm:text-[42px] leading-[1.15] text-ink">
+            Yaşınıza Özel <span className="text-brand">Program</span>
+          </h2>
+          <p className="mt-4 text-[16px] text-ink-soft">
+            4'ten 65'e kadar her bireyin ihtiyacına göre tasarlanmış programlarla başlayın.
+          </p>
+        </div>
+        {groups.map((g, i) => (
+          <div key={i} className={`reveal flex flex-col ${g.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 lg:gap-16 items-center ${i < groups.length - 1 ? 'mb-20' : ''}`} style={{ '--d': `${i * 100}ms` }}>
+            <div className="w-full lg:w-1/2 relative">
+              <div className="relative overflow-hidden rounded-card shadow-card" style={{ aspectRatio: '4/3' }}>
+                <img src={g.img} alt={g.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+                <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${g.color}40, transparent 60%)` }}></div>
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-28 h-28 rounded-full opacity-20 blur-2xl pointer-events-none" style={{ backgroundColor: g.color }}></div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill text-[12px] font-bold mb-4" style={{ backgroundColor: g.softBg, color: g.color }}>
+                <span>{g.age}</span>
+                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: g.color }}></span>
+                <span>{g.tag}</span>
+              </div>
+              <h3 className="font-display font-extrabold text-[26px] sm:text-[34px] leading-[1.15] text-ink tracking-[-0.02em]">{g.title}</h3>
+              <ul className="mt-6 space-y-3">
+                {g.points.map((p, j) => (
+                  <li key={j} className="flex items-center gap-3 text-[15px] text-ink-soft">
+                    <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: g.softBg }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={g.color} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex items-center gap-4">
+                <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-2 font-semibold text-[14px] px-5 py-3 rounded-btn text-white shadow-soft hover:-translate-y-0.5 transition-all duration-300"
+                  style={{ backgroundColor: g.color }}>
+                  <I.Whatsapp width="17" height="17" />
+                  Hemen Başla
+                </a>
+                <Link to="/branslarimiz" className="text-[14px] font-semibold text-ink-soft hover:text-ink inline-flex items-center gap-1.5">
+                  Detaylı Bilgi <I.Arrow width="14" height="14" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ====================================================================== */
+/* HOME GALLERY                                                            */
+/* ====================================================================== */
+function HomeGallery() {
+  const [lb, setLb] = useStateS(null);
+  const photos = [
+    { src: 'assets/branch-cocuk-jimnastik.webp', label: 'Çocuk Cimnastik', span: 'g-big' },
+    { src: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates',         span: '' },
+    { src: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates',    span: 'g-tall' },
+    { src: 'assets/branch-cocuk-taekwondo.webp',  label: 'Çocuk Taekwondo',     span: '' },
+    { src: 'assets/branch-jimnastik.webp',        label: 'Jimnastik',           span: '' },
+    { src: 'assets/branch-artistik.webp',         label: 'Artistik Cimnastik',  span: 'g-wide' },
+    { src: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Jimnastik',      span: '' },
+    { src: 'assets/branch-cocuk-kickboks.webp',   label: 'Çocuk Kick Boks',     span: '' },
+    { src: 'assets/branch-okul-oncesi.webp',      label: 'Okul Öncesi',         span: '' },
+    { src: 'assets/branch-yetiskin-kickboks.webp',label: 'Yetişkin Kick Boks',  span: 'g-wide' },
+  ];
+  const prev = () => setLb((v) => (v - 1 + photos.length) % photos.length);
+  const next = () => setLb((v) => (v + 1) % photos.length);
+  useEffectS(() => {
+    if (lb === null) return;
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      else if (e.key === 'ArrowRight') next();
+      else if (e.key === 'Escape') setLb(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lb]);
+  return (
+    <section id="home-gallery" className="py-20 sm:py-28 bg-paper-soft">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal text-center max-w-[600px] mx-auto mb-10">
+          <Eyebrow tone="aqua">Galeri</Eyebrow>
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[32px] sm:text-[42px] leading-[1.15] text-ink">
+            CimcimPark'ı <span className="text-brand">Yakından</span> Tanıyın!
+          </h2>
+          <p className="mt-4 text-[16px] text-ink-soft">
+            Stüdyomuz, ekipmanlarımız ve öğrencilerimizin enerjisi — gözlerinizle görün.
+          </p>
+        </div>
+        <div className="gallery-masonry reveal" style={{ '--d': '80ms' }}>
+          {photos.map((p, i) => (
+            <div key={i} className={`gallery-item ${p.span}`} onClick={() => setLb(i)}
+              role="button" tabIndex={0} aria-label={p.label}
+              onKeyDown={(e) => e.key === 'Enter' && setLb(i)}>
+              <img src={p.src} alt={p.label} loading="lazy" className="gallery-img"
+                onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
+              <div className="gallery-overlay"><span className="gallery-label">{p.label}</span></div>
+            </div>
+          ))}
+        </div>
+        <div className="reveal mt-8 text-center" style={{ '--d': '200ms' }}>
+          <a href="https://www.instagram.com/cimcimparkk/" target="_blank" rel="noreferrer"
+            className="inline-flex items-center gap-2.5 border border-line bg-white rounded-btn px-6 py-3.5 text-[14px] font-semibold text-ink hover:border-brand hover:text-brand transition-colors shadow-soft">
+            <I.Instagram width="20" height="20" />
+            Instagram'da Daha Fazla Gör
+          </a>
+        </div>
+      </div>
+      {lb !== null && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/90"
+          onClick={() => setLb(null)}>
+          <button className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+            onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Önceki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <img src={photos[lb].src} alt={photos[lb].label}
+            className="max-w-[90vw] max-h-[85vh] object-contain rounded-card shadow-lift"
+            onClick={(e) => e.stopPropagation()} />
+          <button className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+            onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Sonraki">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+            onClick={() => setLb(null)} aria-label="Kapat">
+            <I.Close width="18" height="18" />
+          </button>
+          <div className="absolute bottom-4 text-white/60 text-[13px]">{lb + 1} / {photos.length} — {photos[lb].label}</div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* ====================================================================== */
+/* FAQ                                                                     */
+/* ====================================================================== */
+function FAQ() {
+  const [open, setOpen] = useStateS(null);
+  const items = [
+    { q: 'Başlamak için en uygun yaş nedir?',
+      a: '4 yaşından itibaren çocuklar okul öncesi ve temel cimnastik programlarına katılabilir. Yetişkinler için herhangi bir yaş sınırı yoktur — 65 yaşında başlayanlarımız bile var!' },
+    { q: 'Kurs ücretleri ne kadar?',
+      a: 'Kurs ücretleri branş, gün sayısı ve seans süresine göre değişmektedir. Güncel fiyat listesi için WhatsApp veya telefon üzerinden bize ulaşabilirsiniz.' },
+    { q: 'Ücretsiz deneme dersi var mı?',
+      a: 'Evet! Tüm yeni üyelerimize 1 seans ücretsiz deneme dersi sunuyoruz. WhatsApp üzerinden mesaj atarak uygun gün ve saati birlikte ayarlayabiliriz.' },
+    { q: 'Stüdyo güvenli mi? Çocuğum yaralanır mı?',
+      a: 'Güvenlik en büyük önceliğimizdir. Tüm ekipmanlar uluslararası standartlara uygundur, zeminler koruyucu matlarla kaplıdır ve her seans boyunca eğitmen gözetimi sağlanmaktadır.' },
+    { q: 'Haftada kaç gün antrenman yapılıyor?',
+      a: 'Branşa göre değişmekle birlikte genellikle haftada 2-3 gün antrenman yapılmaktadır. Esnek saat seçeneklerimizle okul ve iş programlarınıza uyum sağlıyoruz.' },
+    { q: 'Çocuğumun yeteneği var mı?',
+      a: 'Ücretsiz deneme dersimizde eğitmenlerimiz çocuğunuzun ilgisini ve potansiyelini değerlendirir. Yetenek zamanla gelişir — en önemli şey başlamaktır!' },
+    { q: 'Taekwondo ve Kick Boks dersleri var mı?',
+      a: 'Evet! Çocuk Taekwondo, Çocuk Kick Boks ve Yetişkin Kick Boks branşlarımız bulunmaktadır. Branşlarımız sayfasından tüm programları inceleyebilirsiniz.' },
+    { q: 'İlk derse ne getirmeliyim?',
+      a: 'Rahat spor kıyafeti ve kapalı burun spor ayakkabı ile gelin. Cimnastik derslerinde çorap veya çıplak ayakla çalışılmaktadır. Su şişesi ve küçük havlu getirmenizi öneririz.' },
+  ];
+  return (
+    <section id="faq" className="py-20 sm:py-28">
+      <div className="max-w-[800px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal text-center mb-12">
+          <Eyebrow tone="brand">SSS</Eyebrow>
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[32px] sm:text-[42px] leading-[1.15] text-ink">
+            Sıkça Sorulan <span className="text-brand">Sorular</span>
+          </h2>
+          <p className="mt-4 text-[16px] text-ink-soft">
+            Cevabını bulamadığınız soru var mı? WhatsApp'tan bize yazın.
+          </p>
+        </div>
+        <div className="space-y-3">
+          {items.map((it, i) => (
+            <div key={i} className="reveal border border-line rounded-card overflow-hidden" style={{ '--d': `${i * 40}ms` }}>
+              <button
+                className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left bg-white hover:bg-paper-soft transition-colors"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}>
+                <span className="font-display font-semibold text-[15px] text-ink leading-snug">{it.q}</span>
+                <span className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${open === i ? 'rotate-180 bg-brand border-brand text-white' : 'border-line text-ink-muted'}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+                </span>
+              </button>
+              <div className="overflow-hidden transition-all duration-300" style={{ maxHeight: open === i ? '300px' : '0' }}>
+                <p className="px-6 py-4 text-[14.5px] text-ink-soft leading-relaxed border-t border-line bg-paper-soft">{it.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="reveal mt-12 bg-ink rounded-card p-8 text-center" style={{ '--d': '200ms' }}>
+          <p className="text-white/70 text-[14px] mb-2">Başka sorunuz mu var?</p>
+          <h3 className="font-display font-bold text-white text-[22px] mb-5">Hemen WhatsApp'tan Yazın!</h3>
+          <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+            className="inline-flex items-center gap-2.5 bg-brand text-white font-bold rounded-btn px-6 py-3.5 text-[15px] hover:bg-brand-deep hover:-translate-y-0.5 transition-all duration-300">
+            <I.Whatsapp width="20" height="20" />
+            WhatsApp'ta Mesaj At
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ====================================================================== */
+/* SOCIAL MEDIA                                                            */
+/* ====================================================================== */
+function SocialMedia() {
+  const posts = [
+    { img: 'assets/branch-cocuk-jimnastik.webp', label: 'Çocuk Cimnastik' },
+    { img: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates' },
+    { img: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates' },
+    { img: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Jimnastik' },
+    { img: 'assets/branch-artistik.webp',         label: 'Artistik' },
+    { img: 'assets/branch-yetiskin-kickboks.webp',label: 'Kick Boks' },
+  ];
+  return (
+    <section id="social-media" className="py-20 sm:py-28">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Phone mock */}
+          <div className="flex justify-center">
+            <div className="relative w-60 sm:w-64" style={{ perspective: '1200px' }}>
+              <div className="relative bg-[#1a1a1a] rounded-[32px] p-2.5 shadow-lift" style={{ transform: 'rotateY(-8deg) rotateX(3deg)' }}>
+                <div className="bg-black rounded-[26px] overflow-hidden">
+                  <div className="flex items-center justify-between px-5 py-2 bg-black">
+                    <span className="text-white/80 text-[11px] font-medium">9:41</span>
+                    <div className="w-16 h-3 bg-black rounded-full mx-auto"></div>
+                    <span className="text-white/60 text-[10px]">●●●</span>
+                  </div>
+                  <div className="bg-white px-3 py-2.5 flex items-center gap-2.5 border-b border-gray-100">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-brand to-brand-deep flex items-center justify-center text-white text-[10px] font-bold">C</div>
+                    <div>
+                      <div className="text-[11px] font-bold text-black">cimcimparkk</div>
+                      <div className="text-[9px] text-gray-400">Kahramanmaraş</div>
+                    </div>
+                    <div className="ml-auto" style={{ color: '#E1306C' }}>
+                      <I.Instagram width="16" height="16" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-px bg-gray-200">
+                    {posts.map((p, i) => (
+                      <div key={i} className="aspect-square overflow-hidden">
+                        <img src={p.img} alt={p.label} loading="lazy" className="w-full h-full object-cover"
+                          onError={(e) => { e.currentTarget.style.backgroundColor = '#e5e7eb'; }} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-44 h-12 bg-brand/20 rounded-full blur-2xl pointer-events-none"></div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div>
+            <Eyebrow tone="brand">Sosyal Medya</Eyebrow>
+            <h2 className="mt-4 font-display font-extrabold text-[30px] sm:text-[40px] leading-[1.15] text-ink tracking-[-0.02em]">
+              Bizi Instagram'dan <span className="text-brand">Takip Edin!</span>
+            </h2>
+            <p className="mt-4 text-[15.5px] text-ink-soft leading-relaxed max-w-[440px]">
+              Öğrencilerimizin gelişimlerini, yıl sonu gösterilerini ve günlük antrenman anlarını takip edin. Ailenin bir parçası olun!
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+              <a href="https://www.instagram.com/cimcimparkk/" target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2.5 text-white font-bold rounded-btn px-5 py-3 text-[14px] hover:-translate-y-0.5 transition-transform shadow-soft"
+                style={{ background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)' }}>
+                <I.Instagram width="18" height="18" />
+                Instagram'da Takip Et
+              </a>
+              <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2.5 text-white font-bold rounded-btn px-5 py-3 text-[14px] hover:-translate-y-0.5 transition-transform shadow-soft bg-[#25D366]">
+                <I.Whatsapp width="18" height="18" />
+                WhatsApp
+              </a>
+              <a href="https://www.facebook.com/people/Cimcimparkk/61581461134869/" target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2.5 text-white font-bold rounded-btn px-5 py-3 text-[14px] hover:-translate-y-0.5 transition-transform shadow-soft bg-[#1877F2]">
+                <I.Facebook width="18" height="18" />
+                Facebook
+              </a>
+            </div>
+            <div className="mt-6 inline-flex items-center gap-2 bg-white border border-line rounded-pill px-4 py-2 shadow-soft">
+              <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse"></span>
+              <span className="text-[13px] font-semibold text-ink">Aktif ve Canlı</span>
+              <span className="text-[13px] text-ink-muted">— @cimcimparkk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ====================================================================== */
+/* CTA STRIP                                                               */
+/* ====================================================================== */
+function CTAStrip() {
+  return (
+    <>
+      {/* Thin announcement bar */}
+      <div className="bg-brand py-3 text-center px-4">
+        <p className="text-white font-semibold text-[13.5px]">
+          🎁 Ücretsiz deneme dersi için hemen yazın! —{' '}
+          <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:no-underline font-bold">
+            WhatsApp'a Yaz
+          </a>
+        </p>
+      </div>
+
+      {/* Main dark banner */}
+      <section id="cta-strip" className="relative overflow-hidden py-20 sm:py-28" style={{ backgroundColor: '#111827' }}>
+        <div className="absolute -top-32 -left-20 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(249,115,22,.18) 0%, transparent 70%)' }}></div>
+        <div className="absolute -bottom-24 -right-16 w-[480px] h-[480px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(6,182,212,.12) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(249,115,22,.06) 0%, transparent 70%)' }}></div>
+
+        <div className="relative max-w-[900px] mx-auto px-5 sm:px-8 lg:px-10 text-center">
+          <div className="reveal">
+            <Eyebrow tone="brand">Başlamak İçin Doğru An</Eyebrow>
+            <h2 className="mt-5 font-display font-extrabold text-[34px] sm:text-[50px] lg:text-[56px] leading-[1.1] tracking-[-0.03em] text-white">
+              Enerjini Zirveye Taşı:<br />
+              <span className="text-brand">Jimnastikle</span> Kendini Yeniden Keşfet!
+            </h2>
+            <p className="mt-5 text-[17px] leading-relaxed max-w-[560px] mx-auto" style={{ color: 'rgba(255,255,255,.7)' }}>
+              Ücretsiz deneme dersinizi alın, stüdyomuzu görün ve CİMCİMPARK ailesinin bir parçası olun.
+            </p>
+          </div>
+          <div className="reveal mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" style={{ '--d': '120ms' }}>
+            <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-3 bg-brand text-white font-display font-bold rounded-btn px-8 py-4 text-[16px] hover:bg-brand-deep hover:-translate-y-1 transition-all duration-300 shadow-lift">
+              <I.Whatsapp width="24" height="24" />
+              WhatsApp'tan Yaz
+            </a>
+            <a href="tel:+905392437606"
+              className="inline-flex items-center gap-3 font-semibold rounded-btn px-8 py-4 text-[16px] transition-colors"
+              style={{ background: 'rgba(255,255,255,.1)', color: '#fff', outline: '1px solid rgba(255,255,255,.2)' }}
+              onMouseOver={e => e.currentTarget.style.background='rgba(255,255,255,.18)'}
+              onMouseOut={e => e.currentTarget.style.background='rgba(255,255,255,.1)'}>
+              <I.Phone width="20" height="20" />
+              0539 243 76 06
+            </a>
+          </div>
+          <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-3" style={{ '--d': '200ms' }}>
+            {[['🎁','Ücretsiz Deneme'],['👶','4-65 Yaş'],['🏅','10 Branş'],['⚡','Anında Yanıt']].map(([ico, txt], i) => (
+              <div key={i} className="flex items-center gap-2 rounded-pill px-4 py-2 text-[13px] font-medium" style={{ background: 'rgba(255,255,255,.1)', color: '#fff' }}>
+                <span>{ico}</span><span>{txt}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Floating WhatsApp button */}
+      <a href="https://wa.me/905392437606" target="_blank" rel="noreferrer" aria-label="WhatsApp ile yazın"
+        className="fixed bottom-20 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lift hover:scale-110 transition-transform"
+        style={{ backgroundColor: '#25D366', animation: 'whatsapp-pulse 2.5s ease-in-out infinite' }}>
+        <I.Whatsapp width="28" height="28" />
+      </a>
+    </>
+  );
+}
+
+/* ====================================================================== */
 /* SPLIT PROMO                                                            */
 /* ====================================================================== */
 function SplitPromo() {
@@ -954,6 +1385,7 @@ function SplitPromo() {
 
 Object.assign(window, {
   SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo,
+  AgeGroups, HomeGallery, FAQ, SocialMedia, CTAStrip,
 });
 
-export { SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo };
+export { SocialRail, ScrollToTop, Navbar, Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, Footer, SplitPromo, AgeGroups, HomeGallery, FAQ, SocialMedia, CTAStrip };

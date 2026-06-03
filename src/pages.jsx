@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I } from './primitives';
-import { Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, SplitPromo } from './sections';
+import { Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, SplitPromo, AgeGroups, HomeGallery, FAQ, SocialMedia, CTAStrip } from './sections';
 
 
 /* ---------------- Page header band ---------------- */
@@ -38,13 +38,14 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <Trust />
-      <BranchPhotoGrid />
       <SplitPromo />
+      <BranchPhotoGrid />
       <WhyUs />
-      <Founder />
-      <Testimonials />
-      <FinalCTA />
+      <AgeGroups />
+      <HomeGallery />
+      <FAQ />
+      <SocialMedia />
+      <CTAStrip />
     </>
   );
 }
