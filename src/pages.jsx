@@ -359,7 +359,7 @@ const BLOG_POSTS = [
 <ul>
 <li><strong>TCF Lisanslı Eğitmenler:</strong> Türkiye Cimnastik Federasyonu onaylı eğitim metodolojisi</li>
 <li><strong>Küçük Gruplar:</strong> Azami 8 kişilik gruplarda bireysel ilgi</li>
-<li><strong>Güvenli Donanım:</strong> Olimpik standartlarda minder, barfiks ve jimnastik ekipmanları</li>
+<li><strong>Güvenli Donanım:</strong> Olimpik standartlarda minder, barfiks ve cimnastik ekipmanları</li>
 <li><strong>4 Yaştan İtibaren:</strong> Yaşa uygun müfredat ile en erken başlangıç fırsatı</li>
 </ul>
 

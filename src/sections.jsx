@@ -327,11 +327,11 @@ function Trust() {
 /* BRANCHES                                                               */
 /* ====================================================================== */
 const BRANCH_PHOTOS = [
-  { name: 'Çocuk Jimnastik Kursu',        age: '4-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand' },
-  { name: 'Genç Jimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua'  },
-  { name: 'Jimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand' },
-  { name: 'Okul Öncesi Jimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand' },
-  { name: 'Artistik Jimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik.webp',          tone: 'aqua'  },
+  { name: 'Çocuk Cimnastik Kursu',        age: '4-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand' },
+  { name: 'Genç Cimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua'  },
+  { name: 'Cimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand' },
+  { name: 'Okul Öncesi Cimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand' },
+  { name: 'Artistik Cimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik.webp',          tone: 'aqua'  },
   { name: 'Reformer Pilates',              age: '18-65 Yaş',    src: 'assets/branch-reformer-pilates.webp',  tone: 'aqua'  },
   { name: 'Mat Pilates',                   age: '16-65 Yaş',    src: 'assets/branch-mat-pilates.webp',       tone: 'aqua'  },
   { name: 'Çocuk Taekwondo',               age: '6-14 Yaş',     src: 'assets/branch-cocuk-taekwondo.webp',   tone: 'brand' },
@@ -484,7 +484,7 @@ function WhyUs() {
             className="inline-flex items-center gap-3 bg-brand text-white font-display font-bold rounded-btn shadow-lift px-7 py-4 text-[15px] hover:bg-brand-deep hover:-translate-y-1 transition-all duration-300"
           >
             <I.Whatsapp width="22" height="22" />
-            Ücretsiz Deneme Dersi Al — 0539 243 76 06
+            Ücretsiz Deneme Dersi Al
           </a>
         </div>
       </div>
@@ -952,7 +952,7 @@ function AgeGroups() {
     {
       tag: 'Gençler', age: '12-18 Yaş',
       title: 'Enerjiyi Doğru Kanalize Et!',
-      img: 'assets/branch-genc-jimnastik.webp', alt: 'Genç jimnastik dersi',
+      img: 'assets/branch-genc-jimnastik.webp', alt: 'Genç cimnastik dersi',
       color: '#06B6D4', softBg: '#ECFEFF',
       points: ['Stres azaltma ve zihinsel rahatlama', 'Özgüven ve liderlik gelişimi', 'Akran grubuyla motivasyon', 'Vücut farkındalığı ve postür'],
       reverse: true,
@@ -962,7 +962,7 @@ function AgeGroups() {
       title: 'Sağlıklı Beden, Zinde Yaşam!',
       img: 'assets/branch-reformer-pilates.webp', alt: 'Reformer pilates dersi',
       color: '#8B5CF6', softBg: '#F5F3FF',
-      points: ['Core güçlendirme ve stabilite', 'Esneklik ve eklem sağlığı', 'Stres atma ve iç huzur', 'Pilates, jimnastik ve kickboks seçenekleri'],
+      points: ['Core güçlendirme ve stabilite', 'Esneklik ve eklem sağlığı', 'Stres atma ve iç huzur', 'Pilates, cimnastik ve kickboks seçenekleri'],
       reverse: false,
     },
   ];
@@ -1034,9 +1034,9 @@ function HomeGallery() {
     { src: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates',         span: '' },
     { src: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates',    span: 'g-tall' },
     { src: 'assets/branch-cocuk-taekwondo.webp',  label: 'Çocuk Taekwondo',     span: '' },
-    { src: 'assets/branch-jimnastik.webp',        label: 'Jimnastik',           span: '' },
+    { src: 'assets/branch-jimnastik.webp',        label: 'Cimnastik',           span: '' },
     { src: 'assets/branch-artistik.webp',         label: 'Artistik Cimnastik',  span: 'g-wide' },
-    { src: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Jimnastik',      span: '' },
+    { src: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Cimnastik',      span: '' },
     { src: 'assets/branch-cocuk-kickboks.webp',   label: 'Çocuk Kick Boks',     span: '' },
     { src: 'assets/branch-okul-oncesi.webp',      label: 'Okul Öncesi',         span: '' },
     { src: 'assets/branch-yetiskin-kickboks.webp',label: 'Yetişkin Kick Boks',  span: 'g-wide' },
@@ -1184,7 +1184,7 @@ function SocialMedia() {
     { img: 'assets/branch-cocuk-jimnastik.webp', label: 'Çocuk Cimnastik' },
     { img: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates' },
     { img: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates' },
-    { img: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Jimnastik' },
+    { img: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Cimnastik' },
     { img: 'assets/branch-artistik.webp',         label: 'Artistik' },
     { img: 'assets/branch-yetiskin-kickboks.webp',label: 'Kick Boks' },
   ];
@@ -1292,7 +1292,7 @@ function CTAStrip() {
             <Eyebrow tone="brand">Başlamak İçin Doğru An</Eyebrow>
             <h2 className="mt-5 font-display font-extrabold text-[34px] sm:text-[50px] lg:text-[56px] leading-[1.1] tracking-[-0.03em] text-white">
               Enerjini Zirveye Taşı:<br />
-              <span className="text-brand">Jimnastikle</span> Kendini Yeniden Keşfet!
+              <span className="text-brand">Cimnastikle</span> Kendini Yeniden Keşfet!
             </h2>
             <p className="mt-5 text-[17px] leading-relaxed max-w-[560px] mx-auto" style={{ color: 'rgba(255,255,255,.7)' }}>
               Ücretsiz deneme dersinizi alın, stüdyomuzu görün ve CİMCİMPARK ailesinin bir parçası olun.
