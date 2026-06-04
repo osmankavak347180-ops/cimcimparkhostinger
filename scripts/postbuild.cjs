@@ -22,4 +22,11 @@ for (const f of fs.readdirSync(distAssets)) {
   }
 }
 
-console.log('postbuild: index.html + assets synced to root');
+// Copy standalone HTML pages from dist/ to root (e.g. uye-girisi.html)
+for (const f of fs.readdirSync(path.join(root, 'dist'))) {
+  if (f.endsWith('.html') && f !== 'index.html') {
+    fs.copyFileSync(path.join(root, 'dist', f), path.join(root, f));
+  }
+}
+
+console.log('postbuild: index.html + assets + standalone pages synced to root');
