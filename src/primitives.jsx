@@ -1,25 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 
-/* ---------------- Hash router ---------------- */
+/* ---------------- History router ---------------- */
 function getPath() {
-  const hash = window.location.hash.slice(1) || '/';
-  return hash === '' ? '/' : hash;
+  const p = window.location.pathname || '/';
+  return p === '' ? '/' : p;
 }
 
 function useRoute() {
   const [path, setPath] = useState(getPath);
   useEffect(() => {
     const onChange = () => setPath(getPath());
-    window.addEventListener('hashchange', onChange);
-    return () => window.removeEventListener('hashchange', onChange);
+    window.addEventListener('popstate', onChange);
+    return () => window.removeEventListener('popstate', onChange);
   }, []);
   return path;
 }
 
 function navigate(to, opts = {}) {
   const target = to.startsWith('/') ? to : '/' + to;
-  window.location.hash = target;
+  if (getPath() !== target) {
+    history.pushState(null, '', target);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  }
   if (opts.scroll !== false) {
     window.scrollTo({ top: 0, behavior: 'scrollBehavior' in document.documentElement.style ? 'instant' : 'auto' });
   }
@@ -33,7 +36,7 @@ function Link({ to, children, className, onClick, ...rest }) {
     navigate(to);
   };
   return (
-    <a href={`#${to}`} onClick={handle} className={className} {...rest}>
+    <a href={to} onClick={handle} className={className} {...rest}>
       {children}
     </a>
   );
