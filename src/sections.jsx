@@ -95,10 +95,6 @@ function Navbar({ route }) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="tel:+905392437606" className="hidden xl:inline-flex items-center gap-2 text-[13px] font-semibold text-ink-soft hover:text-brand">
-            <I.Phone width="16" height="16" />
-            0539 243 76 06
-          </a>
           <Link to="/iletisim" className="btn-primary text-[13px] !py-2.5 !px-4 whitespace-nowrap hidden sm:inline-flex items-center gap-2">
             Ücretsiz Deneme Dersi
             <I.Arrow width="15" height="15" />
