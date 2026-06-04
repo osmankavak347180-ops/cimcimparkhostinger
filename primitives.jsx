@@ -357,21 +357,16 @@ function Counter({ to, suffix = '', duration = 1400 }) {
 }
 
 /* ---------------- Logo ---------------- */
-function Logo({ size = 32 }) {
+function Logo({ size = 40 }) {
   return (
     <Link to="/" className="flex items-center gap-2.5 group">
-      <span className="relative grid place-items-center" style={{ width: size, height: size }}>
-        <span className="absolute inset-0 rounded-[10px] bg-gradient-to-br from-brand to-brand-deep shadow-lift"></span>
-        <span className="absolute inset-[3px] rounded-[8px] bg-white grid place-items-center">
-          <svg viewBox="0 0 24 24" width={size * 0.55} height={size * 0.55} fill="none" stroke="#F97316" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 20c2-3 4-4 7-4s5 1 7 4M7 9a5 5 0 0 1 10 0M12 9v7"/>
-          </svg>
-        </span>
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-display font-extrabold tracking-tight text-[17px] text-ink">CİMCİMPARK</span>
-        <span className="hidden lg:block font-mono text-[9.5px] text-ink-faint tracking-[.18em] mt-0.5">SPOR • CİMNASTİK</span>
-      </span>
+      <img
+        src="/assets/logo.webp"
+        alt="CimcimPark Logo"
+        width={size}
+        height={size}
+        style={{ borderRadius: '50%', display: 'block', objectFit: 'cover' }}
+      />
     </Link>
   );
 }
