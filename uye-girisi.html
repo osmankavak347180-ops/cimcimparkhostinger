@@ -663,9 +663,20 @@
   // ── Apps Script web app URL ──
   const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbyF_4XA4HddrKDypWrHMv67qMwatZzcEa0i3Ev4hOFNqPCIPeATtJPjdM55NdrZ8RE3/exec';
 
+  // Telefon normalizasyonu: boşlukları kaldır, baştaki 0'ı sil → 10 hane
+  function normalizePhone(raw) {
+    var digits = raw.replace(/\D/g, '');
+    if (digits.length >= 10) {
+      if (digits.charAt(0) === '0') digits = digits.slice(1);
+      return digits;
+    }
+    return raw; // Ad/soyad sorgusu, olduğu gibi gönder
+  }
+
   function sorgula() {
-    const q = document.getElementById('sorguInput').value.trim();
-    if (q.length < 2) { showMsg('En az 2 karakter girin.', false); return; }
+    const raw = document.getElementById('sorguInput').value.trim();
+    if (raw.length < 2) { showMsg('En az 2 karakter girin.', false); return; }
+    const q = normalizePhone(raw);
 
     setLoading(true);
     clearResults();
