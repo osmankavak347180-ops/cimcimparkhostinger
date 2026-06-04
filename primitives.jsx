@@ -365,9 +365,25 @@ function Logo({ size = 40 }) {
         alt="CimcimPark Logo"
         width={size}
         height={size}
-        style={{ borderRadius: '50%', display: 'block', objectFit: 'cover' }}
+        style={{ borderRadius: '50%', display: 'block', objectFit: 'cover', flexShrink: 0 }}
       />
-      <span className="font-display font-extrabold tracking-tight text-[17px] text-ink">CİMCİMPARK</span>
+      <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+        <span style={{
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: 800,
+          fontSize: '15px',
+          color: '#1F2937',
+          letterSpacing: '0.04em',
+        }}>CİMCİMPARK</span>
+        <span style={{
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 500,
+          fontSize: '10px',
+          color: '#6B7280',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+        }}>SPOR · CİMNASTİK</span>
+      </div>
     </Link>
   );
 }
