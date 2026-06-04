@@ -358,6 +358,7 @@ function Logo({ size = 40 }) {
         height={size}
         style={{ borderRadius: '50%', display: 'block', objectFit: 'cover' }}
       />
+      <span className="font-display font-extrabold tracking-tight text-[17px] text-ink">CİMCİMPARK</span>
     </Link>
   );
 }
