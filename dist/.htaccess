@@ -1,3 +1,6 @@
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .md .json .xml
+
 Options -MultiViews
 RewriteEngine On
 RewriteBase /
