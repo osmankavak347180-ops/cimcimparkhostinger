@@ -90,7 +90,7 @@ function Navbar({ route }) {
             </Link>
           ))}
           <a href="/uye-girisi.html" className="nav-link whitespace-nowrap text-[13px] font-medium text-ink-soft hover:text-ink">
-            Üye Girişi
+            Üyelik Takip
           </a>
         </nav>
 
@@ -127,7 +127,7 @@ function Navbar({ route }) {
             </Link>
           ))}
           <a href="/uye-girisi.html" className="py-3 border-b border-line text-[16px] font-semibold text-ink flex items-center justify-between">
-            Üye Girişi
+            Üyelik Takip
             <I.Arrow width="16" height="16" className="text-ink-faint" />
           </a>
           <Link to="/iletisim" className="btn-primary mt-5 justify-center inline-flex items-center gap-2">

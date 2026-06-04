@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Üye Girişi — CİMCİMPARK</title>
-  <meta name="description" content="CİMCİMPARK üyelik sorgulama. Telefon numaranız veya adınızla üyelik bilgilerinize ulaşın.">
+  <title>Üyelik Takip — CİMCİMPARK</title>
+  <meta name="description" content="CİMCİMPARK üyelik sorgulama. Telefon numaranızla üyelik bilgilerinize ulaşın.">
   <meta name="robots" content="noindex">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +34,10 @@
       --shadow:    0 4px 20px rgba(47,46,65,.08);
     }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--paper);
@@ -61,12 +65,13 @@
     .site-nav-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 16px;
       height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 12px;
+      overflow: hidden;
     }
     /* Logo */
     .site-logo {
@@ -219,8 +224,13 @@
       margin-bottom: 10px;
     }
     .input-row { display: flex; gap: 10px; }
+    @media (max-width: 480px) {
+      .input-row { flex-direction: column; }
+      .btn-sorgula { width: 100%; }
+    }
     .search-card input[type="text"] {
       flex: 1;
+      min-width: 0;
       padding: 13px 16px;
       border: 2px solid var(--line);
       border-radius: 10px;
@@ -344,6 +354,32 @@
     .badge-odendi   { background: rgba(45,156,114,.12); color: var(--success); }
     .badge-bekliyor { background: rgba(231,111,81,.12); color: var(--danger); }
     .badge-kismi    { background: rgba(239,166,166,.2); color: #c05c00; }
+
+    .kart-uyari {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .kart-uyari a { text-decoration: none; }
+    .kart-uyari a:hover { text-decoration: underline; }
+    .kart-uyari-sonhafta {
+      background: #FFF7ED;
+      border: 1.5px solid #FB923C;
+      color: #9A3412;
+    }
+    .kart-uyari-sonhafta a { color: #EA580C; }
+    .kart-uyari-dolmus {
+      background: #FEF2F2;
+      border: 1.5px solid #F87171;
+      color: #7F1D1D;
+    }
+    .kart-uyari-dolmus a { color: #DC2626; }
 
     /* ══════════════════════════════
        SITE FOOTER
@@ -469,7 +505,7 @@
         <li><a href="/galeri"         class="snl">Galeri</a></li>
         <li><a href="/blog"           class="snl">Blog</a></li>
         <li><a href="/iletisim"       class="snl">İletişim</a></li>
-        <li><a href="/uye-girisi.html" class="snl active">Üye Girişi</a></li>
+        <li><a href="/uye-girisi.html" class="snl active">Üyelik Takip</a></li>
       </ul>
     </nav>
 
@@ -495,18 +531,18 @@
 <section class="hero">
   <div class="hero-icon">🔍</div>
   <h1>Üyelik Sorgula</h1>
-  <p>Telefon numaranız veya adınızla üyelik bilgilerinize ulaşın</p>
+  <p>Telefon numaranızla üyelik bilgilerinize ulaşın</p>
 </section>
 
 <!-- ══ SEARCH ══ -->
 <div class="search-wrap">
   <div class="search-card">
-    <label for="sorguInput">Telefon veya Ad Soyad</label>
+    <label for="sorguInput">TELEFON NUMARASI</label>
     <div class="input-row">
       <input
         type="text"
         id="sorguInput"
-        placeholder="Örn: 0532 123 45 67 veya Ali Yılmaz"
+        placeholder="Örn: 0532 123 45 67"
         autocomplete="off"
         onkeydown="if(event.key==='Enter') sorgula()"
       >
@@ -573,7 +609,7 @@
           <li><a href="/galeri">Galeri</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/iletisim">İletişim</a></li>
-          <li><a href="/uye-girisi.html">Üye Girişi</a></li>
+          <li><a href="/uye-girisi.html">Üyelik Takip</a></li>
         </ul>
       </div>
 
@@ -637,9 +673,18 @@
   // ── Apps Script web app URL ──
   const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbyF_4XA4HddrKDypWrHMv67qMwatZzcEa0i3Ev4hOFNqPCIPeATtJPjdM55NdrZ8RE3/exec';
 
+  // Telefon normalizasyonu: boşlukları kaldır, baştaki 0'ı sil → 10 hane
+  function normalizePhone(raw) {
+    var digits = raw.replace(/\D/g, '');
+    if (digits.charAt(0) === '0') digits = digits.slice(1);
+    return digits;
+  }
+
   function sorgula() {
-    const q = document.getElementById('sorguInput').value.trim();
-    if (q.length < 2) { showMsg('En az 2 karakter girin.', false); return; }
+    const raw = document.getElementById('sorguInput').value.trim();
+    if (!raw) { showMsg('Telefon numaranızı girin.', false); return; }
+    const q = normalizePhone(raw);
+    if (q.length !== 10) { showMsg('Geçerli bir telefon numarası girin. Örn: 0532 123 45 67', false); return; }
 
     setLoading(true);
     clearResults();
@@ -663,9 +708,38 @@
       });
   }
 
+  function parseDate(str) {
+    if (!str) return null;
+    // DD.MM.YYYY veya YYYY-MM-DD formatlarını destekler
+    var parts = str.indexOf('.') !== -1 ? str.split('.') : str.split('-');
+    if (parts.length !== 3) return null;
+    var d = str.indexOf('.') !== -1
+      ? new Date(parts[2], parts[1] - 1, parts[0])
+      : new Date(parts[0], parts[1] - 1, parts[2]);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
   function renderCard(m) {
     const odemeBadge = odemeBadgeHTML(m.odeme);
     const haeftaBadge = '<span class="badge badge-hafta">📍 ' + m.hafta + '</span>';
+
+    const bitisDate = parseDate(m.bitis);
+    const bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+    const suresiDolmus = bitisDate && bitisDate < bugun;
+
+    const uyari = suresiDolmus
+      ? '<div class="kart-uyari kart-uyari-dolmus">'
+        + '<span>❌</span>'
+        + '<span>Üyeliğinizin süresi dolmuştur. Yeniden başlamak için bizi arayın: '
+        + '<a href="tel:+905392437606">0539 243 76 06</a></span>'
+        + '</div>'
+      : m.hafta === 'Son Hafta'
+        ? '<div class="kart-uyari kart-uyari-sonhafta">'
+          + '<span>⚠️</span>'
+          + '<span>Üyeliğiniz bu hafta sona eriyor. Yenilemek için bizi arayın: '
+          + '<a href="tel:+905392437606">0539 243 76 06</a></span>'
+          + '</div>'
+        : '';
 
     const html = '<div class="member-card">'
       + '<div class="card-header">'
@@ -681,6 +755,7 @@
       +   '<div class="card-row"><span class="icon">📍</span><span class="lbl">Dönem</span>' + haeftaBadge + '</div>'
       +   '<div class="card-row"><span class="icon">💳</span><span class="lbl">Ödeme</span>' + odemeBadge + '</div>'
       + '</div>'
+      + uyari
       + '</div>';
 
     document.getElementById('cards').insertAdjacentHTML('beforeend', html);
