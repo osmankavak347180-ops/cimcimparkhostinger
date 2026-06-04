@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üye Girişi — CİMCİMPARK</title>
+  <meta name="description" content="CİMCİMPARK üyelik sorgulama. Telefon numaranız veya adınızla üyelik bilgilerinize ulaşın.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Site brand tokens */
+      --brand:   #F97316;
+      --brand-d: #EA580C;
+      --ink:     #1F2937;
+      --ink-s:   #374151;
+      --ink-m:   #6B7280;
+      --paper:   #F9FAFB;
+      --paper-s: #F3F4F6;
+      --line:    #E5E7EB;
+      --card:    #FFFFFF;
+      /* Page-specific (üye kartları renk şeması) */
+      --primary:   #EFA6A6;
+      --primary-d: #e08888;
+      --secondary: #CDB4DB;
+      --success:   #2D9C72;
+      --danger:    #E76F51;
+      --shadow:    0 4px 20px rgba(47,46,65,.08);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ══════════════════════════════
+       SITE NAVBAR
+    ══════════════════════════════ */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      transition: background .3s, box-shadow .3s;
+    }
+    .site-header.scrolled {
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 1px 12px rgba(17,24,39,.08);
+    }
+    .site-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    /* Logo */
+    .site-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-logo img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+    .site-logo-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1F2937;
+      letter-spacing: .04em;
+      display: block;
+      line-height: 1.15;
+    }
+    .site-logo-sub {
+      font-weight: 500;
+      font-size: 10px;
+      color: #6B7280;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1.15;
+    }
+    /* Desktop nav links */
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+    .snl {
+      text-decoration: none;
+      color: var(--ink-m);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      position: relative;
+      transition: color .2s;
+    }
+    .snl::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 100%; bottom: -6px;
+      height: 2px;
+      background: var(--brand);
+      border-radius: 2px;
+      transition: right .25s ease;
+    }
+    .snl:hover { color: var(--ink); }
+    .snl:hover::after, .snl.active::after { right: 0; }
+    .snl.active { color: var(--ink); font-weight: 600; }
+    /* Right side */
+    .site-nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .site-phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-m);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .site-phone:hover { color: var(--brand); }
+    .site-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(249,115,22,.28);
+      transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background .2s;
+    }
+    .site-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(249,115,22,.38);
+      background: var(--brand-d);
+    }
+    @media (max-width: 1023px) { .site-nav-links { display: none; } }
+    @media (max-width: 1279px) { .site-phone { display: none; } }
+    @media (max-width: 639px)  { .site-cta { display: none; } }
+
+    /* ══════════════════════════════
+       PAGE: HERO
+    ══════════════════════════════ */
+    .hero {
+      text-align: center;
+      padding: 56px 24px 32px;
+    }
+    .hero-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(239,166,166,.35);
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .hero p { color: var(--ink-m); font-size: .95rem; }
+
+    /* ══════════════════════════════
+       PAGE: SEARCH BOX
+    ══════════════════════════════ */
+    .search-wrap {
+      max-width: 520px;
+      margin: 0 auto 40px;
+      padding: 0 16px;
+    }
+    .search-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .search-card label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--ink-m);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 10px;
+    }
+    .input-row { display: flex; gap: 10px; }
+    .search-card input[type="text"] {
+      flex: 1;
+      padding: 13px 16px;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-card input[type="text"]:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
+    .btn-sorgula {
+      padding: 13px 22px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, transform .1s;
+    }
+    .btn-sorgula:hover  { background: var(--primary-d); }
+    .btn-sorgula:active { transform: scale(.97); }
+    .btn-sorgula:disabled { background: #ccc; cursor: default; }
+
+    /* ══════════════════════════════
+       PAGE: RESULTS
+    ══════════════════════════════ */
+    .results-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 16px 48px;
+    }
+    .spinner {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+      color: var(--ink-m);
+      font-size: .95rem;
+    }
+    .spinner::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 28px;
+      border: 3px solid var(--line);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .msg-box {
+      display: none;
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      color: var(--ink-m);
+      border: 1px solid var(--line);
+      font-size: .95rem;
+    }
+    .msg-box.error { border-color: var(--danger); color: var(--danger); }
+
+    .member-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      animation: slideIn .3s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .avatar {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .card-name { font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+    .card-brans { font-size: .85rem; color: var(--ink-m); margin-top: 2px; }
+    .card-rows { display: flex; flex-direction: column; gap: 10px; }
+    .card-row { display: flex; align-items: center; gap: 10px; font-size: .9rem; }
+    .card-row .icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .card-row .lbl { color: var(--ink-m); min-width: 80px; font-size: .82rem; }
+    .card-row .val { font-weight: 600; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .badge-hafta    { background: rgba(205,180,219,.2); color: #7c4dab; }
+    .badge-odendi   { background: rgba(45,156,114,.12); color: var(--success); }
+    .badge-bekliyor { background: rgba(231,111,81,.12); color: var(--danger); }
+    .badge-kismi    { background: rgba(239,166,166,.2); color: #c05c00; }
+
+    /* ══════════════════════════════
+       SITE FOOTER
+    ══════════════════════════════ */
+    .site-footer {
+      background: var(--paper-s);
+      border-top: 1px solid var(--line);
+      margin-top: 8px;
+      padding-bottom: 64px;
+    }
+    @media (min-width: 640px) { .site-footer { padding-bottom: 0; } }
+    .site-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+    .site-footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) {
+      .site-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    }
+    .site-footer-col-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-m);
+      margin-bottom: 16px;
+    }
+    .site-footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .site-footer-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--ink-m);
+      transition: color .2s;
+    }
+    .site-footer-links a:hover { color: var(--brand-d); }
+    .site-footer-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-m);
+      margin-top: 20px;
+      max-width: 340px;
+    }
+    .site-footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .site-footer-socials a {
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: var(--line);
+      text-decoration: none;
+      font-size: 15px;
+      transition: transform .2s, background .2s;
+    }
+    .site-footer-socials a:hover { transform: translateY(-2px); background: var(--brand); }
+    .site-footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--ink-m);
+    }
+    .site-footer-contact-item a {
+      text-decoration: none;
+      color: var(--ink-m);
+      transition: color .2s;
+    }
+    .site-footer-contact-item a:hover { color: var(--brand-d); }
+    .site-footer-contact-icon { color: var(--brand); flex-shrink: 0; margin-top: 2px; }
+    .site-footer-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+      font-size: 12.5px;
+      color: var(--ink-m);
+    }
+    @media (min-width: 640px) {
+      .site-footer-bar { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    .site-footer-bar-links { display: flex; gap: 20px; }
+    .site-footer-bar-links a {
+      text-decoration: none;
+      color: var(--ink-m);
+      transition: color .2s;
+    }
+    .site-footer-bar-links a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<!-- ══ SITE NAVBAR ══ -->
+<header class="site-header" id="siteHeader">
+  <div class="site-nav-inner">
+
+    <a href="/" class="site-logo">
+      <img src="/assets/logo.webp" alt="CimcimPark Logo" width="40" height="40">
+      <div>
+        <span class="site-logo-name">CİMCİMPARK</span>
+        <span class="site-logo-sub">SPOR · CİMNASTİK</span>
+      </div>
+    </a>
+
+    <nav aria-label="Ana navigasyon">
+      <ul class="site-nav-links">
+        <li><a href="/"               class="snl">Ana Sayfa</a></li>
+        <li><a href="/hakkimizda"     class="snl">Hakkımızda</a></li>
+        <li><a href="/branslarimiz"   class="snl">Branşlarımız</a></li>
+        <li><a href="/ekibimiz"       class="snl">Ekibimiz</a></li>
+        <li><a href="/galeri"         class="snl">Galeri</a></li>
+        <li><a href="/blog"           class="snl">Blog</a></li>
+        <li><a href="/iletisim"       class="snl">İletişim</a></li>
+        <li><a href="/uye-girisi.html" class="snl active">Üye Girişi</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-nav-right">
+      <a href="tel:+905392437606" class="site-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        0539 243 76 06
+      </a>
+      <a href="/iletisim" class="site-cta">
+        Ücretsiz Deneme Dersi
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="hero">
+  <div class="hero-icon">🔍</div>
+  <h1>Üyelik Sorgula</h1>
+  <p>Telefon numaranız veya adınızla üyelik bilgilerinize ulaşın</p>
+</section>
+
+<!-- ══ SEARCH ══ -->
+<div class="search-wrap">
+  <div class="search-card">
+    <label for="sorguInput">Telefon veya Ad Soyad</label>
+    <div class="input-row">
+      <input
+        type="text"
+        id="sorguInput"
+        placeholder="Örn: 0532 123 45 67 veya Ali Yılmaz"
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter') sorgula()"
+      >
+      <button class="btn-sorgula" id="btnSorgula" onclick="sorgula()">
+        Sorgula
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RESULTS ══ -->
+<div class="results-wrap">
+  <div class="spinner" id="spinner">Aranıyor...</div>
+  <div class="msg-box" id="msgBox"></div>
+  <div id="cards"></div>
+</div>
+
+<!-- ══ SITE FOOTER ══ -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-grid">
+
+      <!-- Marka -->
+      <div>
+        <a href="/" class="site-logo">
+          <img src="/assets/logo.webp" alt="CimcimPark Logo" width="40" height="40">
+          <div>
+            <span class="site-logo-name">CİMCİMPARK</span>
+            <span class="site-logo-sub">SPOR · CİMNASTİK</span>
+          </div>
+        </a>
+        <p class="site-footer-desc">
+          Kahramanmaraş'ın aydınlık, dinamik ve uzman kadrolu spor &amp; cimnastik merkezi.
+          Her yaş, her seviye için.
+        </p>
+        <div class="site-footer-socials">
+          <a href="https://www.instagram.com/cimcimparkk/" aria-label="Instagram" target="_blank" rel="noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/people/Cimcimparkk/61581461134869/" aria-label="Facebook" target="_blank" rel="noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/905392437606" aria-label="WhatsApp" target="_blank" rel="noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.52 5.833L0 24l6.335-1.499A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.498-5.2-1.367l-.373-.22-3.762.89.951-3.656-.242-.389A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Site -->
+      <div>
+        <div class="site-footer-col-title">Site</div>
+        <ul class="site-footer-links">
+          <li><a href="/">Ana Sayfa</a></li>
+          <li><a href="/hakkimizda">Hakkımızda</a></li>
+          <li><a href="/branslarimiz">Branşlarımız</a></li>
+          <li><a href="/ekibimiz">Ekibimiz</a></li>
+          <li><a href="/galeri">Galeri</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/iletisim">İletişim</a></li>
+          <li><a href="/uye-girisi.html">Üye Girişi</a></li>
+        </ul>
+      </div>
+
+      <!-- Branşlar -->
+      <div>
+        <div class="site-footer-col-title">Branşlar</div>
+        <ul class="site-footer-links">
+          <li><a href="/branslarimiz">Temel Cimnastik</a></li>
+          <li><a href="/branslarimiz">Mat Pilates</a></li>
+          <li><a href="/branslarimiz">Reformer Pilates</a></li>
+          <li><a href="/branslarimiz">Çocuk Taekwondo</a></li>
+          <li><a href="/branslarimiz">Yetişkin Kick Boks</a></li>
+        </ul>
+      </div>
+
+      <!-- İletişim -->
+      <div>
+        <div class="site-footer-col-title">İletişim</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="site-footer-contact-item">
+            <svg class="site-footer-contact-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Tavşan Tepe, 69002. Sk No 88/A, Onikişubat / Kahramanmaraş</span>
+          </div>
+          <div class="site-footer-contact-item">
+            <svg class="site-footer-contact-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <a href="tel:+905392437606">0539 243 76 06</a>
+          </div>
+          <div class="site-footer-contact-item">
+            <svg class="site-footer-contact-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>info@cimcimpark.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="site-footer-bar">
+      <div>© 2026 CİMCİMPARK · Tüm hakları saklıdır.</div>
+      <div class="site-footer-bar-links">
+        <a href="/gizlilik">Gizlilik</a>
+        <a href="/kvkk">KVKK Aydınlatma</a>
+        <a href="/cerez">Çerez Politikası</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll shadow for header
+  const hdr = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function() {
+    hdr.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  // ── Apps Script web app URL ──
+  const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbyF_4XA4HddrKDypWrHMv67qMwatZzcEa0i3Ev4hOFNqPCIPeATtJPjdM55NdrZ8RE3/exec';
+
+  function sorgula() {
+    const q = document.getElementById('sorguInput').value.trim();
+    if (q.length < 2) { showMsg('En az 2 karakter girin.', false); return; }
+
+    setLoading(true);
+    clearResults();
+
+    fetch(PORTAL_URL + '?action=query&q=' + encodeURIComponent(q))
+      .then(function(res) {
+        if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        setLoading(false);
+        if (!data.found || !data.members || data.members.length === 0) {
+          showMsg('Kayıt bulunamadı. Telefon numarası veya adı kontrol edin.', false);
+          return;
+        }
+        data.members.forEach(renderCard);
+      })
+      .catch(function(err) {
+        setLoading(false);
+        showMsg('Bağlantı hatası: ' + err.message, true);
+      });
+  }
+
+  function renderCard(m) {
+    const odemeBadge = odemeBadgeHTML(m.odeme);
+    const haeftaBadge = '<span class="badge badge-hafta">📍 ' + m.hafta + '</span>';
+
+    const html = '<div class="member-card">'
+      + '<div class="card-header">'
+      +   '<div class="avatar">👤</div>'
+      +   '<div>'
+      +     '<div class="card-name">' + escHtml(m.ad) + '</div>'
+      +     '<div class="card-brans">🥋 ' + escHtml(m.brans) + '</div>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="card-rows">'
+      +   '<div class="card-row"><span class="icon">📅</span><span class="lbl">Başlangıç</span><span class="val">' + escHtml(m.baslangic) + '</span></div>'
+      +   '<div class="card-row"><span class="icon">📅</span><span class="lbl">Bitiş</span><span class="val">' + escHtml(m.bitis) + '</span></div>'
+      +   '<div class="card-row"><span class="icon">📍</span><span class="lbl">Dönem</span>' + haeftaBadge + '</div>'
+      +   '<div class="card-row"><span class="icon">💳</span><span class="lbl">Ödeme</span>' + odemeBadge + '</div>'
+      + '</div>'
+      + '</div>';
+
+    document.getElementById('cards').insertAdjacentHTML('beforeend', html);
+  }
+
+  function odemeBadgeHTML(odeme) {
+    if (odeme === 'Ödendi')
+      return '<span class="badge badge-odendi">✓ Ödendi</span>';
+    if (odeme === 'Kısmi Ödeme')
+      return '<span class="badge badge-kismi">◑ Kısmi Ödeme</span>';
+    return '<span class="badge badge-bekliyor">! Bekliyor</span>';
+  }
+
+  function setLoading(on) {
+    document.getElementById('spinner').style.display = on ? 'block' : 'none';
+    document.getElementById('btnSorgula').disabled = on;
+    document.getElementById('btnSorgula').textContent = on ? '...' : 'Sorgula';
+  }
+
+  function clearResults() {
+    document.getElementById('cards').innerHTML = '';
+    document.getElementById('msgBox').style.display = 'none';
+  }
+
+  function showMsg(txt, isError) {
+    const el = document.getElementById('msgBox');
+    el.textContent = txt;
+    el.className = 'msg-box' + (isError ? ' error' : '');
+    el.style.display = 'block';
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+</script>
+</body>
+</html>
