@@ -104,7 +104,12 @@ function Navbar({ route }) {
             aria-label="Menü"
             className="lg:hidden p-2 rounded-btn border border-line"
           >
-            {open ? <I.Close width="20" height="20" /> : <I.Menu width="24" height="24" />}
+            {open ? <I.Close width="20" height="20" /> : (
+              <span className="flex flex-col items-center gap-0.5">
+                <I.Menu width="24" height="24" />
+                <span style={{ fontSize: '10px', fontWeight: 600, color: '#333', letterSpacing: '0.05em', lineHeight: 1 }}>MENÜ</span>
+              </span>
+            )}
           </button>
         </div>
       </div>
