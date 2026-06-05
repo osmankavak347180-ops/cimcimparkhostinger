@@ -281,7 +281,7 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 
 /* ---------- Hero slider titleAccent — turuncu → mor ---------- */
 [data-screen-label="01 Hero"] .bg-clip-text {
-  background-image: linear-gradient(to right, #7B2FBE, #7B2FBE) !important;
+  background-image: linear-gradient(to right, #00BCD4, #00BCD4) !important;
 }
 
 /* ---------- Navbar Üyelik Takip butonu ---------- */
