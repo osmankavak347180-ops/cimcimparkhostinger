@@ -284,6 +284,25 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   background-image: linear-gradient(to right, #00BCD4, #00BCD4) !important;
 }
 
+/* ---------- Mobil menü Üyelik Takip butonu ---------- */
+.mobile-sheet a[href="/uye-girisi.html"] {
+  background-color: #FF6B00;
+  color: white !important;
+  border-radius: 6px;
+  padding: 8px 16px;
+  border-bottom: none;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.mobile-sheet a[href="/uye-girisi.html"]:hover {
+  background-color: #e55f00;
+}
+
+.mobile-sheet a[href="/uye-girisi.html"] svg {
+  display: none;
+}
+
 /* ---------- Navbar Üyelik Takip butonu ---------- */
 nav a[href="/uye-girisi.html"],
 nav a[href="/uye-girisi"] {
