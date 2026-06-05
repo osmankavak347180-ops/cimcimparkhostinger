@@ -149,6 +149,7 @@ const HERO_SLIDES = [
   // Slayt 1 — gerçek CimCimPark çocuk cimnastik dersi (lokal, preload ile eşleşir)
   {
     src: 'assets/hero-slide-1.webp',
+    mobileSrc: 'assets/hero-mobile-1.webp',
     alt: 'CimCimPark çocuk cimnastik dersi — minder & çember çalışması',
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
@@ -160,6 +161,7 @@ const HERO_SLIDES = [
   // Slayt 2 — gerçek CimCimPark çocuk hareket
   {
     src: 'assets/hero-slide-2.webp',
+    mobileSrc: 'assets/hero-mobile-2.webp',
     alt: 'CimCimPark çocuk cimnastik dersi',
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
@@ -172,6 +174,7 @@ const HERO_SLIDES = [
   // Slayt 3 — yetişkin pilates / genel kitle
   {
     src: 'assets/hero-slide-3-new.webp',
+    mobileSrc: 'assets/hero-mobile-3.webp',
     alt: 'Yetişkin kadın pilates seansı',
     tint: 'from-aqua/40 to-brand/30',
     title: 'Kendi Sınırlarını Keşfet,',
@@ -226,12 +229,19 @@ function Hero() {
           >
             {/* color fallback if image fails to load */}
             <div className={`absolute inset-0 bg-gradient-to-br ${s.tint}`}></div>
-            {/* TODO: CLIENT WILL REPLACE THIS IMAGE URL */}
             <img
               src={s.src}
               alt={s.alt}
-              className="absolute inset-0 w-full h-full object-cover hero-kenburns"
+              className="hero-bg-desktop hero-kenburns"
               style={{ objectPosition: s.focal || 'center center' }}
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'auto'}
+            />
+            <img
+              src={s.mobileSrc}
+              alt={s.alt}
+              className="hero-bg-mobile hero-kenburns"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={i === 0 ? 'high' : 'auto'}
