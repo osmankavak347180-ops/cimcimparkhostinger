@@ -278,3 +278,18 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, .5); }
   50%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
 }
+
+/* ---------- Navbar Üyelik Takip butonu ---------- */
+nav a[href="/uye-girisi.html"],
+nav a[href="/uye-girisi"] {
+  background-color: #FF6B00;
+  color: white !important;
+  border-radius: 6px;
+  padding: 6px 14px;
+  transition: background-color 0.2s;
+}
+
+nav a[href="/uye-girisi.html"]:hover,
+nav a[href="/uye-girisi"]:hover {
+  background-color: #e55f00;
+}
