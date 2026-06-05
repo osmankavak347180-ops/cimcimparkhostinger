@@ -279,6 +279,11 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   50%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
 }
 
+/* ---------- Hero slider titleAccent — turuncu → mor ---------- */
+[data-screen-label="01 Hero"] .bg-clip-text {
+  background-image: linear-gradient(to right, #7B2FBE, #7B2FBE) !important;
+}
+
 /* ---------- Navbar Üyelik Takip butonu ---------- */
 nav a[href="/uye-girisi.html"],
 nav a[href="/uye-girisi"] {
