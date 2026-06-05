@@ -306,6 +306,10 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   background-image: linear-gradient(to right, #00BCD4, #00BCD4) !important;
 }
 
+/* ---------- Navbar Ücretsiz Deneme Dersi butonu — turkuaz ---------- */
+header .btn-primary { background-color: #00BCD4 !important; }
+header .btn-primary:hover { background-color: #0097a7 !important; }
+
 /* ---------- Mobil menü Üyelik Takip butonu ---------- */
 .mobile-sheet a[href="/uye-girisi.html"] {
   background-color: #FF6B00;
