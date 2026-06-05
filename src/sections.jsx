@@ -102,12 +102,13 @@ function Navbar({ route }) {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Menü"
-            className="lg:hidden p-2 rounded-btn border border-line"
+            className="lg:hidden rounded-[6px]"
+            style={{ backgroundColor: '#FF6B00', color: 'white', padding: '6px 10px', border: 'none' }}
           >
             {open ? <I.Close width="20" height="20" /> : (
               <span className="flex flex-col items-center gap-0.5">
                 <I.Menu width="24" height="24" />
-                <span style={{ fontSize: '10px', fontWeight: 600, color: '#333', letterSpacing: '0.05em', lineHeight: 1 }}>MENÜ</span>
+                <span style={{ fontSize: '10px', fontWeight: 600, color: 'white', letterSpacing: '0.05em', lineHeight: 1 }}>MENÜ</span>
               </span>
             )}
           </button>
