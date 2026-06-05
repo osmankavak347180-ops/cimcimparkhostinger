@@ -934,6 +934,11 @@ function Footer() {
             <Link to="/gizlilik" className="hover:text-ink">Gizlilik</Link>
             <Link to="/kvkk" className="hover:text-ink">KVKK Aydınlatma</Link>
             <Link to="/cerez" className="hover:text-ink">Çerez Politikası</Link>
+            <a
+              href="/uye-girisi.html"
+              className="text-white font-semibold hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: '#FF6B00', borderRadius: '6px', padding: '6px 14px' }}
+            >Üyelik Takip</a>
           </div>
         </div>
       </div>
