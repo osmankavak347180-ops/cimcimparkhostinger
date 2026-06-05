@@ -189,7 +189,7 @@ function Hero() {
 
   useEffectS(() => {
     if (paused) return;
-    const id = setInterval(() => setActive((a) => (a + 1) % HERO_SLIDES.length), 4000);
+    const id = setInterval(() => setActive((a) => (a + 1) % HERO_SLIDES.length), 6000);
     return () => clearInterval(id);
   }, [paused]);
 
