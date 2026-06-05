@@ -104,7 +104,7 @@ function Navbar({ route }) {
             aria-label="Menü"
             className="lg:hidden p-2 rounded-btn border border-line"
           >
-            {open ? <I.Close width="20" height="20" /> : <I.Menu width="20" height="20" />}
+            {open ? <I.Close width="20" height="20" /> : <I.Menu width="24" height="24" />}
           </button>
         </div>
       </div>

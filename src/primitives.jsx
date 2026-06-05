@@ -157,7 +157,7 @@ const I = {
     </svg>
   ),
   Menu: (p) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <path d="M4 6h16M4 12h16M4 18h16"/>
     </svg>
   ),
