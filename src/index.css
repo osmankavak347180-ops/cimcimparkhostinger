@@ -81,11 +81,33 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 }
 .btn-glass:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); border-color: rgba(255,255,255,.55); }
 
-/* Subtle ken-burns on hero slider images */
-.hero-kenburns { animation: kenburns 18s ease-in-out infinite alternate; transform-origin: center; }
-@keyframes kenburns {
+/* Ken-Burns on hero slider images — 3 directions */
+.hero-kenburns {
+  animation-name: kb-center;
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  transform-origin: center;
+}
+
+/* Per-slide direction via nth-child on the slide wrapper */
+[data-screen-label="01 Hero"] > div:first-child > div:nth-child(1) .hero-kenburns { animation-name: kb-left; }
+[data-screen-label="01 Hero"] > div:first-child > div:nth-child(2) .hero-kenburns { animation-name: kb-right; }
+[data-screen-label="01 Hero"] > div:first-child > div:nth-child(3) .hero-kenburns { animation-name: kb-center; }
+
+@keyframes kb-left {
+  from { transform: scale(1.0) translateX(0%); }
+  to   { transform: scale(1.1) translateX(-4%); }
+}
+@keyframes kb-right {
+  from { transform: scale(1.0) translateX(0%); }
+  to   { transform: scale(1.1) translateX(4%); }
+}
+@keyframes kb-center {
   from { transform: scale(1.0); }
-  to   { transform: scale(1.08); }
+  to   { transform: scale(1.1); }
 }
 
 /* ---------- Card lift ---------- */
