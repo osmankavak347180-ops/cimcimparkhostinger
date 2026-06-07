@@ -640,16 +640,15 @@ function About() {
 /* GALLERY                                                                */
 /* ====================================================================== */
 const GALLERY = [
-  { c: 'Çocuk Cimnastik',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-jimnastik.webp',    span: 'lg:col-span-2 lg:row-span-2' },
-  { c: 'Artistik Cimnastik',     t: 'aqua',    a: '4/3', src: 'assets/branch-artistik.webp' },
-  { c: 'Reformer Pilates',       t: 'brand',   a: '4/3', src: 'assets/branch-reformer-pilates.webp' },
-  { c: 'Genç Cimnastik',         t: 'neutral', a: '4/3', src: 'assets/branch-genc-jimnastik.webp' },
-  { c: 'Okul Öncesi Cimnastik',  t: 'aqua',    a: '4/3', src: 'assets/branch-okul-oncesi.webp' },
-  { c: 'Çocuk Taekwondo',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-taekwondo.webp' },
-  { c: 'Mat Pilates',            t: 'neutral', a: '4/3', src: 'assets/branch-mat-pilates.webp' },
-  { c: 'Çocuk Kick Boks',        t: 'brand',   a: '4/3', src: 'assets/branch-cocuk-kickboks.webp' },
-  { c: 'Yetişkin Kick Boks',     t: 'aqua',    a: '4/3', src: 'assets/branch-yetiskin-kickboks.webp' },
-  { c: 'Cimnastik',              t: 'neutral', a: '4/3', src: 'assets/branch-jimnastik.webp' },
+  { c: 'CimcimPark', t: 'brand',   src: 'assets/cimcimpark-1.webp', span: 'lg:col-span-2 lg:row-span-2' },
+  { c: 'CimcimPark', t: 'neutral', src: 'assets/cimcimpark-2.webp' },
+  { c: 'CimcimPark', t: 'aqua',    src: 'assets/cimcimpark-3.webp' },
+  { c: 'CimcimPark', t: 'brand',   src: 'assets/cimcimpark-4.webp' },
+  { c: 'CimcimPark', t: 'neutral', src: 'assets/cimcimpark-5.webp' },
+  { c: 'CimcimPark', t: 'brand',   src: 'assets/cimcimpark-6.webp' },
+  { c: 'CimcimPark', t: 'aqua',    src: 'assets/cimcimpark-7.webp' },
+  { c: 'CimcimPark', t: 'neutral', src: 'assets/cimcimpark-8.webp' },
+  { c: 'CimcimPark', t: 'brand',   src: 'assets/cimcimpark-9.webp' },
 ];
 
 function Gallery() {
