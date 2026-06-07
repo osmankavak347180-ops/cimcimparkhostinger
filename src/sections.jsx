@@ -1360,6 +1360,7 @@ function CTAStrip() {
 function SplitPromo() {
   return (
     <section data-screen-label="SplitPromo" className="overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="grid lg:grid-cols-2" style={{ minHeight: '500px' }}>
 
         {/* Sol: Fotoğraf */}
@@ -1399,6 +1400,7 @@ function SplitPromo() {
           </div>
         </div>
 
+      </div>
       </div>
     </section>
   );
