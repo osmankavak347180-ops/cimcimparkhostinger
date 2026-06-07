@@ -90,7 +90,7 @@ function FinalCTA() {
 /* ====================================================================== */
 function AboutPage() {
   const courses = [
-    { n: 'Çocuk Cimnastik Kursu',    age: '3-12 Yaş',      dot: 'brand' },
+    { n: 'Çocuk Cimnastik Kursu',    age: '6-12 Yaş',      dot: 'brand' },
     { n: 'Genç Cimnastik Kursu',     age: '12-18 Yaş',     dot: 'brand' },
     { n: 'Cimnastik Kursu',          age: 'Tüm Yaşlar',    dot: 'brand' },
     { n: 'Okul Öncesi Cimnastik',    age: '3-6 Yaş',       dot: 'brand' },
@@ -609,8 +609,8 @@ const BLOG_POSTS = [
   /* ---- Grup 1: CİMCİMPARK / Yerel SEO ---- */
   {
     slug: 'kahramanmaras-cocuk-cimnastik-kursu',
-    title: 'Kahramanmaraş Çocuk Cimnastik Kursu | 3–12 Yaş | CİMCİMPARK',
-    metaDescription: 'Kahramanmaraş çocuk cimnastik kursu arıyorsanız CİMCİMPARK doğru adres. Onikişubat\'ta 3-12 yaş için profesyonel, güvenli ve eğlenceli cimnastik eğitimi.',
+    title: 'Kahramanmaraş Çocuk Cimnastik Kursu | 6–12 Yaş | CİMCİMPARK',
+    metaDescription: 'Kahramanmaraş çocuk cimnastik kursu arıyorsanız CİMCİMPARK doğru adres. Onikişubat\'ta 6-12 yaş için profesyonel, güvenli ve eğlenceli cimnastik eğitimi.',
     category: 'Çocuk Cimnastik',
     date: '15 Mayıs 2026',
     readTime: '10 dk',
@@ -882,8 +882,8 @@ const BLOG_POSTS = [
   },
   {
     slug: 'kahramanmaras-cocuk-spor-programlari',
-    title: 'Kahramanmaraş\'ta Çocuk Spor Programları 3–12 Yaş | CİMCİMPARK',
-    metaDescription: 'Kahramanmaraş çocuk spor programları için CİMCİMPARK\'ı tercih edin. 3-12 yaş çocuklara özel cimnastik, taekwondo ve kick boks eğitimleri Onikişubat\'ta.',
+    title: 'Kahramanmaraş\'ta Çocuk Spor Programları 6–12 Yaş | CİMCİMPARK',
+    metaDescription: 'Kahramanmaraş çocuk spor programları için CİMCİMPARK\'ı tercih edin. 6-12 yaş çocuklara özel cimnastik, taekwondo ve kick boks eğitimleri Onikişubat\'ta.',
     category: 'Çocuk Sporu',
     date: '27 Mayıs 2026',
     readTime: '14 dk',

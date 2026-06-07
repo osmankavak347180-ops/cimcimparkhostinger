@@ -346,7 +346,7 @@ function Trust() {
 /* BRANCHES                                                               */
 /* ====================================================================== */
 const BRANCH_PHOTOS = [
-  { name: 'Çocuk Cimnastik Kursu',        age: '3-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand', href: '/cocuk-cimnastik-kursu.html'  },
+  { name: 'Çocuk Cimnastik Kursu',        age: '6-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand', href: '/cocuk-cimnastik-kursu.html'  },
   { name: 'Genç Cimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua',  href: '/genc-cimnastik-kursu.html'   },
   { name: 'Cimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand', href: '/cimnastik-kursu.html'        },
   { name: 'Okul Öncesi Cimnastik Kursu',   age: '3-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand', href: '/okul-oncesi-cimnastik.html'  },
@@ -962,7 +962,7 @@ function Footer() {
 function AgeGroups() {
   const groups = [
     {
-      tag: 'Çocuklar', age: '3-12 Yaş',
+      tag: 'Çocuklar', age: '6-12 Yaş',
       title: 'Küçük Adımlar, Büyük Gelişimler!',
       img: 'assets/branch-cocuk-jimnastik.webp', alt: 'Çocuk cimnastik dersi',
       color: '#F97316', softBg: '#FFF7ED',
