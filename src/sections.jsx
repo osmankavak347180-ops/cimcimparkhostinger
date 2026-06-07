@@ -346,7 +346,7 @@ function Trust() {
 /* BRANCHES                                                               */
 /* ====================================================================== */
 const BRANCH_PHOTOS = [
-  { name: 'Çocuk Cimnastik Kursu',        age: '4-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand', href: '/cocuk-cimnastik-kursu.html'  },
+  { name: 'Çocuk Cimnastik Kursu',        age: '3-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand', href: '/cocuk-cimnastik-kursu.html'  },
   { name: 'Genç Cimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua',  href: '/genc-cimnastik-kursu.html'   },
   { name: 'Cimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand', href: '/cimnastik-kursu.html'        },
   { name: 'Okul Öncesi Cimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand', href: '/okul-oncesi-cimnastik.html'  },
@@ -442,7 +442,7 @@ function WhyUs() {
   const cards = [
     { ico: 'trainer', t: 'Uzman Eğitmen Kadrosu',            d: 'Yıllarca deneyim ve federasyon sertifikaları ile donanmış kadromuz her sporcuya bireysel ilgi gösterir.',    tag: 'Sertifikalı', tone: 'brand' },
     { ico: 'shield',  t: 'Güvenli & Bakımlı Ekipmanlar',     d: 'Uluslararası standartlara uygun, periyodik bakımlı ekipmanlarımızla güvenlik her zaman önceliğimizdir.',    tag: 'Uluslararası Standart', tone: 'aqua' },
-    { ico: 'age',     t: 'Yaşa Özel Programlar',             d: '4 yaşından 65 yaşına kadar her bireye özel tasarlanmış müfredat ve seans programları.',                       tag: '4-65 Yaş', tone: 'brand' },
+    { ico: 'age',     t: 'Yaşa Özel Programlar',             d: '3 yaşından 65 yaşına kadar her bireye özel tasarlanmış müfredat ve seans programları.',                       tag: '3-65 Yaş', tone: 'brand' },
     { ico: 'cert',    t: 'Federasyona Bağlı Resmi Eğitim',   d: 'TCF lisanslı antrenörlerimizle resmi müfredat dahilinde eğitim — sporun temelleri sağlam atılıyor.',          tag: 'TCF Lisanslı', tone: 'aqua' },
     { ico: 'trophy',  t: 'Yarışma & Gösteri Deneyimi',       d: 'Yıl sonu gösterisi ve resmi yarışmalar ile öğrencilerimize sahne ve rekabet deneyimi kazandırıyoruz.',        tag: 'Yıl Sonu Gösterisi', tone: 'brand' },
     { ico: 'heart',   t: 'Aile Dostu Sıcak Ortam',           d: 'Öğrenci ve ailelerinin kendini evinde hissedeceği samimi, güler yüzlü bir spor ailesi sizi bekliyor.',        tag: 'Aile & Öğrenci Odaklı', tone: 'aqua' },
@@ -963,7 +963,7 @@ function Footer() {
 function AgeGroups() {
   const groups = [
     {
-      tag: 'Çocuklar', age: '4-12 Yaş',
+      tag: 'Çocuklar', age: '3-12 Yaş',
       title: 'Küçük Adımlar, Büyük Gelişimler!',
       img: 'assets/branch-cocuk-jimnastik.webp', alt: 'Çocuk cimnastik dersi',
       color: '#F97316', softBg: '#FFF7ED',
@@ -996,7 +996,7 @@ function AgeGroups() {
             Yaşınıza Özel <span className="text-brand">Program</span>
           </h2>
           <p className="mt-4 text-[16px] text-ink-soft">
-            4'ten 65'e kadar her bireyin ihtiyacına göre tasarlanmış programlarla başlayın.
+            3'ten 65'e kadar her bireyin ihtiyacına göre tasarlanmış programlarla başlayın.
           </p>
         </div>
         {groups.map((g, i) => (
@@ -1137,7 +1137,7 @@ function FAQ() {
   const [open, setOpen] = useStateS(null);
   const items = [
     { q: 'Başlamak için en uygun yaş nedir?',
-      a: '4 yaşından itibaren çocuklar okul öncesi ve temel cimnastik programlarına katılabilir. Yetişkinler için herhangi bir yaş sınırı yoktur — 65 yaşında başlayanlarımız bile var!' },
+      a: '3 yaşından itibaren çocuklar okul öncesi ve temel cimnastik programlarına katılabilir. Yetişkinler için herhangi bir yaş sınırı yoktur — 65 yaşında başlayanlarımız bile var!' },
     { q: 'Kurs ücretleri ne kadar?',
       a: 'Kurs ücretleri branş, gün sayısı ve seans süresine göre değişmektedir. Güncel fiyat listesi için WhatsApp veya telefon üzerinden bize ulaşabilirsiniz.' },
     { q: 'Ücretsiz deneme dersi var mı?',

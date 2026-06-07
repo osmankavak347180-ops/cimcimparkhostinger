@@ -90,7 +90,7 @@ function FinalCTA() {
 /* ====================================================================== */
 function AboutPage() {
   const courses = [
-    { n: 'Çocuk Cimnastik Kursu',    age: '4-12 Yaş',      dot: 'brand' },
+    { n: 'Çocuk Cimnastik Kursu',    age: '3-12 Yaş',      dot: 'brand' },
     { n: 'Genç Cimnastik Kursu',     age: '12-18 Yaş',     dot: 'brand' },
     { n: 'Cimnastik Kursu',          age: 'Tüm Yaşlar',    dot: 'brand' },
     { n: 'Okul Öncesi Cimnastik',    age: '4-6 Yaş',       dot: 'brand' },
@@ -143,7 +143,7 @@ function AboutPage() {
               </div>
               <div className="reveal mt-6 space-y-4 text-[15.5px] text-ink-soft leading-relaxed" style={{ '--d': '80ms' }}>
                 <p>CİMCİMPARK, 2026 yılında Kahramanmaraş Onikişubat'ta, her yaştan bireyin spora ilk adımını güvenle atabileceği modern bir merkez olarak kapılarını açtı. Uzman kadromuz ve uluslararası standartlara uygun donanımımızla fark yaratıyoruz.</p>
-                <p>4 yaşından 65 yaşına kadar uzanan geniş yaş yelpazesinde cimnastik, pilates, taekwondo ve kick boks branşlarında profesyonel eğitim sunuyoruz. Her öğrencimize özel, küçük grup seanslarıyla bireysel ilgi garantisi veriyoruz.</p>
+                <p>3 yaşından 65 yaşına kadar uzanan geniş yaş yelpazesinde cimnastik, pilates, taekwondo ve kick boks branşlarında profesyonel eğitim sunuyoruz. Her öğrencimize özel, küçük grup seanslarıyla bireysel ilgi garantisi veriyoruz.</p>
                 <p>TCF lisanslı eğitmenlerimiz, yalnızca fiziksel değil; disiplin, özgüven ve sosyal beceriler açısından da öğrencilerimizin gelişimine katkı sağlıyor. Bize göre spor sadece hareket değil, bir yaşam biçimidir.</p>
               </div>
               <div className="reveal mt-8" style={{ '--d': '160ms' }}>
@@ -609,8 +609,8 @@ const BLOG_POSTS = [
   /* ---- Grup 1: CİMCİMPARK / Yerel SEO ---- */
   {
     slug: 'kahramanmaras-cocuk-cimnastik-kursu',
-    title: 'Kahramanmaraş Çocuk Cimnastik Kursu | 4–12 Yaş | CİMCİMPARK',
-    metaDescription: 'Kahramanmaraş çocuk cimnastik kursu arıyorsanız CİMCİMPARK doğru adres. Onikişubat\'ta 4-12 yaş için profesyonel, güvenli ve eğlenceli cimnastik eğitimi.',
+    title: 'Kahramanmaraş Çocuk Cimnastik Kursu | 3–12 Yaş | CİMCİMPARK',
+    metaDescription: 'Kahramanmaraş çocuk cimnastik kursu arıyorsanız CİMCİMPARK doğru adres. Onikişubat\'ta 3-12 yaş için profesyonel, güvenli ve eğlenceli cimnastik eğitimi.',
     category: 'Çocuk Cimnastik',
     date: '15 Mayıs 2026',
     readTime: '10 dk',
@@ -627,7 +627,7 @@ const BLOG_POSTS = [
 <li><strong>TCF Lisanslı Eğitmenler:</strong> Türkiye Cimnastik Federasyonu onaylı eğitim metodolojisi</li>
 <li><strong>Küçük Gruplar:</strong> Azami 8 kişilik gruplarda bireysel ilgi</li>
 <li><strong>Güvenli Donanım:</strong> Olimpik standartlarda minder, barfiks ve cimnastik ekipmanları</li>
-<li><strong>4 Yaştan İtibaren:</strong> Yaşa uygun müfredat ile en erken başlangıç fırsatı</li>
+<li><strong>3 Yaştan İtibaren:</strong> Yaşa uygun müfredat ile en erken başlangıç fırsatı</li>
 </ul>
 
 <h2>Cimnastik Eğitiminin Yaşa Göre İçeriği</h2>
@@ -882,8 +882,8 @@ const BLOG_POSTS = [
   },
   {
     slug: 'kahramanmaras-cocuk-spor-programlari',
-    title: 'Kahramanmaraş\'ta Çocuk Spor Programları 4–12 Yaş | CİMCİMPARK',
-    metaDescription: 'Kahramanmaraş çocuk spor programları için CİMCİMPARK\'ı tercih edin. 4-12 yaş çocuklara özel cimnastik, taekwondo ve kick boks eğitimleri Onikişubat\'ta.',
+    title: 'Kahramanmaraş\'ta Çocuk Spor Programları 3–12 Yaş | CİMCİMPARK',
+    metaDescription: 'Kahramanmaraş çocuk spor programları için CİMCİMPARK\'ı tercih edin. 3-12 yaş çocuklara özel cimnastik, taekwondo ve kick boks eğitimleri Onikişubat\'ta.',
     category: 'Çocuk Sporu',
     date: '27 Mayıs 2026',
     readTime: '14 dk',
@@ -920,7 +920,7 @@ const BLOG_POSTS = [
 <h2>CİMCİMPARK'taki Branşlar</h2>
 
 <ul>
-<li><strong>Temel Cimnastik:</strong> 4–12 yaş, haftada 2–3 gün. Esneklik, denge ve koordinasyon temeli</li>
+<li><strong>Temel Cimnastik:</strong> 3–12 yaş, haftada 2–3 gün. Esneklik, denge ve koordinasyon temeli</li>
 <li><strong>Çocuk Taekwondo:</strong> 6–14 yaş, haftada 2 gün. Kuşak sistemi, disiplin ve öz-savunma</li>
 <li><strong>Çocuk Kick Boks:</strong> 8–14 yaş, haftada 3 gün. Kondisyon, özgüven ve koordinasyon</li>
 </ul>
