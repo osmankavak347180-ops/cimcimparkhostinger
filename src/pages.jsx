@@ -380,7 +380,7 @@ function BranchesPage() {
     <>
       <PageHeader
         crumbs="Branşlarımız"
-        eyebrow="6 disiplin · 4-65 yaş"
+        eyebrow="6 disiplin · 3-65 yaş"
         title="Her yaşa, her hedefe"
         accent="özel bir program."
         lede="Çocuğun ilk takla denemesinden yetişkinin reformer seansına kadar, küçük gruplar ve birebir seanslarla profesyonel eğitim."

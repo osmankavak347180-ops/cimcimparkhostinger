@@ -317,8 +317,8 @@ function Trust() {
     { value: 500, suffix: '+', label: 'Aktif Üye',         sub: 'Düzenli antrenman' },
     { value: 6,   suffix: '',  label: 'Profesyonel Branş', sub: 'Çocuk & Yetişkin' },
     { value: 4,   suffix: '+', label: 'Uzman Eğitmen',     sub: 'Sertifikalı kadro' },
-    // Stat özel: rakam yerine '4-65' yazı olarak gösterilir.
-    { display: '4-65', label: '4-65 Yaş Aralığı',     sub: 'Herkes için spor' },
+    // Stat özel: rakam yerine '3-65' yazı olarak gösterilir.
+    { display: '3-65', label: '3-65 Yaş Aralığı',     sub: 'Herkes için spor' },
   ];
 
   return (
@@ -436,7 +436,7 @@ function WhyUs() {
   const stats = [
     { n: '10+', l: 'Branş' },
     { n: '500+', l: 'Mutlu Öğrenci' },
-    { n: '4-65', l: 'Yaş' },
+    { n: '3-65', l: 'Yaş' },
     { n: '7+', l: 'Yıl' },
   ];
   const cards = [
@@ -1333,7 +1333,7 @@ function CTAStrip() {
             </a>
           </div>
           <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-3" style={{ '--d': '200ms' }}>
-            {[['🎁','Ücretsiz Deneme'],['👶','4-65 Yaş'],['🏅','10 Branş'],['⚡','Anında Yanıt']].map(([ico, txt], i) => (
+            {[['🎁','Ücretsiz Deneme'],['👶','3-65 Yaş'],['🏅','10 Branş'],['⚡','Anında Yanıt']].map(([ico, txt], i) => (
               <div key={i} className="flex items-center gap-2 rounded-pill px-4 py-2 text-[13px] font-medium" style={{ background: 'rgba(255,255,255,.1)', color: '#fff' }}>
                 <span>{ico}</span><span>{txt}</span>
               </div>
