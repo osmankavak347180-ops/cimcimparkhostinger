@@ -37,9 +37,11 @@ function PageHeader({ eyebrow, title, accent, lede, crumbs }) {
 function HomePage() {
   return (
     <>
-      <Hero />
-      <BranchPhotoGrid />
-      <SplitPromo />
+      <div className="flex flex-col">
+        <Hero />
+        <div className="order-2 md:order-1"><BranchPhotoGrid /></div>
+        <div className="order-1 md:order-2"><SplitPromo /></div>
+      </div>
       <WhyUs />
       <AgeGroups />
       <HomeGallery />
