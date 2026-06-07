@@ -1374,7 +1374,7 @@ function SplitPromo() {
         </div>
 
         {/* Sağ: Marka turuncu panel */}
-        <div className="relative overflow-hidden flex items-center px-8 sm:px-14 lg:px-16 py-14 sm:py-16 bg-gradient-to-br from-brand to-brand-deep">
+        <div className="relative overflow-hidden flex items-center px-8 sm:px-14 lg:px-16 py-14 sm:py-16" style={{ background: 'linear-gradient(135deg, #EA580C 0%, #9A3412 100%)' }}>
           <div className="absolute pointer-events-none rounded-full bg-white/10" style={{ width: 360, height: 360, top: -120, right: -90 }}></div>
           <div className="absolute pointer-events-none rounded-full bg-aqua/20" style={{ width: 240, height: 240, bottom: -80, left: 20 }}></div>
           <div className="relative z-10 max-w-[480px]">
