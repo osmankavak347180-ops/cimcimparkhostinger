@@ -600,7 +600,7 @@ function GalleryPage() {
       <Gallery />
       <div className="flex justify-center py-12">
         <a
-          href="https://www.instagram.com/cimcimpark"
+          href="https://www.instagram.com/cimcimparkk/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-lg transition-colors"
