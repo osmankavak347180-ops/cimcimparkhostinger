@@ -349,7 +349,7 @@ const BRANCH_PHOTOS = [
   { name: 'Çocuk Cimnastik Kursu',        age: '3-12 Yaş',     src: 'assets/branch-cocuk-jimnastik.webp',   tone: 'brand', href: '/cocuk-cimnastik-kursu.html'  },
   { name: 'Genç Cimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua',  href: '/genc-cimnastik-kursu.html'   },
   { name: 'Cimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand', href: '/cimnastik-kursu.html'        },
-  { name: 'Okul Öncesi Cimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand', href: '/okul-oncesi-cimnastik.html'  },
+  { name: 'Okul Öncesi Cimnastik Kursu',   age: '3-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand', href: '/okul-oncesi-cimnastik.html'  },
   { name: 'Artistik Cimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik-v2.webp',          tone: 'aqua',  href: '/artistik-cimnastik.html'     },
   { name: 'Reformer Pilates',              age: '18-65 Yaş',    src: 'assets/branch-reformer-pilates.webp',  tone: 'aqua',  href: '/reformer-pilates.html'       },
   { name: 'Mat Pilates',                   age: '16-65 Yaş',    src: 'assets/branch-mat-pilates.webp',       tone: 'aqua',  href: '/mat-pilates.html'            },

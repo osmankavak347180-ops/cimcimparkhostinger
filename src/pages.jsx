@@ -93,7 +93,7 @@ function AboutPage() {
     { n: 'Çocuk Cimnastik Kursu',    age: '3-12 Yaş',      dot: 'brand' },
     { n: 'Genç Cimnastik Kursu',     age: '12-18 Yaş',     dot: 'brand' },
     { n: 'Cimnastik Kursu',          age: 'Tüm Yaşlar',    dot: 'brand' },
-    { n: 'Okul Öncesi Cimnastik',    age: '4-6 Yaş',       dot: 'brand' },
+    { n: 'Okul Öncesi Cimnastik',    age: '3-6 Yaş',       dot: 'brand' },
     { n: 'Artistik Cimnastik Kursu', age: 'İleri Seviye',  dot: 'brand' },
     { n: 'Reformer Pilates',         age: '18-65 Yaş',     dot: 'aqua'  },
     { n: 'Mat Pilates',              age: '16-65 Yaş',     dot: 'aqua'  },
