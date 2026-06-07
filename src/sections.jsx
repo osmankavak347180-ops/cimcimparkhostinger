@@ -1359,30 +1359,19 @@ function CTAStrip() {
 /* ====================================================================== */
 function SplitPromo() {
   return (
-    <section data-screen-label="SplitPromo" className="overflow-hidden">
-      <div className="grid lg:grid-cols-2" style={{ minHeight: '500px' }}>
+    <section data-screen-label="SplitPromo" className="overflow-hidden md:hidden">
+      <div className="flex flex-col">
 
-        {/* Sol: Fotoğraf */}
-        <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
-          <img
-            src="assets/split-promo-gymnasts.webp"
-            alt="CİMCİMPARK — Cimnastik yapan çocuklar"
-            className="absolute inset-0 w-full h-full object-cover hero-kenburns"
-            loading="lazy"
-            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-          />
-        </div>
-
-        {/* Sağ: Marka turuncu panel */}
-        <div className="relative overflow-hidden flex items-center px-8 sm:px-14 lg:px-16 py-14 sm:py-16" style={{ background: 'linear-gradient(135deg, #EA580C 0%, #9A3412 100%)' }}>
+        {/* Üst (mobil): Metin + buton */}
+        <div className="relative overflow-hidden flex items-center px-8 py-12" style={{ background: 'linear-gradient(135deg, #EA580C 0%, #9A3412 100%)' }}>
           <div className="absolute pointer-events-none rounded-full bg-white/10" style={{ width: 360, height: 360, top: -120, right: -90 }}></div>
           <div className="absolute pointer-events-none rounded-full bg-aqua/20" style={{ width: 240, height: 240, bottom: -80, left: 20 }}></div>
-          <div className="relative z-10 max-w-[480px]">
-            <p className="text-[13px] sm:text-[14px] font-semibold text-white/80 leading-snug">
+          <div className="relative z-10">
+            <p className="text-[13px] font-semibold text-white/80 leading-snug">
               Enerjisi Bitmeyen Çocuklar İçin Harika Bir Başlangıç!
             </p>
             <div className="mt-4 w-9 rounded-full bg-white/45" style={{ height: 3 }}></div>
-            <h2 className="mt-5 font-display font-extrabold text-[28px] sm:text-[36px] leading-[1.13] tracking-[-0.02em] text-white">
+            <h2 className="mt-5 font-display font-extrabold text-[26px] leading-[1.13] tracking-[-0.02em] text-white">
               Güvenli Eller, Mutlu Çocuklar:
               <span className="block" style={{ color: 'rgba(255,255,255,.88)' }}>Cimnastiğin İlk Adımları Bizimle!</span>
             </h2>
@@ -1390,13 +1379,24 @@ function SplitPromo() {
               href="https://wa.me/905392437606"
               target="_blank"
               rel="noreferrer"
-              className="mt-9 inline-flex items-center gap-3 bg-white text-brand-deep font-display font-bold rounded-btn shadow-card hover:-translate-y-1 transition-all duration-300"
+              className="mt-8 inline-flex items-center gap-3 bg-white text-brand-deep font-display font-bold rounded-btn shadow-card"
               style={{ padding: '14px 28px', fontSize: 15 }}
             >
               <I.Whatsapp width="22" height="22" />
               Hemen Kayıt Ol
             </a>
           </div>
+        </div>
+
+        {/* Alt (mobil): Fotoğraf */}
+        <div className="relative overflow-hidden" style={{ minHeight: '260px' }}>
+          <img
+            src="assets/split-promo-gymnasts.webp"
+            alt="CİMCİMPARK — Cimnastik yapan çocuklar"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
         </div>
 
       </div>
