@@ -1050,16 +1050,15 @@ function AgeGroups() {
 function HomeGallery() {
   const [lb, setLb] = useStateS(null);
   const photos = [
-    { src: 'assets/branch-cocuk-jimnastik.webp', label: 'Çocuk Cimnastik', span: 'g-big' },
-    { src: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates',         span: '' },
-    { src: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates',    span: 'g-tall' },
-    { src: 'assets/branch-cocuk-taekwondo.webp',  label: 'Çocuk Taekwondo',     span: '' },
-    { src: 'assets/branch-jimnastik.webp',        label: 'Cimnastik',           span: '' },
-    { src: 'assets/branch-artistik.webp',         label: 'Artistik Cimnastik',  span: 'g-wide' },
-    { src: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Cimnastik',      span: '' },
-    { src: 'assets/branch-cocuk-kickboks.webp',   label: 'Çocuk Kick Boks',     span: '' },
-    { src: 'assets/branch-okul-oncesi.webp',      label: 'Okul Öncesi',         span: '' },
-    { src: 'assets/branch-yetiskin-kickboks.webp',label: 'Yetişkin Kick Boks',  span: 'g-wide' },
+    { src: 'assets/cimcimpark-1.webp', label: 'CimcimPark', span: 'g-big' },
+    { src: 'assets/cimcimpark-2.webp', label: 'CimcimPark', span: '' },
+    { src: 'assets/cimcimpark-3.webp', label: 'CimcimPark', span: 'g-tall' },
+    { src: 'assets/cimcimpark-4.webp', label: 'CimcimPark', span: '' },
+    { src: 'assets/cimcimpark-5.webp', label: 'CimcimPark', span: '' },
+    { src: 'assets/cimcimpark-6.webp', label: 'CimcimPark', span: 'g-wide' },
+    { src: 'assets/cimcimpark-7.webp', label: 'CimcimPark', span: '' },
+    { src: 'assets/cimcimpark-8.webp', label: 'CimcimPark', span: '' },
+    { src: 'assets/cimcimpark-9.webp', label: 'CimcimPark', span: '' },
   ];
   const prev = () => setLb((v) => (v - 1 + photos.length) % photos.length);
   const next = () => setLb((v) => (v + 1) % photos.length);
