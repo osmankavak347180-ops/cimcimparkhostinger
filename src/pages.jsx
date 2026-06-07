@@ -38,8 +38,8 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <SplitPromo />
       <BranchPhotoGrid />
+      <SplitPromo />
       <WhyUs />
       <AgeGroups />
       <HomeGallery />
