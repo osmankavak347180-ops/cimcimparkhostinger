@@ -162,7 +162,7 @@ function AboutPage() {
                   onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
               </div>
               <div className="overflow-hidden rounded-card" style={{ height: '180px' }}>
-                <img src="assets/branch-artistik.webp" alt="Artistik cimnastik" loading="lazy"
+                <img src="assets/branch-artistik-v2.webp" alt="Artistik cimnastik" loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
               </div>
@@ -1140,7 +1140,7 @@ const BLOG_POSTS = [
     readTime: '10 dk',
     excerpt: 'Kick boks sporunun temelleri: tarihçe, temel teknikler, ekipmanlar ve başlangıç ipuçları. Hem kondisyon hem savunma arayan yeni başlayanlar için kapsamlı rehber.',
     tone: 'aqua',
-    src: 'assets/branch-yetiskin-kickboks.webp',
+    src: 'assets/branch-kickboks-v2.webp',
     content: `<p><strong>Kick boks nedir?</strong> El yumruğu ve ayak tekniklerini bir arada kullanan bu dinamik dövüş sporu, hem kişisel savunma hem de yüksek yoğunluklu kondisyon antrenmanı olarak dünya genelinde büyük popülerlik kazanmıştır. 1960'larda Japonya'da ortaya çıkan ve Kuzey Amerika'da büyük ilgi gören <strong>kick boks</strong>, bugün hem profesyonel müsabakalarda hem de fitness stüdyolarında kendine sağlam bir yer bulmuştur.</p>
 
 <h2>Kick Boksun Kısa Tarihçesi</h2>
@@ -1294,7 +1294,7 @@ const BLOG_POSTS = [
     readTime: '8 dk',
     excerpt: 'Çocuğunuzu harekete geçirmek ve kalıcı bir spor alışkanlığı oluşturmak için kanıta dayalı 7 etkili yöntem. Zorlamadan, oyunlaştırarak ve aile olarak.',
     tone: 'brand',
-    src: 'assets/branch-artistik.webp',
+    src: 'assets/branch-artistik-v2.webp',
     content: `<p>Dünya Sağlık Örgütü'nün (WHO) 2020 yılında yayımladığı kılavuz, 5–17 yaş arası çocuk ve gençlerin günde en az 60 dakika orta-yoğun fiziksel aktivite yapması gerektiğini belirtmektedir. Ancak istatistikler endişe verici: Türkiye'de çocukların büyük çoğunluğu bu hedefi karşılayamamaktadır. Ekran süresinin artması, şehir yaşamının getirdiği kısıtlamalar ve yoğun okul programları, <strong>çocuklarda spor alışkanlığı</strong> geliştirmeyi her geçen yıl daha zorlu bir görev haline getirmektedir.</p>
 
 <p>Peki bir ebeveyn olarak çocuğunuza nasıl kalıcı bir spor sevgisi aşılayabilirsiniz? İşte bilimsel temellere dayanan 7 etkili yöntem.</p>

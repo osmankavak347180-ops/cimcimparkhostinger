@@ -350,12 +350,12 @@ const BRANCH_PHOTOS = [
   { name: 'Genç Cimnastik Kursu',          age: '12-18 Yaş',    src: 'assets/branch-genc-jimnastik.webp',    tone: 'aqua',  href: '/genc-cimnastik-kursu.html'   },
   { name: 'Cimnastik Kursu',               age: 'Tüm Yaşlar',   src: 'assets/branch-jimnastik.webp',         tone: 'brand', href: '/cimnastik-kursu.html'        },
   { name: 'Okul Öncesi Cimnastik Kursu',   age: '4-6 Yaş',      src: 'assets/branch-okul-oncesi.webp',       tone: 'brand', href: '/okul-oncesi-cimnastik.html'  },
-  { name: 'Artistik Cimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik.webp',          tone: 'aqua',  href: '/artistik-cimnastik.html'     },
+  { name: 'Artistik Cimnastik Kursu',      age: 'İleri Seviye', src: 'assets/branch-artistik-v2.webp',          tone: 'aqua',  href: '/artistik-cimnastik.html'     },
   { name: 'Reformer Pilates',              age: '18-65 Yaş',    src: 'assets/branch-reformer-pilates.webp',  tone: 'aqua',  href: '/reformer-pilates.html'       },
   { name: 'Mat Pilates',                   age: '16-65 Yaş',    src: 'assets/branch-mat-pilates.webp',       tone: 'aqua',  href: '/mat-pilates.html'            },
   { name: 'Çocuk Taekwondo',               age: '6-14 Yaş',     src: 'assets/branch-cocuk-taekwondo.webp',   tone: 'brand', href: '/cocuk-taekwondo.html'        },
   { name: 'Çocuk Kick Boks',               age: '8-14 Yaş',     src: 'assets/branch-cocuk-kickboks.webp',    tone: 'brand', href: '/cocuk-kick-boks.html'        },
-  { name: 'Yetişkin Kick Boks',            age: '16-45 Yaş',    src: 'assets/branch-yetiskin-kickboks.webp', tone: 'aqua',  href: '/yetiskin-kick-boks.html'     },
+  { name: 'Yetişkin Kick Boks',            age: '16-45 Yaş',    src: 'assets/branch-kickboks-v2.webp', tone: 'aqua',  href: '/yetiskin-kick-boks.html'     },
 ];
 
 function BranchPhotoCard({ b }) {
@@ -1204,8 +1204,8 @@ function SocialMedia() {
     { img: 'assets/branch-mat-pilates.webp',      label: 'Mat Pilates' },
     { img: 'assets/branch-reformer-pilates.webp', label: 'Reformer Pilates' },
     { img: 'assets/branch-genc-jimnastik.webp',   label: 'Genç Cimnastik' },
-    { img: 'assets/branch-artistik.webp',         label: 'Artistik' },
-    { img: 'assets/branch-yetiskin-kickboks.webp',label: 'Kick Boks' },
+    { img: 'assets/branch-artistik-v2.webp',         label: 'Artistik' },
+    { img: 'assets/branch-kickboks-v2.webp',label: 'Kick Boks' },
   ];
   return (
     <section id="social-media" className="py-20 sm:py-28">
