@@ -178,52 +178,88 @@ function BranchesDetailed() {
 /* ====================================================================== */
 /* EKİBİMİZ                                                              */
 /* ====================================================================== */
-const TEAM = [
+const TRAINERS = [
   {
     name: 'Büşra FISTIK',
     role: 'Kurucu & Baş Antrenör',
-    branch: 'Cimnastik & Pilates',
-    tone: 'brand',
-    // TODO: CLIENT WILL REPLACE THIS IMAGE URL
-    src: null,
-    instagram: 'https://www.instagram.com/cimcimparkk/',
+    branch: 'CİMNASTİK & PİLATES',
+    photo: 'assets/trainer-busra.webp',
+    instagram: 'https://instagram.com/cimcimparkk',
     whatsapp: 'https://wa.me/905392437606',
+    soon: false,
   },
   {
-    name: null,
-    role: 'Antrenör',
-    branch: 'Taekwondo',
-    tone: 'aqua',
-    src: null,
-    instagram: null,
+    name: 'Zeynep GÜLELLİ',
+    role: 'Cimnastik & Atletizm Eğitmeni',
+    branch: 'CİMNASTİK',
+    photo: 'assets/trainer-zeynep.webp',
     whatsapp: 'https://wa.me/905392437606',
+    credentials: [
+      '3. Kademe Yüzme Antrenörü',
+      '1. Kademe Genel Cimnastik Eğitmeni',
+      '1. Kademe Atletizm Eğitmeni',
+    ],
+    edu: 'KSÜ Spor Bilimleri Fakültesi',
+    soon: false,
   },
   {
-    name: null,
-    role: 'Antrenör',
-    branch: 'Kick Boks',
-    tone: 'brand',
-    src: null,
-    instagram: null,
+    name: 'Hatice FISTIK',
+    role: 'Cimnastik Yardımcı Eğitmeni',
+    branch: 'CİMNASTİK',
+    photo: 'assets/trainer-hatice.webp',
     whatsapp: 'https://wa.me/905392437606',
+    bio: 'Uzun yıllar aktif cimnastik yapmış ve yarışmalarda yer almıştır. Son 4 yıldır CimcimPark bünyesinde çocuklarla çalışmaktadır.',
+    soon: false,
+  },
+  {
+    name: 'Nisa KÖSE',
+    role: 'Cimnastik Yardımcı Eğitmeni',
+    branch: 'CİMNASTİK',
+    photo: 'assets/trainer-nisa.webp',
+    whatsapp: 'https://wa.me/905392437606',
+    soon: false,
+  },
+  {
+    name: 'Eklenecek',
+    role: 'Antrenör',
+    branch: 'TAEKWONDO',
+    whatsapp: 'https://wa.me/905392437606',
+    soon: true,
+  },
+  {
+    name: 'Eklenecek',
+    role: 'Antrenör',
+    branch: 'KİCK BOKS',
+    whatsapp: 'https://wa.me/905392437606',
+    soon: true,
   },
 ];
 
 function TeamCard({ m, i }) {
-  const branchChip = m.tone === 'aqua'
-    ? 'text-aqua-deep bg-aqua-soft'
-    : 'text-brand-deep bg-brand-soft';
+  const isAqua = m.branch === ‘TAEKWONDO’;
+  const branchChip = isAqua ? ‘text-aqua-deep bg-aqua-soft’ : ‘text-brand-deep bg-brand-soft’;
   return (
     <article
       className="reveal card-lift bg-white border border-line rounded-card overflow-hidden flex flex-col"
-      style={{ '--d': `${i * 100}ms` }}
+      style={{ ‘--d’: `${i * 100}ms` }}
     >
       {/* Photo */}
       <div className="relative">
-        {m.src
-          ? <Img src={m.src} alt={m.name || m.branch} tone={m.tone} aspect="3/4" />
-          : <Photo caption={m.name ? `${m.name} — portre` : `${m.branch} Antrenörü — yakında`} tone={m.tone} aspect="3/4" />}
-        {!m.name && (
+        {m.photo && !m.soon
+          ? (
+            <div className="relative overflow-hidden" style={{ aspectRatio: ‘3/4’ }}>
+              <img
+                src={m.photo}
+                alt={`${m.name} — portre`}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: ‘top center’ }}
+                loading="lazy"
+              />
+            </div>
+          )
+          : <Photo caption={m.soon ? `${m.branch} Antrenörü — yakında` : `${m.name} — portre`} tone={isAqua ? ‘aqua’ : ‘brand’} aspect="3/4" />
+        }
+        {m.soon && (
           <span className="absolute top-3 left-3 text-[11px] font-semibold uppercase tracking-wide bg-ink/70 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">
             Yakında
           </span>
@@ -232,37 +268,66 @@ function TeamCard({ m, i }) {
 
       <div className="p-6 flex flex-col flex-1">
         <h3 className="font-display font-bold text-[20px] text-ink tracking-tight">
-          {m.name || <span className="text-ink-faint italic">Eklenecek</span>}
+          {m.soon ? <span className="text-ink-faint italic">Eklenecek</span> : m.name}
         </h3>
         <div className="mt-1 text-[13.5px] font-semibold text-brand">{m.role}</div>
 
-        <div className="mt-4">
+        <div className="mt-3">
           <span className={`inline-flex items-center text-[11.5px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${branchChip}`}>
             {m.branch}
           </span>
         </div>
 
+        {m.edu && (
+          <div className="mt-3">
+            <span className="inline-flex items-center text-[11.5px] font-medium text-ink-soft bg-paper-soft border border-line px-2.5 py-1 rounded-full">
+              🎓 {m.edu}
+            </span>
+          </div>
+        )}
+
+        {m.credentials && m.credentials.length > 0 && (
+          <ul className="mt-3 space-y-1">
+            {m.credentials.map((c, idx) => (
+              <li key={idx} className="flex items-start gap-2 text-[13px] text-ink-soft">
+                <span className="mt-[3px] w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
+                {c}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {m.bio && (
+          <p className="mt-3 text-[13.5px] text-ink-soft leading-relaxed">
+            {m.bio}
+          </p>
+        )}
+
         <div className="mt-auto pt-5 flex items-center gap-2">
-          {m.instagram && (
-            <a
-              href={m.instagram}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${m.name || m.branch} — Instagram`}
-              className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
-            >
-              <I.Instagram width="18" height="18" />
-            </a>
-          )}
-          <a
-            href={m.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${m.name || m.branch} — WhatsApp’tan yaz`}
-            className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
-          >
-            <I.Whatsapp width="18" height="18" />
-          </a>
+          <div className="flex items-center gap-2">
+            {m.instagram && (
+              <a
+                href={m.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${m.name || m.branch} — Instagram`}
+                className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
+              >
+                <I.Instagram width="18" height="18" />
+              </a>
+            )}
+            {m.whatsapp && (
+              <a
+                href={m.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${m.name || m.branch} — WhatsApp’tan yaz`}
+                className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
+              >
+                <I.Whatsapp width="18" height="18" />
+              </a>
+            )}
+          </div>
           <Link
             to="/iletisim"
             className="ml-auto inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink hover:text-brand transition-colors"
@@ -289,7 +354,7 @@ function TeamPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM.map((m, i) => <TeamCard key={i} m={m} i={i} />)}
+            {TRAINERS.map((m, i) => <TeamCard key={i} m={m} i={i} />)}
           </div>
 
           {/* Bottom CTA strip */}
