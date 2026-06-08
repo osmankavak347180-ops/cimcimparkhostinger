@@ -98,6 +98,10 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
   .hero-bg-mobile  { display: block; }
 }
 
+/* Hero nav arrows — mobile hidden, md+ visible */
+.hero-nav-btn { display: none !important; }
+@media (min-width: 768px) { .hero-nav-btn { display: flex !important; } }
+
 /* Ken-Burns on hero slider images — 3 directions */
 .hero-kenburns {
   animation-name: kb-center;
