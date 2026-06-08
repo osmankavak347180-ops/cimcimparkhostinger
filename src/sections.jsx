@@ -210,6 +210,7 @@ function Hero() {
     <section
       data-screen-label="01 Hero"
       className="relative overflow-hidden bg-ink h-screen flex"
+      style={{ minHeight: '100svh' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -249,8 +250,8 @@ function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(17,24,39,0.15)_95%)]"></div>
       </div>
 
-      {/* Content — mobilde 100svh içinde dikey ortalanır, masaüstünde padding ile nefes alır */}
-      <div className="relative w-full max-w-[1200px] mx-auto px-4 text-center text-white flex flex-col items-center justify-center h-full">
+      {/* Content — dikey ortalama + üst/alt padding: içerik kırpılmaz */}
+      <div className="relative w-full max-w-[1200px] mx-auto px-4 text-center text-white flex flex-col items-center justify-center h-full pt-10 pb-20 sm:pt-6 sm:pb-16">
         <div className="reveal flex justify-center" style={{ '--d': '0ms' }}>
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[12px] font-semibold tracking-wide uppercase bg-white/12 ring-1 ring-white/30 backdrop-blur-sm text-white">
             <span className="w-1.5 h-1.5 rounded-full bg-brand"></span>
@@ -263,11 +264,11 @@ function Hero() {
             the page-level IntersectionObserver doesn't re-observe remounted nodes. */}
         <div ref={copyRef}>
           <h1
-            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
+            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.02em] text-[28px] sm:text-[36px] md:text-[46px] lg:text-[54px] leading-[1.25] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
             style={{ '--d': '80ms' }}
           >
             <span className="block">{HERO_SLIDES[active].title}</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand via-brand to-aqua">
+            <span className="block pb-1 text-transparent bg-clip-text bg-gradient-to-r from-brand via-brand to-aqua">
               {HERO_SLIDES[active].titleAccent}
             </span>
           </h1>
