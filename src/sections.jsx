@@ -290,12 +290,12 @@ function Hero() {
         {/* Slider prev/next arrows */}
         <button onClick={() => setActive((active - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
           aria-label="Önceki slayt"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full p-2 transition-colors shadow-soft">
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full p-2 transition-colors shadow-soft">
           <I.Arrow width="20" height="20" className="rotate-180 text-ink" />
         </button>
         <button onClick={() => setActive((active + 1) % HERO_SLIDES.length)}
           aria-label="Sonraki slayt"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full p-2 transition-colors shadow-soft">
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full p-2 transition-colors shadow-soft">
           <I.Arrow width="20" height="20" className="text-ink" />
         </button>
 
