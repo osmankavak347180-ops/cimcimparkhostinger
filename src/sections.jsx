@@ -698,13 +698,14 @@ function Gallery() {
       </div>
 
       {open !== null && (
-        <div className="lightbox-backdrop" onClick={() => setOpen(null)}>
-          <div className="relative max-w-[1100px] w-full" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-90 z-50" onClick={() => setOpen(null)}>
+          <div className="relative max-w-[1100px] w-full px-6" onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setOpen(null)} aria-label="Kapat"
-              className="absolute -top-12 right-0 w-10 h-10 grid place-items-center rounded-full bg-white text-ink hover:bg-brand hover:text-white transition-colors">
+              className="absolute -top-12 right-6 w-10 h-10 grid place-items-center rounded-full bg-white text-ink hover:bg-brand hover:text-white transition-colors">
               <I.Close width="20" height="20" />
             </button>
-            <Img src={GALLERY[open].src} caption={GALLERY[open].c} alt={GALLERY[open].c} tone={GALLERY[open].t} aspect="16/10" />
+            <img src={GALLERY[open].src} alt={GALLERY[open].c}
+              className="max-h-[90vh] max-w-[90vw] object-contain w-full rounded-card mx-auto block" />
             <div className="mt-4 flex items-center justify-between text-white text-[13px]">
               <div className="font-mono">{String(open+1).padStart(2,'0')} / {String(GALLERY.length).padStart(2,'0')}</div>
               <div className="flex items-center gap-2">
