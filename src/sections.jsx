@@ -706,21 +706,19 @@ function Gallery() {
             </button>
             <img src={GALLERY[open].src} alt={GALLERY[open].c}
               className="max-h-[90vh] max-w-[90vw] object-contain w-full rounded-card mx-auto block" />
-            <div className="mt-4 flex items-center justify-between text-white text-[13px]">
+            <div className="mt-4 flex items-center justify-center text-white text-[13px]">
               <div className="font-mono">{String(open+1).padStart(2,'0')} / {String(GALLERY.length).padStart(2,'0')}</div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => setOpen((open - 1 + GALLERY.length) % GALLERY.length)}
-                  aria-label="Önceki fotoğraf"
-                  className="w-9 h-9 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors">
-                  <I.Arrow width="16" height="16" className="rotate-180" />
-                </button>
-                <button onClick={() => setOpen((open + 1) % GALLERY.length)}
-                  aria-label="Sonraki fotoğraf"
-                  className="w-9 h-9 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors">
-                  <I.Arrow width="16" height="16" />
-                </button>
-              </div>
             </div>
+            <button onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + GALLERY.length) % GALLERY.length); }}
+              aria-label="Önceki fotoğraf"
+              className="fixed left-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
+              <I.Arrow width="18" height="18" className="rotate-180" />
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % GALLERY.length); }}
+              aria-label="Sonraki fotoğraf"
+              className="fixed right-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
+              <I.Arrow width="18" height="18" />
+            </button>
           </div>
         </div>
       )}
