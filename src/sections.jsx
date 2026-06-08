@@ -704,21 +704,23 @@ function Gallery() {
               className="absolute -top-12 right-6 w-10 h-10 grid place-items-center rounded-full bg-white text-ink hover:bg-brand hover:text-white transition-colors">
               <I.Close width="20" height="20" />
             </button>
-            <img src={GALLERY[open].src} alt={GALLERY[open].c}
-              className="max-h-[90vh] max-w-[90vw] object-contain w-full rounded-card mx-auto block" />
+            <div className="relative">
+              <img src={GALLERY[open].src} alt={GALLERY[open].c}
+                className="max-h-[90vh] max-w-[90vw] object-contain w-full rounded-card mx-auto block" />
+              <button onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + GALLERY.length) % GALLERY.length); }}
+                aria-label="Önceki fotoğraf"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
+                <I.Arrow width="18" height="18" className="rotate-180" />
+              </button>
+              <button onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % GALLERY.length); }}
+                aria-label="Sonraki fotoğraf"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
+                <I.Arrow width="18" height="18" />
+              </button>
+            </div>
             <div className="mt-4 flex items-center justify-center text-white text-[13px]">
               <div className="font-mono">{String(open+1).padStart(2,'0')} / {String(GALLERY.length).padStart(2,'0')}</div>
             </div>
-            <button onClick={(e) => { e.stopPropagation(); setOpen((open - 1 + GALLERY.length) % GALLERY.length); }}
-              aria-label="Önceki fotoğraf"
-              className="fixed left-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
-              <I.Arrow width="18" height="18" className="rotate-180" />
-            </button>
-            <button onClick={(e) => { e.stopPropagation(); setOpen((open + 1) % GALLERY.length); }}
-              aria-label="Sonraki fotoğraf"
-              className="fixed right-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white">
-              <I.Arrow width="18" height="18" />
-            </button>
           </div>
         </div>
       )}
