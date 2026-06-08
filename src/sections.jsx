@@ -149,7 +149,7 @@ const HERO_SLIDES = [
     title: 'Çocuğunun Geleceğine',
     titleAccent: 'En İyi Yatırımı Yap!',
     subtitle: 'Uzman eğitmenler, güvenli ortam, özel programlar.',
-    cta: 'Programları Keşfet ve Kaydol!',
+    cta: 'Kayıt Ol →',
     ctaTo: '/branslarimiz',
   },
   // Slayt 2 — gerçek CimCimPark çocuk hareket
