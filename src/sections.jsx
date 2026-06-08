@@ -30,7 +30,7 @@ function ScrollToTop() {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Yukarı çık"
-      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-brand shadow-lift flex items-center justify-center hover:bg-brand-deep transition-colors"
+      className="fixed bottom-4 right-4 z-50 w-11 h-11 rounded-full bg-brand shadow-lift flex items-center justify-center hover:bg-brand-deep transition-colors"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="18 15 12 9 6 15" />
