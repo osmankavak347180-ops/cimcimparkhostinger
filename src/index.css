@@ -261,7 +261,7 @@ body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; 
 
 /* ---------- Social rail — mobile smaller tiles ---------- */
 @media (max-width: 639px) {
-  .social-rail-brand { right: 6px; gap: 6px; }
+  .social-rail-brand { right: 16px; gap: 6px; }
   .social-rail-brand .social-tile { width: 36px; height: 36px; }
 }
 
