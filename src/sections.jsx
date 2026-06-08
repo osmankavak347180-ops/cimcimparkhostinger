@@ -1344,8 +1344,8 @@ function SplitPromo() {
     <section data-screen-label="SplitPromo" className="overflow-hidden md:hidden">
       <div className="flex flex-col">
 
-        {/* Üst (mobil): Metin + buton */}
-        <div className="order-1 relative overflow-hidden flex items-center px-8 py-12" style={{ background: 'linear-gradient(135deg, #EA580C 0%, #9A3412 100%)' }}>
+        {/* Alt (mobil): Metin + buton */}
+        <div className="order-2 relative overflow-hidden flex items-center px-8 py-12" style={{ background: 'linear-gradient(135deg, #EA580C 0%, #9A3412 100%)' }}>
           <div className="absolute pointer-events-none rounded-full bg-white/10" style={{ width: 360, height: 360, top: -120, right: -90 }}></div>
           <div className="absolute pointer-events-none rounded-full bg-aqua/20" style={{ width: 240, height: 240, bottom: -80, left: 20 }}></div>
           <div className="relative z-10">
@@ -1370,8 +1370,8 @@ function SplitPromo() {
           </div>
         </div>
 
-        {/* Alt (mobil): Fotoğraf */}
-        <div className="order-2 relative overflow-hidden" style={{ minHeight: '260px' }}>
+        {/* Üst (mobil): Fotoğraf */}
+        <div className="order-1 relative overflow-hidden" style={{ minHeight: '260px' }}>
           <img
             src="assets/split-promo-gymnasts.webp"
             alt="CİMCİMPARK — Cimnastik yapan çocuklar"
