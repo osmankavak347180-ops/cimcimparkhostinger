@@ -19,14 +19,18 @@ Options -Indexes -MultiViews
   RewriteCond %{HTTP_HOST} ^www\.cimcimpark\.com$ [NC]
   RewriteRule ^ https://cimcimpark.com%{REQUEST_URI} [R=301,L]
 
+  # Block sensitive file patterns before SPA fallback (regardless of file existence)
+  RewriteRule (^|/)\.env($|\.) - [F,L]
+  RewriteRule \.(bak|backup|old|orig|sql|zip|tar|gz|log|map)$ - [F,L]
+
   # SPA fallback
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [QSA,L]
 </IfModule>
 
-# Block sensitive files
-<FilesMatch "(\.env|\.log|\.sql|\.bak|\.backup|\.orig|\.map)$">
+# Block sensitive files (defense in depth for existing files)
+<FilesMatch "(\.env|\.log|\.sql|\.bak|\.backup|\.old|\.orig|\.map|\.zip|\.tar|\.gz)$">
   Require all denied
 </FilesMatch>
 
