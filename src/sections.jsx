@@ -269,7 +269,7 @@ function Hero() {
             the page-level IntersectionObserver doesn't re-observe remounted nodes. */}
         <div ref={copyRef}>
           <h1
-            className="reveal mt-5 sm:mt-6 mx-auto font-display font-extrabold tracking-[-0.025em] text-[28px] xs:text-[34px] sm:text-[52px] lg:text-[60px] leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
+            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-[22px] xs:text-[26px] sm:text-[36px] lg:text-[44px] leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
             style={{ '--d': '80ms' }}
           >
             <span className="block">{HERO_SLIDES[active].title}</span>
@@ -279,13 +279,13 @@ function Hero() {
           </h1>
 
           <p
-            className="reveal mt-4 sm:mt-6 mx-auto text-[14.5px] sm:text-[18px] leading-[1.55] sm:leading-[1.6] text-white max-w-[620px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
+            className="reveal mt-3 sm:mt-4 mx-auto text-[13px] sm:text-[16px] leading-[1.5] text-white max-w-[560px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
             style={{ '--d': '160ms' }}
           >
             {HERO_SLIDES[active].subtitle}
           </p>
 
-          <div className="reveal mt-6 sm:mt-8 flex items-center justify-center" style={{ '--d': '240ms' }}>
+          <div className="reveal mt-4 sm:mt-5 flex items-center justify-center" style={{ '--d': '240ms' }}>
             <Link to={HERO_SLIDES[active].ctaTo} className="btn-primary btn-hero inline-flex items-center gap-2">
               {HERO_SLIDES[active].cta}
               <I.Arrow width="16" height="16" />
