@@ -10,7 +10,7 @@ function SocialRail() {
     <>
       {/* Fixed right rail — visible on all screen sizes */}
       <aside className="social-rail-brand flex" aria-label="Sosyal medya">
-        <a href="https://wa.me/905392437606" aria-label="WhatsApp" target="_blank" rel="noreferrer" className="social-tile animate-pulse">
+        <a href="https://wa.me/905392437606?text=Merhaba%20B%C3%BC%C5%9Fra%20han%C4%B1m!%20Kurslar%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." aria-label="WhatsApp" target="_blank" rel="noreferrer" className="social-tile animate-pulse">
           <I.Whatsapp width="36" height="36" />
         </a>
       </aside>
