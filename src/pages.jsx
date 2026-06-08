@@ -571,38 +571,40 @@ function TeamCard({ m, i }) {
           </p>
         )}
 
-        <div className="mt-auto pt-5 flex items-center gap-2">
-          <div className="flex items-center gap-2">
-            {m.instagram && (
-              <a
-                href={m.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${m.name || m.branch} — Instagram`}
-                className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
-              >
-                <I.Instagram width="18" height="18" />
-              </a>
-            )}
-            {m.whatsapp && (
-              <a
-                href={m.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${m.name || m.branch} — WhatsApp'tan yaz`}
-                className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
-              >
-                <I.Whatsapp width="18" height="18" />
-              </a>
-            )}
+        {m.name === 'Büşra FISTIK' && (
+          <div className="mt-auto pt-5 flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              {m.instagram && (
+                <a
+                  href={m.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Büşra FISTIK — Instagram"
+                  className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
+                >
+                  <I.Instagram width="18" height="18" />
+                </a>
+              )}
+              {m.whatsapp && (
+                <a
+                  href={m.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Büşra FISTIK — WhatsApp'tan yaz"
+                  className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
+                >
+                  <I.Whatsapp width="18" height="18" />
+                </a>
+              )}
+            </div>
+            <Link
+              to="/iletisim"
+              className="ml-auto inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink hover:text-brand transition-colors"
+            >
+              İletişim <I.ArrowUR width="13" height="13" />
+            </Link>
           </div>
-          <Link
-            to="/iletisim"
-            className="ml-auto inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink hover:text-brand transition-colors"
-          >
-            İletişim <I.ArrowUR width="13" height="13" />
-          </Link>
-        </div>
+        )}
       </div>
     </article>
   );
