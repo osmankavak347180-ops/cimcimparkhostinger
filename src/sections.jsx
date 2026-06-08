@@ -148,7 +148,7 @@ const HERO_SLIDES = [
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
     titleAccent: 'En İyi Yatırımı Yap!',
-    subtitle: 'Çocuğunun fiziksel ve zihinsel gelişimini şansa bırakma. Güvenli stüdyolarımızda her seviyeye özel programlar.',
+    subtitle: 'Uzman eğitmenler, güvenli ortam, özel programlar.',
     cta: 'Programları Keşfet ve Kaydol!',
     ctaTo: '/branslarimiz',
   },
@@ -263,7 +263,7 @@ function Hero() {
             the page-level IntersectionObserver doesn't re-observe remounted nodes. */}
         <div ref={copyRef}>
           <h1
-            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
+            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
             style={{ '--d': '80ms' }}
           >
             <span className="block">{HERO_SLIDES[active].title}</span>
@@ -273,7 +273,7 @@ function Hero() {
           </h1>
 
           <p
-            className="reveal mt-3 sm:mt-4 mx-auto text-sm sm:text-base md:text-lg leading-[1.5] text-white max-w-[560px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
+            className="reveal mt-3 sm:mt-4 mx-auto text-base sm:text-lg leading-[1.5] text-white max-w-[560px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
             style={{ '--d': '160ms' }}
           >
             {HERO_SLIDES[active].subtitle}
