@@ -209,7 +209,7 @@ function Hero() {
   return (
     <section
       data-screen-label="01 Hero"
-      className="relative overflow-hidden bg-ink min-h-screen flex"
+      className="relative overflow-hidden bg-ink h-[480px] md:h-[520px] lg:h-[560px] flex"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
