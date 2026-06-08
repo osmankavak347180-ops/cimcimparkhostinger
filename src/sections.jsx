@@ -13,9 +13,6 @@ function SocialRail() {
         <a href="https://www.instagram.com/cimcimparkk/" aria-label="Instagram" target="_blank" rel="noreferrer" className="social-tile">
           <I.Instagram width="36" height="36" />
         </a>
-        <a href="https://www.facebook.com/people/Cimcimparkk/61581461134869/" aria-label="Facebook" target="_blank" rel="noreferrer" className="social-tile">
-          <I.Facebook width="36" height="36" />
-        </a>
         <a href="https://wa.me/905392437606" aria-label="WhatsApp" target="_blank" rel="noreferrer" className="social-tile">
           <I.Whatsapp width="36" height="36" />
         </a>
