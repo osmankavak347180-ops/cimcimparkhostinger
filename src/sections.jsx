@@ -654,6 +654,13 @@ const GALLERY = [
 function Gallery() {
   const [open, setOpen] = useStateS(null);
   useEffectS(() => {
+    const pending = sessionStorage.getItem('galleryOpen');
+    if (pending !== null) {
+      sessionStorage.removeItem('galleryOpen');
+      setOpen(parseInt(pending, 10));
+    }
+  }, []);
+  useEffectS(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') setOpen(null);
       if (e.key === 'ArrowLeft')  setOpen((o) => o !== null ? (o - 1 + GALLERY.length) % GALLERY.length : null);
@@ -1049,7 +1056,6 @@ function AgeGroups() {
 /* HOME GALLERY                                                            */
 /* ====================================================================== */
 function HomeGallery() {
-  const [lb, setLb] = useStateS(null);
   const photos = [
     { src: 'assets/cimcimpark-1.webp', label: 'CimcimPark', span: 'g-big' },
     { src: 'assets/cimcimpark-2.webp', label: 'CimcimPark', span: '' },
@@ -1061,18 +1067,10 @@ function HomeGallery() {
     { src: 'assets/cimcimpark-8.webp', label: 'CimcimPark', span: '' },
     { src: 'assets/cimcimpark-9.webp', label: 'CimcimPark', span: '' },
   ];
-  const prev = () => setLb((v) => (v - 1 + photos.length) % photos.length);
-  const next = () => setLb((v) => (v + 1) % photos.length);
-  useEffectS(() => {
-    if (lb === null) return;
-    const onKey = (e) => {
-      if (e.key === 'ArrowLeft') prev();
-      else if (e.key === 'ArrowRight') next();
-      else if (e.key === 'Escape') setLb(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [lb]);
+  const openInGallery = (i) => {
+    sessionStorage.setItem('galleryOpen', String(i));
+    navigate('/galeri');
+  };
   return (
     <section id="home-gallery" className="py-20 sm:py-28 bg-paper-soft">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
@@ -1087,9 +1085,9 @@ function HomeGallery() {
         </div>
         <div className="gallery-masonry reveal" style={{ '--d': '80ms' }}>
           {photos.map((p, i) => (
-            <div key={i} className={`gallery-item ${p.span}`} onClick={() => setLb(i)}
+            <div key={i} className={`gallery-item ${p.span}`} onClick={() => openInGallery(i)}
               role="button" tabIndex={0} aria-label={p.label}
-              onKeyDown={(e) => e.key === 'Enter' && setLb(i)}>
+              onKeyDown={(e) => e.key === 'Enter' && openInGallery(i)}>
               <img src={p.src} alt={p.label} loading="lazy" className="gallery-img"
                 onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
               <div className="gallery-overlay"><span className="gallery-label">{p.label}</span></div>
@@ -1104,30 +1102,6 @@ function HomeGallery() {
           </a>
         </div>
       </div>
-      {lb !== null && (
-        <>
-          <div className="fixed inset-0 z-[89] bg-black/70" onClick={() => setLb(null)} />
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[90]">
-            <div className="relative" onClick={(e) => e.stopPropagation()}>
-              <img src={photos[lb].src} alt={photos[lb].label}
-                className="max-w-[85vw] max-h-[80vh] object-contain rounded-card shadow-lift block" />
-              <button className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-                onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Önceki">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-                onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Sonraki">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <button className="absolute -top-11 right-0 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-                onClick={(e) => { e.stopPropagation(); setLb(null); }} aria-label="Kapat">
-                <I.Close width="18" height="18" />
-              </button>
-            </div>
-            <div className="mt-3 text-center text-white/70 text-[13px]">{lb + 1} / {photos.length}</div>
-          </div>
-        </>
-      )}
     </section>
   );
 }
