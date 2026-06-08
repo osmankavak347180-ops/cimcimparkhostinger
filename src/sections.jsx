@@ -1105,26 +1105,28 @@ function HomeGallery() {
         </div>
       </div>
       {lb !== null && (
-        <div className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-black/90"
-          onClick={() => setLb(null)}>
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
-            <img src={photos[lb].src} alt={photos[lb].label}
-              className="max-w-[90vw] max-h-[85vh] object-contain rounded-card shadow-lift block" />
-            <button className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-              onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Önceki">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-              onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Sonraki">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
+        <>
+          <div className="fixed inset-0 z-[89] bg-black/70" onClick={() => setLb(null)} />
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[90]">
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <img src={photos[lb].src} alt={photos[lb].label}
+                className="max-w-[85vw] max-h-[80vh] object-contain rounded-card shadow-lift block" />
+              <button className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+                onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Önceki">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+                onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Sonraki">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <button className="absolute -top-11 right-0 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+                onClick={(e) => { e.stopPropagation(); setLb(null); }} aria-label="Kapat">
+                <I.Close width="18" height="18" />
+              </button>
+            </div>
+            <div className="mt-3 text-center text-white/70 text-[13px]">{lb + 1} / {photos.length}</div>
           </div>
-          <div className="mt-4 text-white/60 text-[13px]">{lb + 1} / {photos.length} — {photos[lb].label}</div>
-          <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white transition-colors"
-            onClick={(e) => { e.stopPropagation(); setLb(null); }} aria-label="Kapat">
-            <I.Close width="18" height="18" />
-          </button>
-        </div>
+        </>
       )}
     </section>
   );
