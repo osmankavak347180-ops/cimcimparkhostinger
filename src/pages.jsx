@@ -508,103 +508,123 @@ function TeamCard({ m, i }) {
   const branchChip = isAqua ? 'text-aqua-deep bg-aqua-soft' : 'text-brand-deep bg-brand-soft';
   return (
     <article
-      className="reveal card-lift bg-white border border-line rounded-card overflow-hidden flex flex-col"
+      className="reveal card-lift group bg-white border border-line rounded-card overflow-hidden flex flex-col"
       style={{ '--d': `${i * 100}ms` }}
     >
       {/* Photo */}
       <div className="relative">
-        {m.photo && !m.soon
-          ? (
-            <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <img
-                src={m.photo}
-                alt={`${m.name} — portre`}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: 'top center' }}
-                loading="lazy"
-              />
-            </div>
-          )
-          : <Photo caption={m.soon ? `${m.branch} Antrenörü — yakında` : `${m.name} — portre`} tone={isAqua ? 'aqua' : 'brand'} aspect="3/4" />
-        }
+        {m.photo && !m.soon ? (
+          <div className="overflow-hidden" style={{ aspectRatio: '3/4' }}>
+            <img
+              src={m.photo}
+              alt={`${m.name} — portre`}
+              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+              style={{ objectPosition: 'top center' }}
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <Photo caption={m.soon ? `${m.branch} Antrenörü — yakında` : `${m.name} — portre`} tone={isAqua ? 'aqua' : 'brand'} aspect="3/4" />
+        )}
         {m.soon && (
-          <span className="absolute top-3 left-3 text-[11px] font-semibold uppercase tracking-wide bg-ink/70 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">
+          <span className="absolute top-3 left-3 z-10 text-[11px] font-semibold uppercase tracking-wide bg-ink/70 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">
             Yakında
           </span>
         )}
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-display font-bold text-[20px] text-ink tracking-tight">
-          {m.soon ? <span className="text-ink-faint italic">Eklenecek</span> : m.name}
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-1">
+        {/* Name & role */}
+        <h3 className="font-display font-bold text-[18px] leading-tight text-ink tracking-tight">
+          {m.soon ? <span className="text-ink-faint italic text-[15px]">Eklenecek</span> : m.name}
         </h3>
-        <div className="mt-1 text-[13.5px] font-semibold text-brand">{m.role}</div>
+        <p className="mt-1 text-[12.5px] font-semibold text-brand">{m.role}</p>
 
+        {/* Branch pill */}
         <div className="mt-3">
-          <span className={`inline-flex items-center text-[11.5px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${branchChip}`}>
+          <span className={`inline-flex items-center text-[10.5px] font-semibold uppercase tracking-wider px-2.5 py-[3px] rounded-full ${branchChip}`}>
             {m.branch}
           </span>
         </div>
 
+        {/* Edu */}
         {m.edu && (
-          <div className="mt-3">
-            <span className="inline-flex items-center text-[11.5px] font-medium text-ink-soft bg-paper-soft border border-line px-2.5 py-1 rounded-full">
+          <div className="mt-2.5">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-ink-soft bg-paper-soft border border-line px-2.5 py-[3px] rounded-full">
               🎓 {m.edu}
             </span>
           </div>
         )}
 
+        {/* Credentials — check icon rows */}
         {m.credentials && m.credentials.length > 0 && (
-          <ul className="mt-3 space-y-1">
+          <ul className="mt-3 space-y-1.5">
             {m.credentials.map((c, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-[13px] text-ink-soft">
-                <span className="mt-[3px] w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0" />
+              <li key={idx} className="flex items-start gap-2 text-[12px] text-ink-soft leading-snug">
+                <svg className="mt-[2px] w-3 h-3 flex-shrink-0 text-brand" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="2,6.5 4.5,9 10,3" />
+                </svg>
                 {c}
               </li>
             ))}
           </ul>
         )}
 
+        {/* Bio — max 3 lines */}
         {m.bio && (
-          <p className="mt-3 text-[13.5px] text-ink-soft leading-relaxed">
+          <p className="mt-3 text-[12.5px] text-ink-soft leading-relaxed line-clamp-3">
             {m.bio}
           </p>
         )}
 
-        {m.name === 'Büşra FISTIK' && (
-          <div className="mt-auto pt-5 flex items-center gap-2">
-            <div className="flex items-center gap-2">
-              {m.instagram && (
-                <a
-                  href={m.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Büşra FISTIK — Instagram"
-                  className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
-                >
-                  <I.Instagram width="18" height="18" />
-                </a>
-              )}
-              {m.whatsapp && (
+        {/* Footer — consistent across all cards */}
+        <div className="mt-auto pt-4 border-t border-line/60 flex items-center gap-2">
+          {m.name === 'Büşra FISTIK' ? (
+            <>
+              <div className="flex items-center gap-1.5">
+                {m.instagram && (
+                  <a
+                    href={m.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                    className="w-8 h-8 grid place-items-center rounded-full bg-paper-soft border border-line text-ink-muted hover:border-brand hover:text-brand hover:bg-brand-soft transition-colors"
+                  >
+                    <I.Instagram width="15" height="15" />
+                  </a>
+                )}
                 <a
                   href={m.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Büşra FISTIK — WhatsApp'tan yaz"
-                  className="w-9 h-9 grid place-items-center rounded-full border border-line text-ink-soft hover:text-ink hover:border-brand hover:bg-brand-soft transition-colors"
+                  aria-label="WhatsApp"
+                  className="w-8 h-8 grid place-items-center rounded-full bg-paper-soft border border-line text-ink-muted hover:border-brand hover:text-brand hover:bg-brand-soft transition-colors"
                 >
-                  <I.Whatsapp width="18" height="18" />
+                  <I.Whatsapp width="15" height="15" />
                 </a>
-              )}
-            </div>
-            <Link
-              to="/iletisim"
-              className="ml-auto inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink hover:text-brand transition-colors"
+              </div>
+              <Link
+                to="/iletisim"
+                className="ml-auto inline-flex items-center gap-1 text-[12px] font-semibold text-ink-soft hover:text-brand transition-colors"
+              >
+                İletişim <I.ArrowUR width="11" height="11" />
+              </Link>
+            </>
+          ) : !m.soon ? (
+            <a
+              href={m.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-[12px] font-medium text-ink-soft hover:text-brand transition-colors"
             >
-              İletişim <I.ArrowUR width="13" height="13" />
-            </Link>
-          </div>
-        )}
+              <I.Whatsapp width="14" height="14" />
+              WhatsApp'tan ulaş
+            </a>
+          ) : (
+            <span className="text-[11.5px] text-ink-faint">Yakında eklenecek</span>
+          )}
+        </div>
       </div>
     </article>
   );
@@ -623,7 +643,7 @@ function TeamPage() {
 
       <section className="py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {TRAINERS.map((m, i) => <TeamCard key={i} m={m} i={i} />)}
           </div>
 
