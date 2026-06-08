@@ -148,9 +148,9 @@ const HERO_SLIDES = [
     tint: 'from-brand/40 to-aqua/30',
     title: 'Çocuğunun Geleceğine',
     titleAccent: 'En İyi Yatırımı Yap!',
-    subtitle: 'Uzman eğitmenler, güvenli ortam, özel programlar.',
-    cta: 'Programları Keşfet ve Kaydol!',
-    ctaTo: '/branslarimiz',
+    subtitle: 'Uzman eğitmenler, güvenli ortam, 3-65 yaş arası özel programlar.',
+    cta: 'Ücretsiz Deneme Dersi Al',
+    ctaTo: '/iletisim',
   },
   // Slayt 2 — gerçek CimCimPark çocuk hareket
   {
@@ -160,8 +160,8 @@ const HERO_SLIDES = [
     tint: 'from-brand-deep/40 to-aqua-deep/30',
     title: "Kahramanmaraş'ın En Aydınlık,",
     titleAccent: 'En Modern Cimnastik Merkezi',
-    subtitle: 'Uzman eğitmenlerimiz ve son teknoloji tesisimizle tanışın. İlk dersiniz bizden!',
-    cta: 'Hemen Başla!',
+    subtitle: 'Uzman eğitmenlerimiz ve son teknoloji tesisimizle tanışın. İlk ders bizden!',
+    cta: 'Ücretsiz Deneme Dersi Al',
     ctaTo: '/iletisim',
     focal: 'center top',
   },
@@ -173,8 +173,8 @@ const HERO_SLIDES = [
     tint: 'from-aqua/40 to-brand/30',
     title: 'Kendi Sınırlarını Keşfet,',
     titleAccent: 'Gücünü Zirveye Taşı!',
-    subtitle: 'Profesyonel eğitmenlerimizle hayalindeki forma kavuşmak için daha fazla bekleme. Gücünü ve potansiyelini bugünden keşfet.',
-    cta: 'Ücretsiz Deneme Dersi Al!',
+    subtitle: 'Pilates, cimnastik veya dövüş sanatları — sana özel program, ilk ders ücretsiz.',
+    cta: 'Ücretsiz Deneme Dersi Al',
     ctaTo: '/iletisim',
   },
 ];
@@ -284,6 +284,19 @@ function Hero() {
               {HERO_SLIDES[active].cta}
               <I.Arrow width="16" height="16" />
             </Link>
+          </div>
+
+          <div className="reveal mt-5 flex flex-wrap items-center justify-center gap-2.5" style={{ '--d': '340ms' }}>
+            {[
+              { icon: '✓', text: 'Uzman Eğitmen' },
+              { icon: '✓', text: 'Ücretsiz Deneme' },
+              { icon: '✓', text: '3-65 Yaş' },
+            ].map((b, i) => (
+              <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold bg-white/15 ring-1 ring-white/30 backdrop-blur-sm text-white">
+                <span className="text-brand font-bold">{b.icon}</span>
+                {b.text}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -399,6 +412,24 @@ function BranchPhotoCard({ b }) {
   );
 }
 
+const BRANCH_CATEGORIES = [
+  {
+    label: 'Cimnastik',
+    eyebrow: 'brand',
+    branches: ['Okul Öncesi Cimnastik Kursu', 'Çocuk Cimnastik Kursu', 'Genç Cimnastik Kursu', 'Artistik Cimnastik Kursu', 'Cimnastik Kursu'],
+  },
+  {
+    label: 'Pilates',
+    eyebrow: 'aqua',
+    branches: ['Reformer Pilates', 'Mat Pilates'],
+  },
+  {
+    label: 'Dövüş Sporları',
+    eyebrow: 'brand',
+    branches: ['Çocuk Taekwondo', 'Çocuk Kick Boks', 'Yetişkin Kick Boks'],
+  },
+];
+
 function BranchPhotoGrid() {
   return (
     <Section id="branches" label="03 Branches" className="py-20 sm:py-28">
@@ -422,11 +453,26 @@ function BranchPhotoGrid() {
         </a>
       </div>
 
-      {/* Grid */}
-      <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 reveal" style={{ '--d': '80ms' }}>
-        {BRANCH_PHOTOS.map((b) => (
-          <BranchPhotoCard key={b.name} b={b} />
-        ))}
+      {/* Kategorili grid */}
+      <div className="mt-12 space-y-12">
+        {BRANCH_CATEGORIES.map((cat) => {
+          const catBranches = BRANCH_PHOTOS.filter((b) => cat.branches.includes(b.name));
+          return (
+            <div key={cat.label}>
+              <div className="flex items-center gap-3 mb-5 reveal">
+                <span className={`text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${cat.eyebrow === 'aqua' ? 'bg-aqua-soft text-aqua-deep' : 'bg-brand-soft text-brand-deep'}`}>
+                  {cat.label}
+                </span>
+                <div className="flex-1 h-px bg-line" />
+              </div>
+              <div className={`grid gap-3 sm:gap-4 reveal grid-cols-2 ${catBranches.length <= 2 ? 'lg:grid-cols-2' : catBranches.length <= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`} style={{ '--d': '80ms' }}>
+                {catBranches.map((b) => (
+                  <BranchPhotoCard key={b.name} b={b} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
@@ -995,7 +1041,7 @@ function AgeGroups() {
       tag: 'Yetişkinler', age: '18+ Yaş',
       title: 'Sağlıklı Beden, Zinde Yaşam!',
       img: 'assets/branch-reformer-pilates.webp', alt: 'Reformer pilates dersi',
-      color: '#8B5CF6', softBg: '#F5F3FF',
+      color: '#06B6D4', softBg: '#ECFEFF',
       points: ['Core güçlendirme ve stabilite', 'Esneklik ve eklem sağlığı', 'Stres atma ve iç huzur', 'Pilates, cimnastik ve kickboks seçenekleri'],
       reverse: false,
     },

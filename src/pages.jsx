@@ -40,6 +40,7 @@ function HomePage() {
       <Hero />
       <BranchPhotoGrid />
       <WhyUs />
+      <Testimonials />
       <AgeGroups />
       <HomeGallery />
       <FAQ />
