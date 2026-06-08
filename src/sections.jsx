@@ -209,7 +209,7 @@ function Hero() {
   return (
     <section
       data-screen-label="01 Hero"
-      className="relative overflow-hidden bg-ink h-[480px] md:h-[520px] lg:h-[560px] flex"
+      className="relative overflow-hidden bg-ink h-screen flex"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -263,7 +263,7 @@ function Hero() {
             the page-level IntersectionObserver doesn't re-observe remounted nodes. */}
         <div ref={copyRef}>
           <h1
-            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-[22px] xs:text-[26px] sm:text-[36px] lg:text-[44px] leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
+            className="reveal mt-3 sm:mt-4 mx-auto font-display font-extrabold tracking-[-0.025em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.12] max-w-[22ch] text-balance drop-shadow-[0_2px_20px_rgba(0,0,0,0.75)]"
             style={{ '--d': '80ms' }}
           >
             <span className="block">{HERO_SLIDES[active].title}</span>
@@ -273,7 +273,7 @@ function Hero() {
           </h1>
 
           <p
-            className="reveal mt-3 sm:mt-4 mx-auto text-[13px] sm:text-[16px] leading-[1.5] text-white max-w-[560px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
+            className="reveal mt-3 sm:mt-4 mx-auto text-sm sm:text-base md:text-lg leading-[1.5] text-white max-w-[560px] text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.60)]"
             style={{ '--d': '160ms' }}
           >
             {HERO_SLIDES[active].subtitle}
@@ -1341,7 +1341,7 @@ function CTAStrip() {
 /* ====================================================================== */
 function SplitPromo() {
   return (
-    <section data-screen-label="SplitPromo" className="overflow-hidden md:hidden">
+    <section data-screen-label="SplitPromo" className="overflow-hidden hidden">
       <div className="flex flex-col">
 
         {/* Alt (mobil): Metin + buton */}
