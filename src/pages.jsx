@@ -455,6 +455,13 @@ const TRAINERS = [
     photo: 'assets/trainer-busra.webp',
     instagram: 'https://instagram.com/cimcimparkk',
     whatsapp: 'https://wa.me/905392437606',
+    credentials: [
+      'Beden Eğitimi ve Spor Öğretmenliği',
+      '3. Kademe Kıdemli Artistik Cimnastik Antrenörü',
+      '1. Kademe Hareket Eğitimi Uzmanı',
+      'TCF Pilates Eğitmeni',
+    ],
+    edu: 'Erciyes Üniversitesi Spor Bilimleri Fakültesi',
     soon: false,
   },
   {
