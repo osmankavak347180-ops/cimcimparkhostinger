@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
-import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I } from './primitives';
+import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I, useFAQSchema } from './primitives';
 import { Hero, Trust, Branches, BranchPhotoGrid, WhyUs, Founder, About, Gallery, Testimonials, Contact, AgeGroups, HomeGallery, FAQ, SocialMedia, CTAStrip } from './sections';
 
 
@@ -1476,6 +1476,8 @@ function BlogPostDetail({ post, onBack, onNavigate }) {
 
     return () => { const el = document.getElementById('schema-article'); if (el) el.remove(); };
   }, [post.slug]);
+
+  useFAQSchema(post.faqs || []);
 
   return (
     <div className="page-fade">

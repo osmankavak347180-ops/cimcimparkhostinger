@@ -379,5 +379,36 @@ function Logo({ size = 40 }) {
   );
 }
 
-export { useReveal, useRoute, navigate, Link, Eyebrow, Section, Photo, Img, IconTile, Counter, Logo, I };
+function useFAQSchema(faqs) {
+  useEffect(() => {
+    const id = 'schema-faq';
+    if (!faqs || faqs.length === 0) {
+      const stale = document.getElementById(id);
+      if (stale) stale.remove();
+      return;
+    }
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = id;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    });
+    return () => {
+      const stale = document.getElementById(id);
+      if (stale) stale.remove();
+    };
+  }, [faqs]);
+}
+
+export { useReveal, useRoute, navigate, useFAQSchema, Link, Eyebrow, Section, Photo, Img, IconTile, Counter, Logo, I };
 

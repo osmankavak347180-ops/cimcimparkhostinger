@@ -1,6 +1,6 @@
 // sections.jsx — page sections
 import React, { useState as useStateS, useEffect as useEffectS, useRef as useRefS } from 'react';
-import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I, useReveal } from './primitives';
+import { navigate, Link, Section, Eyebrow, IconTile, Counter, Img, Photo, Logo, I, useReveal, useFAQSchema } from './primitives';
 
 /* ====================================================================== */
 /* SOCIAL RAIL — official brand colors                                    */
@@ -1162,26 +1162,29 @@ function HomeGallery() {
 /* ====================================================================== */
 /* FAQ                                                                     */
 /* ====================================================================== */
+export const FAQ_ITEMS = [
+  { q: 'Başlamak için en uygun yaş nedir?',
+    a: '3 yaşından itibaren çocuklar okul öncesi ve temel cimnastik programlarına katılabilir. Yetişkinler için herhangi bir yaş sınırı yoktur — 65 yaşında başlayanlarımız bile var!' },
+  { q: 'Kurs ücretleri ne kadar?',
+    a: 'Kurs ücretleri branş, gün sayısı ve seans süresine göre değişmektedir. Güncel fiyat listesi için WhatsApp veya telefon üzerinden bize ulaşabilirsiniz.' },
+  { q: 'Ücretsiz deneme dersi var mı?',
+    a: 'Evet! Tüm yeni üyelerimize 1 seans ücretsiz deneme dersi sunuyoruz. WhatsApp üzerinden mesaj atarak uygun gün ve saati birlikte ayarlayabiliriz.' },
+  { q: 'Stüdyo güvenli mi? Çocuğum yaralanır mı?',
+    a: 'Güvenlik en büyük önceliğimizdir. Tüm ekipmanlar uluslararası standartlara uygundur, zeminler koruyucu matlarla kaplıdır ve her seans boyunca eğitmen gözetimi sağlanmaktadır.' },
+  { q: 'Haftada kaç gün antrenman yapılıyor?',
+    a: 'Branşa göre değişmekle birlikte genellikle haftada 2-3 gün antrenman yapılmaktadır. Esnek saat seçeneklerimizle okul ve iş programlarınıza uyum sağlıyoruz.' },
+  { q: 'Çocuğumun yeteneği var mı?',
+    a: 'Ücretsiz deneme dersimizde eğitmenlerimiz çocuğunuzun ilgisini ve potansiyelini değerlendirir. Yetenek zamanla gelişir — en önemli şey başlamaktır!' },
+  { q: 'Taekwondo ve Kick Boks dersleri var mı?',
+    a: 'Evet! Çocuk Taekwondo, Çocuk Kick Boks ve Yetişkin Kick Boks branşlarımız bulunmaktadır. Branşlarımız sayfasından tüm programları inceleyebilirsiniz.' },
+  { q: 'İlk derse ne getirmeliyim?',
+    a: 'Rahat spor kıyafeti ve kapalı burun spor ayakkabı ile gelin. Cimnastik derslerinde çorap veya çıplak ayakla çalışılmaktadır. Su şişesi ve küçük havlu getirmenizi öneririz.' },
+];
+
 function FAQ() {
   const [open, setOpen] = useStateS(null);
-  const items = [
-    { q: 'Başlamak için en uygun yaş nedir?',
-      a: '3 yaşından itibaren çocuklar okul öncesi ve temel cimnastik programlarına katılabilir. Yetişkinler için herhangi bir yaş sınırı yoktur — 65 yaşında başlayanlarımız bile var!' },
-    { q: 'Kurs ücretleri ne kadar?',
-      a: 'Kurs ücretleri branş, gün sayısı ve seans süresine göre değişmektedir. Güncel fiyat listesi için WhatsApp veya telefon üzerinden bize ulaşabilirsiniz.' },
-    { q: 'Ücretsiz deneme dersi var mı?',
-      a: 'Evet! Tüm yeni üyelerimize 1 seans ücretsiz deneme dersi sunuyoruz. WhatsApp üzerinden mesaj atarak uygun gün ve saati birlikte ayarlayabiliriz.' },
-    { q: 'Stüdyo güvenli mi? Çocuğum yaralanır mı?',
-      a: 'Güvenlik en büyük önceliğimizdir. Tüm ekipmanlar uluslararası standartlara uygundur, zeminler koruyucu matlarla kaplıdır ve her seans boyunca eğitmen gözetimi sağlanmaktadır.' },
-    { q: 'Haftada kaç gün antrenman yapılıyor?',
-      a: 'Branşa göre değişmekle birlikte genellikle haftada 2-3 gün antrenman yapılmaktadır. Esnek saat seçeneklerimizle okul ve iş programlarınıza uyum sağlıyoruz.' },
-    { q: 'Çocuğumun yeteneği var mı?',
-      a: 'Ücretsiz deneme dersimizde eğitmenlerimiz çocuğunuzun ilgisini ve potansiyelini değerlendirir. Yetenek zamanla gelişir — en önemli şey başlamaktır!' },
-    { q: 'Taekwondo ve Kick Boks dersleri var mı?',
-      a: 'Evet! Çocuk Taekwondo, Çocuk Kick Boks ve Yetişkin Kick Boks branşlarımız bulunmaktadır. Branşlarımız sayfasından tüm programları inceleyebilirsiniz.' },
-    { q: 'İlk derse ne getirmeliyim?',
-      a: 'Rahat spor kıyafeti ve kapalı burun spor ayakkabı ile gelin. Cimnastik derslerinde çorap veya çıplak ayakla çalışılmaktadır. Su şişesi ve küçük havlu getirmenizi öneririz.' },
-  ];
+  useFAQSchema(FAQ_ITEMS);
+  const items = FAQ_ITEMS;
   return (
     <section id="faq" className="py-20 sm:py-28">
       <div className="max-w-[800px] mx-auto px-5 sm:px-8 lg:px-10">
