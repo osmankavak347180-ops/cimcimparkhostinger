@@ -15,8 +15,26 @@ const ROUTES = {
 
 function App() {
   const route = useRoute();
-  const match = ROUTES[route] || null;
-  const { Component, label, desc } = match || { Component: NotFoundPage, label: '404', desc: '' };
+
+  const blogSlug = route.startsWith('/blog/') ? route.slice(6) : null;
+  const blogPost = blogSlug ? (window.BLOG_POSTS || []).find(p => p.slug === blogSlug) : null;
+
+  const baseMatch = ROUTES[route] || null;
+  const { Component, label, desc } = (() => {
+    if (blogPost) return {
+      Component: () => (
+        <BlogPostDetail
+          post={blogPost}
+          onBack={() => navigate('/blog')}
+          onNavigate={(p) => navigate('/blog/' + p.slug)}
+        />
+      ),
+      label: blogPost.title,
+      desc: blogPost.metaDescription || blogPost.excerpt,
+    };
+    if (blogSlug) return { Component: NotFoundPage, label: '404', desc: '' };
+    return baseMatch || { Component: NotFoundPage, label: '404', desc: '' };
+  })();
 
   // Re-run reveal observer per route change.
   useReveal(route);
