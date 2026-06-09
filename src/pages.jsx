@@ -449,7 +449,7 @@ function BranchesDetailed() {
 /* ====================================================================== */
 const TRAINERS = [
   {
-    name: 'Büşra FISTIK',
+    name: 'Büşra PAKYARDIM',
     role: 'Kurucu & Baş Antrenör',
     branch: 'CİMNASTİK & PİLATES',
     photo: 'assets/trainer-busra.webp',
@@ -581,7 +581,7 @@ function TeamCard({ m, i }) {
 
         {/* Footer — consistent across all cards */}
         <div className="mt-auto pt-4 border-t border-line/60 flex items-center gap-2">
-          {m.name === 'Büşra FISTIK' ? (
+          {m.name === 'Büşra PAKYARDIM' ? (
             <>
               <div className="flex items-center gap-1.5">
                 {m.instagram && (
@@ -1458,7 +1458,7 @@ function BlogPostDetail({ post, onBack, onNavigate }) {
       'description': post.metaDescription || post.excerpt,
       'image': post.src || '',
       'datePublished': isoDate,
-      'author': { '@type': 'Person', 'name': 'Büşra FISTIK', 'url': 'https://cimcimpark.com/ekibimiz' },
+      'author': { '@type': 'Person', 'name': 'Büşra PAKYARDIM', 'url': 'https://cimcimpark.com/ekibimiz' },
       'publisher': { '@type': 'Organization', 'name': 'CİMCİMPARK', 'url': 'https://cimcimpark.com' },
       'url': `https://cimcimpark.com/blog/${post.slug}`,
       'mainEntityOfPage': `https://cimcimpark.com/blog/${post.slug}`

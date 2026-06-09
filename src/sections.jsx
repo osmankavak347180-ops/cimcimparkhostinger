@@ -583,8 +583,8 @@ function Founder() {
             {/* TODO: CLIENT WILL REPLACE THIS IMAGE URL */}
             <Img
               src="assets/founder.jpg"
-              alt="Büşra FISTIK — Baş Antrenör"
-              caption="KURUCU • Büşra FISTIK portresi"
+              alt="Büşra PAKYARDIM — Baş Antrenör"
+              caption="KURUCU • Büşra PAKYARDIM portresi"
               tone="aqua" aspect="4/5" className="shadow-card"
               focal="center top"
             />
@@ -604,7 +604,7 @@ function Founder() {
           <div className="reveal">
             <Eyebrow tone="aqua">Kurucu & Baş Antrenör</Eyebrow>
             <h2 className="mt-4 font-display font-extrabold tracking-[-0.025em] text-[34px] sm:text-[44px] leading-[1.05] text-ink">
-              Büşra FISTIK
+              Büşra PAKYARDIM
             </h2>
             <div className="mt-2 text-[14px] font-mono text-ink-faint">III. Kademe TCF Antrenörü</div>
           </div>

@@ -84,7 +84,7 @@ Yeni rota: `app.jsx`'teki `ROUTES` objesine ekle, `pages.jsx`'te sayfa bileşeni
 ## Marka Bilgileri
 
 - **İşletme:** CİMCİMPARK Spor & Cimnastik Merkezi
-- **Kurucu:** Büşra FISTIK (III. Kademe TCF Cimnastik Antrenörü, TCF Pilates Antrenörü)
+- **Kurucu:** Büşra PAKYARDIM (III. Kademe TCF Cimnastik Antrenörü, TCF Pilates Antrenörü)
 - **Adres:** Tavşan Tepe, 69002. Sk No 88/A, Onikişubat/Kahramanmaraş
 - **Telefon:** 0539 243 76 06
 - **WhatsApp:** https://wa.me/905392437606

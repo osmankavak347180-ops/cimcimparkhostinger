@@ -262,7 +262,7 @@ function BranchesDetailed() {
 /* ====================================================================== */
 const TRAINERS = [
   {
-    name: 'Büşra FISTIK',
+    name: 'Büşra PAKYARDIM',
     role: 'Kurucu & Baş Antrenör',
     branch: 'CİMNASTİK & PİLATES',
     photo: 'assets/trainer-busra.webp',
@@ -1234,7 +1234,7 @@ function BlogPostDetail({ post, onBack, onNavigate }) {
       'description': post.metaDescription || post.excerpt,
       'image': post.src || '',
       'datePublished': isoDate,
-      'author': { '@type': 'Person', 'name': 'Büşra FISTIK', 'url': 'https://cimcimpark.com/ekibimiz' },
+      'author': { '@type': 'Person', 'name': 'Büşra PAKYARDIM', 'url': 'https://cimcimpark.com/ekibimiz' },
       'publisher': { '@type': 'Organization', 'name': 'CİMCİMPARK', 'url': 'https://cimcimpark.com' },
       'url': `https://cimcimpark.com/blog/${post.slug}`,
       'mainEntityOfPage': `https://cimcimpark.com/blog/${post.slug}`
