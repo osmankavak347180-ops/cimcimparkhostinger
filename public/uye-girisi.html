@@ -692,10 +692,12 @@
   // ── Apps Script web app URL ──
   const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbww3x95xMK1Ccos44OxhAvQhML6MHlGvceU3jYP3oGzhDPQmyOLhACGqDQgcbsp7xkJRQ/exec';
 
-  // Telefon normalizasyonu: boşlukları kaldır, baştaki 0'ı sil → 10 hane
+  // Telefon normalizasyonu: boşlukları kaldır, +90/90/0 önekini sil → 10 hane
   function normalizePhone(raw) {
     var digits = raw.replace(/\D/g, '');
-    if (digits.charAt(0) === '0') digits = digits.slice(1);
+    if (digits.length === 12 && digits.startsWith('90')) digits = digits.slice(2);
+    if (digits.length === 11 && digits.charAt(0) === '0') digits = digits.slice(1);
+    if (digits.length === 10 && digits.charAt(0) === '0') digits = digits.slice(1);
     return digits;
   }
 
@@ -703,7 +705,7 @@
     const raw = document.getElementById('sorguInput').value.trim();
     if (!raw) { showMsg('Telefon numaranızı girin.', false); return; }
     const q = normalizePhone(raw);
-    if (q.length !== 10) { showMsg('Geçerli bir telefon numarası girin. Örn: 0532 123 45 67', false); return; }
+    if (q.length !== 10) { showMsg('Geçerli bir 10 haneli numara girin. Örn: 0532 123 45 67 veya 5321234567', false); return; }
 
     setLoading(true);
     clearResults();
@@ -723,7 +725,10 @@
       })
       .catch(function(err) {
         setLoading(false);
-        showMsg('Bağlantı hatası: ' + err.message, true);
+        var msg = err.message === 'Failed to fetch'
+          ? 'Sunucuya ulaşılamıyor. İnternet bağlantınızı kontrol edin veya sayfayı yenileyip tekrar deneyin.'
+          : 'Hata: ' + err.message;
+        showMsg(msg, true);
       });
   }
 
