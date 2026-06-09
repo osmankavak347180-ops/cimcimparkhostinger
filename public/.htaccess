@@ -23,6 +23,16 @@ Options -Indexes -MultiViews
   RewriteRule (^|/)\.env($|\.) - [F,L]
   RewriteRule \.(bak|backup|old|orig|sql|zip|tar|gz|log|map)$ - [F,L]
 
+  # Clean URLs: redirect .html → extensionless (301)
+  RewriteCond %{REQUEST_URI} !^/index\.html$
+  RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+  # Clean URLs: internally serve .html file for extensionless requests
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
   # SPA fallback
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
