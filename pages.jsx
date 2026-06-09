@@ -278,6 +278,15 @@ const TRAINERS = [
     soon: false,
   },
   {
+    name: 'Hüsniye TUĞRUL',
+    role: 'Mat Pilates & Reformer Antrenörü',
+    branch: 'PİLATES',
+    photo: 'assets/trainer-husniye.webp',
+    whatsapp: 'https://wa.me/905392437606',
+    credentials: ['TCF Pilates Eğitmeni'],
+    soon: false,
+  },
+  {
     name: 'Zeynep GÜLELLİ',
     role: 'Cimnastik & Atletizm Eğitmeni',
     branch: 'CİMNASTİK',
@@ -307,29 +316,6 @@ const TRAINERS = [
     photo: 'assets/trainer-nisa.webp',
     whatsapp: 'https://wa.me/905392437606',
     soon: false,
-  },
-  {
-    name: 'Hüsniye TUĞRUL',
-    role: 'Mat Pilates & Reformer Antrenörü',
-    branch: 'PİLATES',
-    photo: 'assets/trainer-husniye.webp',
-    whatsapp: 'https://wa.me/905392437606',
-    credentials: ['TCF Pilates Eğitmeni'],
-    soon: false,
-  },
-  {
-    name: 'Eklenecek',
-    role: 'Antrenör',
-    branch: 'TAEKWONDO',
-    whatsapp: 'https://wa.me/905392437606',
-    soon: true,
-  },
-  {
-    name: 'Eklenecek',
-    role: 'Antrenör',
-    branch: 'KİCK BOKS',
-    whatsapp: 'https://wa.me/905392437606',
-    soon: true,
   },
 ];
 
