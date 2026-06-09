@@ -42,6 +42,28 @@ function App() {
     setMetaProp('og-title', title);
     setMetaProp('og-description', desc);
     setMetaProp('og-url', canonicalBase + pagePath);
+
+    // Dinamik BreadcrumbList schema
+    const bcId = 'schema-breadcrumb';
+    let bcEl = document.getElementById(bcId);
+    if (route === '/') {
+      if (bcEl) bcEl.remove();
+    } else {
+      if (!bcEl) {
+        bcEl = document.createElement('script');
+        bcEl.type = 'application/ld+json';
+        bcEl.id = bcId;
+        document.head.appendChild(bcEl);
+      }
+      bcEl.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://cimcimpark.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': label, 'item': `${canonicalBase}${pagePath}` }
+        ]
+      });
+    }
   }, [route, label, desc]);
 
   return (

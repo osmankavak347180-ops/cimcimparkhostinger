@@ -106,6 +106,87 @@ function AboutPage() {
 /* ====================================================================== */
 /* BRANŞLAR                                                               */
 /* ====================================================================== */
+const BRANCHES_FAQ = [
+  {
+    q: 'Kaç yaşından itibaren kayıt yaptırabilirsiniz?',
+    a: 'CİMCİMPARK\'ta dersler 4 yaşından itibaren başlamaktadır. Temel cimnastik ve çocuk taekwondo programlarımız 4 yaş ve üzeri için tasarlanmıştır.'
+  },
+  {
+    q: 'Hangi branşlarda eğitim veriyorsunuz?',
+    a: 'Temel Cimnastik (4-12 yaş), Çocuk Taekwondo (6-14 yaş), Çocuk Kick Boks, Mat Pilates, Reformer Pilates ve Yetişkin Kick Boks olmak üzere 6 branşta eğitim sunuyoruz.'
+  },
+  {
+    q: 'Ücretsiz deneme dersi alabilir miyim?',
+    a: 'Evet. Tüm branşlarımızda ilk ders ücretsizdir. İletişim formumuzu doldurarak veya 0539 243 76 06 numaralı hattımızı arayarak randevu oluşturabilirsiniz.'
+  },
+  {
+    q: 'Eğitmenleriniz sertifikalı mı?',
+    a: 'Evet. Tüm eğitmenlerimiz Türkiye Cimnastik Federasyonu (TCF) ve ilgili spor federasyonlarının lisans belgelerine sahiptir.'
+  },
+  {
+    q: 'Dersler haftada kaç gün yapılmaktadır?',
+    a: 'Branşa ve yaş grubuna göre haftada 2-3 gün seçenekleri mevcuttur. Yoğun çalışmak isteyen üyeler için ek seans imkânı da sağlanabilmektedir.'
+  },
+];
+
+function FAQItem({ q, a, delay }) {
+  const [open, setOpen] = useStateP(false);
+  return (
+    <div className="reveal rounded-card border border-line bg-white overflow-hidden" style={{ '--d': `${delay}ms` }}>
+      <button
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <span className="font-display font-semibold text-[16px] text-ink leading-snug">{q}</span>
+        <span className={`flex-shrink-0 w-6 h-6 rounded-full border grid place-items-center transition-transform duration-200 ${open ? 'rotate-45 bg-brand text-white border-brand' : 'border-line bg-paper-soft text-ink-muted'}`}>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+        </span>
+      </button>
+      {open && (
+        <div className="px-6 pb-5 text-[15px] text-ink-soft leading-[1.7]">{a}</div>
+      )}
+    </div>
+  );
+}
+
+function FAQSection() {
+  useEffectP(() => {
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'schema-faq';
+    el.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': BRANCHES_FAQ.map(({ q, a }) => ({
+        '@type': 'Question',
+        'name': q,
+        'acceptedAnswer': { '@type': 'Answer', 'text': a }
+      }))
+    });
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById('schema-faq'); if (s) s.remove(); };
+  }, []);
+
+  return (
+    <section className="py-16 sm:py-20">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="reveal max-w-[640px] mb-10">
+          <Eyebrow tone="brand">Sık sorulan sorular</Eyebrow>
+          <h2 className="mt-4 font-display font-extrabold tracking-[-0.02em] text-[30px] sm:text-[36px] leading-[1.18] text-ink">
+            Aklınızdaki sorulara cevap.
+          </h2>
+        </div>
+        <div className="space-y-3">
+          {BRANCHES_FAQ.map(({ q, a }, i) => (
+            <FAQItem key={i} q={q} a={a} delay={i * 80} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BranchesPage() {
   return (
     <>
@@ -118,6 +199,7 @@ function BranchesPage() {
       />
       <Branches />
       <BranchesDetailed />
+      <FAQSection />
       <FinalCTA />
     </>
   );
@@ -1131,7 +1213,46 @@ const BLOG_POSTS = [
   },
 ];
 
+const MONTH_MAP = { 'Ocak':'01','Şubat':'02','Mart':'03','Nisan':'04','Mayıs':'05','Haziran':'06','Temmuz':'07','Ağustos':'08','Eylül':'09','Ekim':'10','Kasım':'11','Aralık':'12' };
+
 function BlogPostDetail({ post, onBack, onNavigate }) {
+  useEffectP(() => {
+    const injectSchema = (id, data) => {
+      let el = document.getElementById(id);
+      if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = id; document.head.appendChild(el); }
+      el.textContent = JSON.stringify(data);
+    };
+    const parts = post.date.split(' ');
+    const isoDate = parts.length === 3
+      ? `${parts[2]}-${MONTH_MAP[parts[1]] || '01'}-${String(parts[0]).padStart(2, '0')}`
+      : post.date;
+
+    injectSchema('schema-article', {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'description': post.metaDescription || post.excerpt,
+      'image': post.src || '',
+      'datePublished': isoDate,
+      'author': { '@type': 'Person', 'name': 'Büşra FISTIK', 'url': 'https://cimcimpark.com/ekibimiz' },
+      'publisher': { '@type': 'Organization', 'name': 'CİMCİMPARK', 'url': 'https://cimcimpark.com' },
+      'url': `https://cimcimpark.com/blog#${post.slug}`,
+      'mainEntityOfPage': `https://cimcimpark.com/blog#${post.slug}`
+    });
+
+    injectSchema('schema-breadcrumb', {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://cimcimpark.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': 'https://cimcimpark.com/blog' },
+        { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': `https://cimcimpark.com/blog#${post.slug}` }
+      ]
+    });
+
+    return () => { const el = document.getElementById('schema-article'); if (el) el.remove(); };
+  }, [post.slug]);
+
   return (
     <div className="page-fade">
       <div className="page-band border-b border-line">
