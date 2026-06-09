@@ -290,7 +290,7 @@ function AboutPage() {
             <div className="reveal" style={{ '--d': '120ms' }}>
               <div className="bg-white rounded-card border border-line shadow-card overflow-hidden transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lift">
                 <div className="overflow-hidden" style={{ height: '280px' }}>
-                  <img src="assets/founder.jpg" alt="CimcimPark Eğitmen Kadrosu" loading="lazy"
+                  <img src="assets/new.trainer-busra.webp" alt="CimcimPark Eğitmen Kadrosu" loading="lazy"
                     className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                     onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
                 </div>
