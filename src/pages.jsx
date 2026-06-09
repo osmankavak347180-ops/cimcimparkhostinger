@@ -291,7 +291,8 @@ function AboutPage() {
               <div className="bg-white rounded-card border border-line shadow-card overflow-hidden transition-all duration-300 hover:-translate-y-[4px] hover:shadow-lift">
                 <div className="overflow-hidden" style={{ height: '280px' }}>
                   <img src="assets/new.trainer-busra.webp" alt="CimcimPark Eğitmen Kadrosu" loading="lazy"
-                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    style={{ objectPosition: 'top center' }}
                     onError={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }} />
                 </div>
                 <div className="p-6">
