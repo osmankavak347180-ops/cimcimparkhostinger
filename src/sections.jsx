@@ -801,8 +801,8 @@ function Testimonials() {
     <Section id="testimonials" label="08 Testimonials" tone="soft" className="py-20 sm:py-24">
       <div className="reveal max-w-[720px]">
         <Eyebrow tone="aqua">Üyelerimiz anlatıyor</Eyebrow>
-        <h2 className="mt-4 font-display font-extrabold tracking-[-0.025em] text-[32px] sm:text-[40px] leading-[1.08] text-ink">
-          Kahramanmaraşlıların güvendiği<br /> spor adresi.
+        <h2 className="mt-4 font-display font-extrabold tracking-[-0.025em] text-[24px] sm:text-[40px] leading-[1.15] text-ink">
+          Kahramanmaraşlıların güvendiği spor adresi.
         </h2>
       </div>
       <div className="mt-10 grid md:grid-cols-3 gap-5">
