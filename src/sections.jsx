@@ -793,9 +793,9 @@ function Gallery() {
 /* ====================================================================== */
 function Testimonials() {
   const t = [
-    { q: 'Kızım 6 yaşında başladı, 4 ayda hem postürü hem özgüveni inanılmaz gelişti. Eğitmenlerin çocuklarla iletişimi mükemmel.', n: 'Esra Y.', r: 'Veli — Temel Cimnastik' },
-    { q: 'Reformer pilates dersleri sayesinde yıllardır süren bel ağrılarımdan kurtuldum. Salon ferah, hocalar son derece profesyonel.', n: 'Merve A.', r: 'Üye — Reformer Pilates' },
-    { q: 'Oğlumu taekwondoya yazdırdık, disiplin ve saygı konusunda ciddi bir fark gördük. Kahramanmaraş\'ta böyle bir yer şarttı.', n: 'Tuncay D.', r: 'Veli — Çocuk Taekwondo' },
+    { q: 'Cimcim Park bünyesinde Büşra Hoca\'dan aldığımız cimnastik eğitimi tek kelimeyle harika! Çocuklarla olan iletişimi, profesyonelliği ve her dersi eğlenceli hale getirmesi sayesinde çocuğum her derse koşarak geliyor. Eğlenirken öğrenmek ve temel motor becerilerini geliştirmek için harika bir süreç oluyor. Hem salonun hijyeni ve güvenliği hem de Büşra Hocamızın ilgisi çok başarılı. Çocuklar için kaliteli bir cimnastik kursu arayan tüm ebeveynlere kesinlikle tavsiye ederim! Kahramanmaraş\'ın en iyi cimnastik eğitmeni.', n: 'Osman', r: 'Veli — Temel Cimnastik' },
+    { q: 'Çocuklar için çok güzel eğitici bir yer hem fiziksel gelişimlerine katkı sağlıyor hem kendi yaşıtları ile kaynaşma fırsatı oluyor bence ebeveynler olarak çocuklar için güvenle tavsiye edebileceğim bir yer.', n: 'Betül', r: 'Veli' },
+    { q: 'Açıkçası ben de bir eğitimci olarak yeğenimi getirdiğimde dikkat ettiğim ne titizlik varsa hepsini karşıladı bu ortam. Eğitmenlerimize ve bu sıcak enerjik temiz ortam için Büşra hocamıza çok teşekkür ediyorum gönül rahatlığıyla tavsiye edebilirim başarılarınız daim olsun 👏🏻', n: 'Mine', r: 'Eğitimci & Veli' },
   ];
   return (
     <Section id="testimonials" label="08 Testimonials" tone="soft" className="py-20 sm:py-24">
