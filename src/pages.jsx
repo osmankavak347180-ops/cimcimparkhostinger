@@ -496,6 +496,15 @@ const TRAINERS = [
     soon: false,
   },
   {
+    name: 'Hüsniye TUĞRUL',
+    role: 'Mat Pilates & Reformer Antrenörü',
+    branch: 'PİLATES',
+    photo: 'assets/trainer-husniye.webp',
+    whatsapp: 'https://wa.me/905392437606',
+    credentials: ['TCF Pilates Eğitmeni'],
+    soon: false,
+  },
+  {
     name: 'Eklenecek',
     role: 'Antrenör',
     branch: 'TAEKWONDO',
