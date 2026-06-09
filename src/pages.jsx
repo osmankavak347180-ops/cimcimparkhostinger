@@ -493,7 +493,10 @@ const TRAINERS = [
     branch: 'CİMNASTİK',
     photo: 'assets/trainer-hatice.webp',
     whatsapp: 'https://wa.me/905392437606',
-    bio: 'Uzun yıllar aktif cimnastik yapmış ve yarışmalarda yer almıştır. Son 4 yıldır CimcimPark bünyesinde çocuklarla çalışmaktadır.',
+    credentials: [
+      'Aktif Cimnastikçi & Yarışmacı Geçmişi',
+      '4 Yıldır CimcimPark Eğitmeni',
+    ],
     soon: false,
   },
   {
