@@ -2,9 +2,10 @@ import React from 'react';
 import { useRoute, useReveal } from './primitives';
 import { SocialRail, ScrollToTop, Navbar, Footer } from './sections';
 import {
-  HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, ContactPage,
-  GizlilikPage, KVKKPage, CerezPage, NotFoundPage,
+  HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, BlogPostDetail, ContactPage,
+  GizlilikPage, KVKKPage, CerezPage, NotFoundPage, BLOG_POSTS,
 } from './pages';
+import { navigate } from './primitives';
 
 const ROUTES = {
   '/':              { Component: () => <HomePage />,     label: 'Ana Sayfa',    title: "Cimnastik, Pilates, Reformer, Mat Pilates Kursu Kahramanmaraş | CimCimPark – Onikişubat'ın 1 Numaralı Spor Merkezi", desc: "Kahramanmaraş Onikişubat'ta çocuklar için cimnastik, taekwondo, pilates ve reformer pilates kursları. 3-18 yaş arası profesyonel antrenman. Ücretsiz deneme dersi için hemen ara!" },
@@ -21,8 +22,27 @@ const ROUTES = {
 
 function App() {
   const route = useRoute();
-  const match = ROUTES[route] || null;
-  const { Component, label, title: routeTitle, desc } = match || { Component: NotFoundPage, label: '404', desc: '' };
+
+  const blogSlug = route.startsWith('/blog/') ? route.slice(6) : null;
+  const blogPost = blogSlug ? BLOG_POSTS.find(p => p.slug === blogSlug) : null;
+
+  const baseMatch = ROUTES[route] || null;
+  const { Component, label, title: routeTitle, desc } = (() => {
+    if (blogPost) return {
+      Component: () => (
+        <BlogPostDetail
+          post={blogPost}
+          onBack={() => navigate('/blog')}
+          onNavigate={(p) => navigate('/blog/' + p.slug)}
+        />
+      ),
+      label: blogPost.title,
+      title: `${blogPost.title} · CİMCİMPARK`,
+      desc: blogPost.metaDescription || blogPost.excerpt,
+    };
+    if (blogSlug) return { Component: NotFoundPage, label: '404', title: '404', desc: '' };
+    return baseMatch || { Component: NotFoundPage, label: '404', title: '404', desc: '' };
+  })();
 
   // Re-run reveal observer per route change.
   useReveal(route);
@@ -46,6 +66,28 @@ function App() {
     setMetaProp('og-title', title);
     setMetaProp('og-description', desc);
     setMetaProp('og-url', canonicalBase + pagePath);
+
+    // Dinamik BreadcrumbList schema
+    const bcId = 'schema-breadcrumb';
+    let bcEl = document.getElementById(bcId);
+    if (route === '/') {
+      if (bcEl) bcEl.remove();
+    } else {
+      if (!bcEl) {
+        bcEl = document.createElement('script');
+        bcEl.type = 'application/ld+json';
+        bcEl.id = bcId;
+        document.head.appendChild(bcEl);
+      }
+      bcEl.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://cimcimpark.com/' },
+          { '@type': 'ListItem', 'position': 2, 'name': label, 'item': `${canonicalBase}${pagePath}` }
+        ]
+      });
+    }
   }, [route, label, desc]);
 
   return (

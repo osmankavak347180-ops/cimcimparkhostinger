@@ -1437,7 +1437,46 @@ const BLOG_POSTS = [
   },
 ];
 
+const MONTH_MAP = { 'Ocak':'01','Şubat':'02','Mart':'03','Nisan':'04','Mayıs':'05','Haziran':'06','Temmuz':'07','Ağustos':'08','Eylül':'09','Ekim':'10','Kasım':'11','Aralık':'12' };
+
 function BlogPostDetail({ post, onBack, onNavigate }) {
+  useEffect(() => {
+    const injectSchema = (id, data) => {
+      let el = document.getElementById(id);
+      if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = id; document.head.appendChild(el); }
+      el.textContent = JSON.stringify(data);
+    };
+    const parts = post.date.split(' ');
+    const isoDate = parts.length === 3
+      ? `${parts[2]}-${MONTH_MAP[parts[1]] || '01'}-${String(parts[0]).padStart(2, '0')}`
+      : post.date;
+
+    injectSchema('schema-article', {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'description': post.metaDescription || post.excerpt,
+      'image': post.src || '',
+      'datePublished': isoDate,
+      'author': { '@type': 'Person', 'name': 'Büşra FISTIK', 'url': 'https://cimcimpark.com/ekibimiz' },
+      'publisher': { '@type': 'Organization', 'name': 'CİMCİMPARK', 'url': 'https://cimcimpark.com' },
+      'url': `https://cimcimpark.com/blog/${post.slug}`,
+      'mainEntityOfPage': `https://cimcimpark.com/blog/${post.slug}`
+    });
+
+    injectSchema('schema-breadcrumb', {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Ana Sayfa', 'item': 'https://cimcimpark.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': 'https://cimcimpark.com/blog' },
+        { '@type': 'ListItem', 'position': 3, 'name': post.title, 'item': `https://cimcimpark.com/blog/${post.slug}` }
+      ]
+    });
+
+    return () => { const el = document.getElementById('schema-article'); if (el) el.remove(); };
+  }, [post.slug]);
+
   return (
     <div className="page-fade">
       <div className="page-band border-b border-line">
@@ -1515,16 +1554,7 @@ function BlogPostDetail({ post, onBack, onNavigate }) {
 }
 
 function BlogPage() {
-  const [selected, setSelected] = useState(null);
   const [feature, ...rest] = BLOG_POSTS;
-
-  if (selected) {
-    return <BlogPostDetail
-      post={selected}
-      onBack={() => { setSelected(null); window.scrollTo({ top: 0, behavior: 'auto' }); }}
-      onNavigate={(p) => { setSelected(p); window.scrollTo({ top: 0, behavior: 'auto' }); }}
-    />;
-  }
 
   return (
     <>
@@ -1554,7 +1584,7 @@ function BlogPage() {
               <p className="mt-4 text-[15.5px] text-ink-soft leading-[1.65]">{feature.excerpt}</p>
               <div className="mt-5 flex items-center gap-4">
                 <button
-                  onClick={() => { setSelected(feature); window.scrollTo({ top: 0, behavior: 'auto' }); }}
+                  onClick={() => navigate('/blog/' + feature.slug)}
                   className="btn-primary inline-flex items-center gap-2"
                 >
                   Yazıyı Oku <I.Arrow width="16" height="16" />
@@ -1580,7 +1610,7 @@ function BlogPage() {
                   <div className="mt-auto pt-4 flex items-center justify-between text-[12.5px]">
                     <span className="text-ink-muted inline-flex items-center gap-1"><I.Clock width="12" height="12" /> {p.readTime}</span>
                     <button
-                      onClick={() => { setSelected(p); window.scrollTo({ top: 0, behavior: 'auto' }); }}
+                      onClick={() => navigate('/blog/' + p.slug)}
                       className="font-semibold text-brand-deep hover:text-brand inline-flex items-center gap-1 transition-colors"
                     >
                       Devamını oku <I.ArrowUR width="12" height="12" />
@@ -1735,5 +1765,5 @@ function CerezPage() {
   );
 }
 
-export { PageHeader, FinalCTA, HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, ContactPage, NotFoundPage, GizlilikPage, KVKKPage, CerezPage };
+export { PageHeader, FinalCTA, HomePage, AboutPage, BranchesPage, TeamPage, GalleryPage, BlogPage, BlogPostDetail, ContactPage, NotFoundPage, GizlilikPage, KVKKPage, CerezPage, BLOG_POSTS };
 
