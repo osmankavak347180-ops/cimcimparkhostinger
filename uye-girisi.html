@@ -990,7 +990,7 @@ KVKK'nın 11. maddesi uyarınca Cimcimpark'a başvurarak; verilerinizin işlenip
         showState('stateCard');
         data.members.forEach(renderCard);
       })
-      .catch(err => { setLoading(false); showState('statePhone'); showMsg('Bağlantı hatası: ' + err.message, true); });
+      .catch(err => { setLoading(false); localStorage.removeItem(TOKEN_KEY); showState('statePhone'); showMsg('Bağlantı hatası: ' + err.message, true); });
   }
 
   function doLogout() {

@@ -23,8 +23,6 @@ function doGet(e) {
   try {
     const action = String(e.parameter.action || '').trim();
     if (action === 'checkStatus') return checkStatusHandler(e);
-    if (action === 'setPassword') return setPasswordHandler(e);
-    if (action === 'login')       return loginHandler(e);
     if (action === 'me')          return meHandler(e);
     return jsonResponse({ error: 'Geçersiz istek' });
   } catch (err) {
@@ -70,13 +68,19 @@ function setPasswordHandler(e) {
   if (password.length < 8) return jsonResponse({ success: false, error: 'Şifre en az 8 karakter olmalı' });
   if (!kvkk)               return jsonResponse({ success: false, error: 'KVKK onayı gerekli' });
 
-  const cache2  = CacheService.getScriptCache();
-  const spLock  = 'sp_' + phone;
-  const spCount = parseInt(cache2.get(spLock) || '0');
-  if (spCount >= 3) {
-    return jsonResponse({ success: false, error: 'Çok fazla deneme. 15 dakika sonra tekrar deneyin.' });
+  const cache2   = CacheService.getScriptCache();
+  const spLock   = 'sp_' + phone;
+  const spRLLock = LockService.getScriptLock();
+  spRLLock.waitLock(3000);
+  try {
+    const spCount = parseInt(cache2.get(spLock) || '0');
+    if (spCount >= 3) {
+      return jsonResponse({ success: false, error: 'Çok fazla deneme. 15 dakika sonra tekrar deneyin.' });
+    }
+    cache2.put(spLock, String(spCount + 1), LOCK_TTL);
+  } finally {
+    spRLLock.releaseLock();
   }
-  cache2.put(spLock, String(spCount + 1), LOCK_TTL);
 
   const sheet = getSheet();
   const data  = sheet.getDataRange().getValues();
@@ -133,7 +137,7 @@ function loginHandler(e) {
     return jsonResponse({ success: false, error: 'Şifre henüz belirlenmemiş. İlk girişi yapın.' });
   }
 
-  if (hashPassword(storedSalt, password) !== storedHash) {
+  if (!safeEqual(hashPassword(storedSalt, password), storedHash)) {
     incrementAttempts(cache, attKey, lockKey);
     return jsonResponse({ success: false, error: 'Telefon veya şifre hatalı' });
   }
