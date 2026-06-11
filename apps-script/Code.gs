@@ -33,6 +33,21 @@ function doGet(e) {
   }
 }
 
+// ── POST Handler (şifre içeren istekler) ───────────────
+function doPost(e) {
+  try {
+    const body   = JSON.parse(e.postData.contents || '{}');
+    const action = String(body.action || '').trim();
+    const fakeE  = { parameter: body };
+    if (action === 'setPassword') return setPasswordHandler(fakeE);
+    if (action === 'login')       return loginHandler(fakeE);
+    return jsonResponse({ error: 'Geçersiz istek' });
+  } catch (err) {
+    Logger.log('doPost error: ' + err);
+    return jsonResponse({ error: 'Sunucu hatası' });
+  }
+}
+
 // ── checkStatus ────────────────────────────────────────
 function checkStatusHandler(e) {
   const phone = normalizePhone(e.parameter.q || '');

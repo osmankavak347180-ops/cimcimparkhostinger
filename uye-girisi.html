@@ -877,11 +877,18 @@ KVKK'nın 11. maddesi uyarınca Cimcimpark'a başvurarak; verilerinizin işlenip
   // ── State ──
   let currentPhone = '';
 
+  // ── State machine ─────────────────────────────
+  const ALL_STATES = ['statePhone', 'stateSetPw', 'stateLogin', 'stateCard'];
+  function showState(id) {
+    ALL_STATES.forEach(s => document.getElementById(s).style.display = s === id ? 'block' : 'none');
+    clearResults();
+  }
+
   // ── Sayfa yüklenince token kontrol ──
   (function init() {
     const token = localStorage.getItem(TOKEN_KEY);
     if (!token) return;
-    document.getElementById('statePhone').style.display = 'none';
+    ALL_STATES.forEach(s => document.getElementById(s).style.display = 'none');
     setLoading(true);
     fetchMe(token);
   })();
@@ -983,7 +990,7 @@ KVKK'nın 11. maddesi uyarınca Cimcimpark'a başvurarak; verilerinizin işlenip
         showState('stateCard');
         data.members.forEach(renderCard);
       })
-      .catch(err => { setLoading(false); showMsg('Bağlantı hatası: ' + err.message, true); });
+      .catch(err => { setLoading(false); showState('statePhone'); showMsg('Bağlantı hatası: ' + err.message, true); });
   }
 
   function doLogout() {
@@ -997,19 +1004,13 @@ KVKK'nın 11. maddesi uyarınca Cimcimpark'a başvurarak; verilerinizin işlenip
   function goBack() {
     showState('statePhone');
     clearResults();
+    currentPhone = '';
     document.getElementById('loginPwInput').value     = '';
     document.getElementById('setPwInput').value       = '';
     document.getElementById('setPwConfirm').value     = '';
     document.getElementById('kvkkCheck').checked      = false;
     document.getElementById('pwStrength').textContent = '';
     document.getElementById('pwStrength').className   = 'pw-strength';
-  }
-
-  // ── State machine ─────────────────────────────
-  const ALL_STATES = ['statePhone', 'stateSetPw', 'stateLogin', 'stateCard'];
-  function showState(id) {
-    ALL_STATES.forEach(s => document.getElementById(s).style.display = s === id ? 'block' : 'none');
-    clearResults();
   }
 
   // ── Kart render ───────────────────────────────
@@ -1082,10 +1083,21 @@ KVKK'nın 11. maddesi uyarınca Cimcimpark'a başvurarak; verilerinizin işlenip
   }
 
   function apiFetch(action, params) {
-    const qs = Object.entries(params)
-      .map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&');
-    return fetch(PORTAL_URL + '?action=' + action + '&' + qs)
-      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+    const usePost = action === 'setPassword' || action === 'login';
+    const fetchOpts = usePost
+      ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, ...params }) }
+      : { method: 'GET' };
+    const url = usePost
+      ? PORTAL_URL
+      : PORTAL_URL + '?action=' + action + '&' + Object.entries(params).map(([k,v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&');
+    return fetch(url, fetchOpts)
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text().then(t => {
+          try { return JSON.parse(t); }
+          catch { throw new Error('Sunucu geçersiz yanıt döndürdü.'); }
+        });
+      });
   }
 
   function setLoading(on) {
