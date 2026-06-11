@@ -55,6 +55,14 @@ function setPasswordHandler(e) {
   if (password.length < 8) return jsonResponse({ success: false, error: 'Şifre en az 8 karakter olmalı' });
   if (!kvkk)               return jsonResponse({ success: false, error: 'KVKK onayı gerekli' });
 
+  const cache2  = CacheService.getScriptCache();
+  const spLock  = 'sp_' + phone;
+  const spCount = parseInt(cache2.get(spLock) || '0');
+  if (spCount >= 3) {
+    return jsonResponse({ success: false, error: 'Çok fazla deneme. 15 dakika sonra tekrar deneyin.' });
+  }
+  cache2.put(spLock, String(spCount + 1), LOCK_TTL);
+
   const sheet = getSheet();
   const data  = sheet.getDataRange().getValues();
   let rowIdx  = -1;
@@ -63,7 +71,7 @@ function setPasswordHandler(e) {
     if (normalizePhone(String(data[i][COL_TELEFON - 1])) === phone) { rowIdx = i; break; }
   }
 
-  if (rowIdx === -1) return jsonResponse({ success: false, error: 'Bu numaraya ait kayıt bulunamadı' });
+  if (rowIdx === -1) return jsonResponse({ success: false, error: 'Bu numara için şifre belirlenemiyor.' });
 
   const existingHash = String(data[rowIdx][COL_HASH - 1] || '').trim();
   if (existingHash !== '') {
@@ -185,22 +193,32 @@ function generateSalt() {
 }
 
 function hashPassword(salt, password) {
-  const bytes = Utilities.computeDigest(
-    Utilities.DigestAlgorithm.SHA_256,
-    salt + password,
-    Utilities.Charset.UTF_8
-  );
-  return bytes.map(b => ((b < 0 ? b + 256 : b).toString(16).padStart(2, '0'))).join('');
+  const ITERATIONS = 1000;
+  let prev = Utilities.computeHmacSha256Signature(password, salt, Utilities.Charset.UTF_8);
+  for (let i = 1; i < ITERATIONS; i++) {
+    prev = Utilities.computeHmacSha256Signature(
+      prev.map(b => String.fromCharCode(b < 0 ? b + 256 : b)).join(''),
+      salt,
+      Utilities.Charset.UTF_8
+    );
+  }
+  return prev.map(b => ((b < 0 ? b + 256 : b).toString(16).padStart(2, '0'))).join('');
 }
 
 // ── Rate limiting ──────────────────────────────────────
 function incrementAttempts(cache, attKey, lockKey) {
-  const n = parseInt(cache.get(attKey) || '0') + 1;
-  if (n >= MAX_ATTEMPTS) {
-    cache.put(lockKey, '1', LOCK_TTL);
-    cache.remove(attKey);
-  } else {
-    cache.put(attKey, String(n), LOCK_TTL);
+  const lock = LockService.getScriptLock();
+  lock.waitLock(3000);
+  try {
+    const n = parseInt(cache.get(attKey) || '0') + 1;
+    if (n >= MAX_ATTEMPTS) {
+      cache.put(lockKey, '1', LOCK_TTL);
+      cache.remove(attKey);
+    } else {
+      cache.put(attKey, String(n), LOCK_TTL);
+    }
+  } finally {
+    lock.releaseLock();
   }
 }
 
@@ -218,7 +236,7 @@ function verifyToken(token) {
   const payloadB64 = token.slice(0, dot);
   const sig        = token.slice(dot + 1);
   try {
-    if (hmacSign(payloadB64) !== sig) return null;
+    if (!safeEqual(hmacSign(payloadB64), sig)) return null;
     const payload = JSON.parse(
       Utilities.newBlob(Utilities.base64DecodeWebSafe(payloadB64)).getDataAsString()
     );
@@ -235,6 +253,13 @@ function hmacSign(data) {
   if (!secret) throw new Error('TOKEN_SECRET tanımlı değil. Script Properties ayarla.');
   const sig = Utilities.computeHmacSha256Signature(data, secret, Utilities.Charset.UTF_8);
   return Utilities.base64EncodeWebSafe(sig).replace(/=+$/, '');
+}
+
+function safeEqual(a, b) {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
 }
 
 function jsonResponse(obj) {
