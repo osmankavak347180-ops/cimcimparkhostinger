@@ -35,6 +35,16 @@ function PageHeader({ eyebrow, title, accent, lede, crumbs }) {
 /* HOME PAGE                                                              */
 /* ====================================================================== */
 function HomePage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/');
+    return () => {};
+  }, []);
   return (
     <>
       <Hero />
@@ -87,6 +97,16 @@ function FinalCTA() {
 /* HAKKIMIZDA                                                             */
 /* ====================================================================== */
 function AboutPage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/hakkimizda');
+    return () => {};
+  }, []);
   return (
     <>
       <PageHeader
@@ -188,6 +208,16 @@ function FAQSection() {
 }
 
 function BranchesPage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/branslarimiz');
+    return () => {};
+  }, []);
   return (
     <>
       <PageHeader
@@ -428,6 +458,16 @@ function TeamCard({ m, i }) {
 }
 
 function TeamPage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/ekibimiz');
+    return () => {};
+  }, []);
   return (
     <>
       <PageHeader
@@ -471,6 +511,16 @@ function TeamPage() {
 /* GALERİ                                                                 */
 /* ====================================================================== */
 function GalleryPage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/galeri');
+    return () => {};
+  }, []);
   return (
     <>
       <PageHeader
@@ -1423,6 +1473,16 @@ function BlogPage() {
 /* İLETİŞİM                                                               */
 /* ====================================================================== */
 function ContactPage() {
+  useEffectP(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://cimcimpark.com/iletisim');
+    return () => {};
+  }, []);
   return (
     <>
       <PageHeader
