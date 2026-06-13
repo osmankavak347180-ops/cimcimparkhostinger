@@ -937,6 +937,10 @@ function Footer() {
             <Link to="/cerez" className="hover:text-ink">Çerez Politikası</Link>
           </div>
         </div>
+        <div className="mt-5 text-center text-[11.5px] text-ink-faint">
+          Web tasarım &amp; yapay zeka stratejisi ·{' '}
+          <a href="https://nextgeoagency.com/" target="_blank" rel="noreferrer" className="hover:text-brand-deep font-medium transition-colors">Next GEO AI Agency</a>
+        </div>
       </div>
     </footer>
   );
