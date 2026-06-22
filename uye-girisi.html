@@ -534,7 +534,7 @@
 
 <!-- ══ SEARCH ══ -->
 <div class="search-wrap">
-  <div class="search-card">
+  <div class="search-card" id="phoneStep">
     <label for="sorguInput">TELEFON NUMARASI</label>
     <div class="input-row">
       <input
@@ -542,11 +542,37 @@
         id="sorguInput"
         placeholder="Örn: 0532 123 45 67"
         autocomplete="off"
-        onkeydown="if(event.key==='Enter') sorgula()"
+        onkeydown="if(event.key==='Enter') checkStatus()"
       >
-      <button class="btn-sorgula" id="btnSorgula" onclick="sorgula()">
+      <button class="btn-sorgula" id="btnSorgula" onclick="checkStatus()">
         Sorgula
       </button>
+    </div>
+  </div>
+
+  <!-- Şifre Oluştur -->
+  <div class="search-card" id="createPwStep" style="display:none">
+    <label>YENİ ŞİFRE OLUŞTURUN</label>
+    <p style="font-size:.85rem;color:var(--ink-m);margin-bottom:14px;">İlk girişiniz — lütfen bir şifre belirleyin (en az 4 karakter).</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <input type="password" id="newPw" placeholder="Şifre" autocomplete="new-password" style="padding:13px 16px;border:2px solid var(--line);border-radius:10px;font-size:1rem;font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--primary)';this.style.background='#fff'" onblur="this.style.borderColor='var(--line)';this.style.background='var(--paper)'">
+      <input type="password" id="newPwConfirm" placeholder="Şifre Tekrar" autocomplete="new-password" style="padding:13px 16px;border:2px solid var(--line);border-radius:10px;font-size:1rem;font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);outline:none;transition:border-color .2s;" onkeydown="if(event.key==='Enter') createPassword()" onfocus="this.style.borderColor='var(--primary)';this.style.background='#fff'" onblur="this.style.borderColor='var(--line)';this.style.background='var(--paper)'">
+      <div class="input-row">
+        <button class="btn-sorgula" style="flex:1" onclick="createPassword()">Şifre Oluştur</button>
+        <button class="btn-sorgula" style="background:var(--ink-m);flex:0" onclick="goBack()">Geri</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Şifre Giriş -->
+  <div class="search-card" id="loginStep" style="display:none">
+    <label>ŞİFRENİZİ GİRİN</label>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <input type="password" id="loginPw" placeholder="Şifre" autocomplete="current-password" style="padding:13px 16px;border:2px solid var(--line);border-radius:10px;font-size:1rem;font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);outline:none;transition:border-color .2s;" onkeydown="if(event.key==='Enter') login()" onfocus="this.style.borderColor='var(--primary)';this.style.background='#fff'" onblur="this.style.borderColor='var(--line)';this.style.background='var(--paper)'">
+      <div class="input-row">
+        <button class="btn-sorgula" style="flex:1" onclick="login()">Giriş Yap</button>
+        <button class="btn-sorgula" style="background:var(--ink-m);flex:0" onclick="goBack()">Geri</button>
+      </div>
     </div>
   </div>
 </div>
@@ -556,6 +582,9 @@
   <div class="spinner" id="spinner">Aranıyor...</div>
   <div class="msg-box" id="msgBox"></div>
   <div id="cards"></div>
+  <div id="backWrap" style="display:none;text-align:center;margin-top:16px;">
+    <button class="btn-sorgula" style="background:var(--ink-m)" onclick="goBack()">← Geri Dön</button>
+  </div>
 </div>
 
 <!-- ══ INSTAGRAM SECTION ══ -->
@@ -690,9 +719,10 @@
   }, { passive: true });
 
   // ── Apps Script web app URL ──
-  const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbww3x95xMK1Ccos44OxhAvQhML6MHlGvceU3jYP3oGzhDPQmyOLhACGqDQgcbsp7xkJRQ/exec';
+  const PORTAL_URL = 'https://script.google.com/macros/s/AKfycbyPPmu0jK74IMFaUj7mejfn1ymKBKhQiBytYdOfNPwgb6tzz8rp9_1ylTkyFwvB6dwjGA/exec';
 
-  // Telefon normalizasyonu: boşlukları kaldır, +90/90/0 önekini sil → 10 hane
+  var currentPhone = '';
+
   function normalizePhone(raw) {
     var digits = raw.replace(/\D/g, '');
     if (digits.length === 12 && digits.startsWith('90')) digits = digits.slice(2);
@@ -701,34 +731,124 @@
     return digits;
   }
 
-  function sorgula() {
-    const raw = document.getElementById('sorguInput').value.trim();
-    if (!raw) { showMsg('Telefon numaranızı girin.', false); return; }
-    const q = normalizePhone(raw);
-    if (q.length !== 10) { showMsg('Geçerli bir 10 haneli numara girin. Örn: 0532 123 45 67 veya 5321234567', false); return; }
+  function showStep(id) {
+    ['phoneStep', 'createPwStep', 'loginStep'].forEach(function(s) {
+      document.getElementById(s).style.display = s === id ? 'block' : 'none';
+    });
+  }
 
+  function goBack() {
+    showStep('phoneStep');
+    clearResults();
+    document.getElementById('backWrap').style.display = 'none';
+    document.getElementById('msgBox').style.display = 'none';
+    currentPhone = '';
+  }
+
+  function checkStatus() {
+    var raw = document.getElementById('sorguInput').value.trim();
+    if (!raw) { showMsg('Telefon numaranızı girin.', false); return; }
+    var q = normalizePhone(raw);
+    if (q.length !== 10) { showMsg('Geçerli bir 10 haneli numara girin. Örn: 0532 123 45 67', false); return; }
+
+    currentPhone = q;
     setLoading(true);
     clearResults();
+    document.getElementById('msgBox').style.display = 'none';
 
-    fetch(PORTAL_URL + '?action=query&q=' + encodeURIComponent(q))
+    fetch(PORTAL_URL + '?action=checkStatus&q=' + encodeURIComponent(q))
       .then(function(res) {
         if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
         return res.json();
       })
       .then(function(data) {
         setLoading(false);
-        if (!data.found || !data.members || data.members.length === 0) {
-          showMsg('Kayıt bulunamadı. Telefon numarası veya adı kontrol edin.', false);
+        if (!data.found) {
+          showMsg('Bu numaraya kayıtlı üye bulunamadı.', false);
           return;
         }
-        data.members.forEach(renderCard);
+        if (data.hasPassword) {
+          showStep('loginStep');
+          document.getElementById('loginPw').value = '';
+          document.getElementById('loginPw').focus();
+        } else {
+          showStep('createPwStep');
+          document.getElementById('newPw').value = '';
+          document.getElementById('newPwConfirm').value = '';
+          document.getElementById('newPw').focus();
+        }
       })
       .catch(function(err) {
         setLoading(false);
-        var msg = err.message === 'Failed to fetch'
-          ? 'Sunucuya ulaşılamıyor. İnternet bağlantınızı kontrol edin veya sayfayı yenileyip tekrar deneyin.'
-          : 'Hata: ' + err.message;
-        showMsg(msg, true);
+        showMsg(err.message === 'Failed to fetch'
+          ? 'Sunucuya ulaşılamıyor. İnternet bağlantınızı kontrol edin.'
+          : 'Hata: ' + err.message, true);
+      });
+  }
+
+  function createPassword() {
+    var pw = document.getElementById('newPw').value;
+    var pw2 = document.getElementById('newPwConfirm').value;
+    if (pw.length < 4) { showMsg('Şifre en az 4 karakter olmalı.', true); return; }
+    if (pw !== pw2) { showMsg('Şifreler eşleşmiyor.', true); return; }
+
+    setLoading(true);
+    document.getElementById('msgBox').style.display = 'none';
+
+    fetch(PORTAL_URL + '?action=setPassword&q=' + encodeURIComponent(currentPhone) + '&password=' + encodeURIComponent(pw))
+      .then(function(res) {
+        if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        setLoading(false);
+        if (data.success) {
+          doLogin(currentPhone, pw);
+        } else {
+          showMsg(data.error || 'Şifre oluşturulamadı.', true);
+        }
+      })
+      .catch(function(err) {
+        setLoading(false);
+        showMsg('Hata: ' + err.message, true);
+      });
+  }
+
+  function login() {
+    var pw = document.getElementById('loginPw').value;
+    if (!pw) { showMsg('Şifrenizi girin.', true); return; }
+    doLogin(currentPhone, pw);
+  }
+
+  function doLogin(phone, pw) {
+    setLoading(true);
+    document.getElementById('msgBox').style.display = 'none';
+
+    fetch(PORTAL_URL + '?action=login&q=' + encodeURIComponent(phone) + '&password=' + encodeURIComponent(pw))
+      .then(function(res) {
+        if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        setLoading(false);
+        if (!data.found && data.error) {
+          showMsg(data.error, true);
+          return;
+        }
+        if (!data.found || !data.members || data.members.length === 0) {
+          showMsg('Giriş başarısız. Şifrenizi kontrol edin.', true);
+          return;
+        }
+        showStep('phoneStep');
+        document.getElementById('phoneStep').style.display = 'none';
+        data.members.forEach(renderCard);
+        document.getElementById('backWrap').style.display = 'block';
+      })
+      .catch(function(err) {
+        setLoading(false);
+        showMsg(err.message === 'Failed to fetch'
+          ? 'Sunucuya ulaşılamıyor. İnternet bağlantınızı kontrol edin.'
+          : 'Hata: ' + err.message, true);
       });
   }
 
