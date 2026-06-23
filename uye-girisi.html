@@ -831,12 +831,12 @@
       })
       .then(function(data) {
         setLoading(false);
-        if (!data.found && data.error) {
-          showMsg(data.error, true);
+        if (!data.success) {
+          showMsg(data.error || 'Giriş başarısız. Şifrenizi kontrol edin.', true);
           return;
         }
-        if (!data.found || !data.members || data.members.length === 0) {
-          showMsg('Giriş başarısız. Şifrenizi kontrol edin.', true);
+        if (!data.members || data.members.length === 0) {
+          showMsg('Üyelik bilgisi bulunamadı.', true);
           return;
         }
         showStep('phoneStep');
