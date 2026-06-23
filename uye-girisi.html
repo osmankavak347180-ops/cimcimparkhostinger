@@ -756,7 +756,7 @@
     clearResults();
     document.getElementById('msgBox').style.display = 'none';
 
-    fetch(PORTAL_URL + '?action=checkStatus&q=' + encodeURIComponent(q))
+    fetch(PORTAL_URL + '?action=checkStatus&q=' + encodeURIComponent(q), {redirect: 'follow'})
       .then(function(res) {
         if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
         return res.json();
@@ -795,7 +795,7 @@
     setLoading(true);
     document.getElementById('msgBox').style.display = 'none';
 
-    fetch(PORTAL_URL + '?action=setPassword&q=' + encodeURIComponent(currentPhone) + '&password=' + encodeURIComponent(pw))
+    fetch(PORTAL_URL + '?action=setPassword&q=' + encodeURIComponent(currentPhone) + '&password=' + encodeURIComponent(pw), {redirect: 'follow'})
       .then(function(res) {
         if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
         return res.json();
@@ -824,7 +824,7 @@
     setLoading(true);
     document.getElementById('msgBox').style.display = 'none';
 
-    fetch(PORTAL_URL + '?action=login&q=' + encodeURIComponent(phone) + '&password=' + encodeURIComponent(pw))
+    fetch(PORTAL_URL + '?action=login&q=' + encodeURIComponent(phone) + '&password=' + encodeURIComponent(pw), {redirect: 'follow'})
       .then(function(res) {
         if (!res.ok) throw new Error('Sunucu hatası: ' + res.status);
         return res.json();
