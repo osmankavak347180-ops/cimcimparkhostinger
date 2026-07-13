@@ -842,7 +842,20 @@ function Contact() {
     e.preventDefault();
     if (!form.name || !form.phone) return;
     setStatus('loading');
-    setTimeout(() => setStatus('sent'), 900);
+
+    const gasUrl = import.meta.env.VITE_GAS_DEPLOYMENT_URL;
+    const params = new URLSearchParams({
+      action: 'contactForm',
+      name: form.name,
+      phone: form.phone,
+      branch: form.branch,
+      message: form.message,
+    });
+
+    fetch(gasUrl + '?' + params.toString())
+      .then((res) => res.json())
+      .then((data) => setStatus(data.success ? 'sent' : 'error'))
+      .catch(() => setStatus('error'));
   };
 
   return (
@@ -921,9 +934,12 @@ function Contact() {
                 disabled={status === 'loading'}
                 className="btn-primary inline-flex items-center gap-2 disabled:opacity-70"
               >
-                {status === 'sent' ? (<><I.Check width="16" height="16" /> Talebiniz alındı</>) : status === 'loading' ? 'Gönderiliyor...' : (<>Deneme Dersi İste <I.Arrow width="16" height="16" /></>)}
+                {status === 'sent' ? (<><I.Check width="16" height="16" /> Talebiniz alındı</>) : status === 'loading' ? 'Gönderiliyor...' : status === 'error' ? 'Tekrar deneyin' : (<>Deneme Dersi İste <I.Arrow width="16" height="16" /></>)}
               </button>
             </div>
+            {status === 'error' && (
+              <p className="mt-3 text-[12.5px] text-red-600">Gönderim başarısız oldu. Lütfen tekrar deneyin veya bizi arayın: 0539 243 76 06</p>
+            )}
           </form>
 
           {/* Map */}

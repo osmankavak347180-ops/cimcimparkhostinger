@@ -14,16 +14,18 @@ const COL_HASH      = 8;   // H — sifre_hash
 const COL_SALT      = 9;   // I — sifre_salt
 const COL_KVKK      = 10;  // J — kvkk_tarih
 
-const SHEET_NAME   = 'Üyeler';
-const MAX_ATTEMPTS = 5;
-const LOCK_TTL     = 900; // 15 dakika (saniye)
+const SHEET_NAME    = 'Üyeler';
+const MAX_ATTEMPTS  = 5;
+const LOCK_TTL      = 900; // 15 dakika (saniye)
+const CONTACT_EMAIL = 'info@cimcimpark.com';
 
 // ── Ana Router ─────────────────────────────────────────
 function doGet(e) {
   try {
     const action = String(e.parameter.action || '').trim();
-    if (action === 'checkStatus') return checkStatusHandler(e);
-    if (action === 'me')          return meHandler(e);
+    if (action === 'checkStatus')  return checkStatusHandler(e);
+    if (action === 'me')           return meHandler(e);
+    if (action === 'contactForm')  return contactFormHandler(e);
     return jsonResponse({ error: 'Geçersiz istek' });
   } catch (err) {
     Logger.log('doGet error: ' + err);
@@ -56,6 +58,45 @@ function checkStatusHandler(e) {
 
   const hash = String(row[COL_HASH - 1] || '').trim();
   return jsonResponse({ exists: true, hasPassword: hash !== '' });
+}
+
+// ── contactForm (iletişim formu → e-posta) ─────────────
+function contactFormHandler(e) {
+  const name    = String(e.parameter.name    || '').trim();
+  const phone   = String(e.parameter.phone   || '').trim();
+  const branch  = String(e.parameter.branch  || '').trim();
+  const message = String(e.parameter.message || '').trim();
+
+  if (!name || !phone) return jsonResponse({ success: false, error: 'Ad ve telefon zorunlu' });
+
+  const cache   = CacheService.getScriptCache();
+  const rlKey   = 'cf_' + normalizePhone(phone);
+  const rlLock  = LockService.getScriptLock();
+  rlLock.waitLock(3000);
+  try {
+    const count = parseInt(cache.get(rlKey) || '0');
+    if (count >= 3) return jsonResponse({ success: false, error: 'Çok fazla deneme. Birazdan tekrar deneyin.' });
+    cache.put(rlKey, String(count + 1), LOCK_TTL);
+  } finally {
+    rlLock.releaseLock();
+  }
+
+  const subject = 'Yeni Deneme Dersi Talebi — ' + name;
+  const body =
+    'Ad Soyad: ' + name + '\n' +
+    'Telefon: ' + phone + '\n' +
+    'Branş: ' + (branch || '-') + '\n' +
+    'Mesaj: ' + (message || '-') + '\n\n' +
+    'Gönderim zamanı: ' + Utilities.formatDate(new Date(), 'Europe/Istanbul', 'dd.MM.yyyy HH:mm');
+
+  MailApp.sendEmail({
+    to: CONTACT_EMAIL,
+    replyTo: CONTACT_EMAIL,
+    subject: subject,
+    body: body
+  });
+
+  return jsonResponse({ success: true });
 }
 
 // ── setPassword ────────────────────────────────────────
