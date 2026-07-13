@@ -861,7 +861,7 @@ function Contact() {
 
           <ul className="reveal mt-8 space-y-5" style={{ '--d': '100ms' }}>
             {[
-              { ic: 'Pin',   tone: 'brand', t: 'Adres', d: 'Tavşan Tepe, 69002. Sk No: 88/A\nOnikişubat / Kahramanmaraş' },
+              { ic: 'Pin',   tone: 'brand', t: 'Adres', d: 'Tavşan Tepe, 69002. Sk Hürriyet Sitesi No: 88/A B Blok Altı\n46100 Onikişubat / Kahramanmaraş' },
               { ic: 'Phone', tone: 'aqua',  t: 'Telefon', d: '0539 243 76 06', href: 'tel:+905392437606' },
               { ic: 'Whatsapp', brand: true, t: 'WhatsApp', d: 'Anında yanıt — wa.me/905392437606', href: 'https://wa.me/905392437606' },
               { ic: 'Clock', tone: 'brand', t: 'Çalışma Saatleri', d: 'Hafta içi 09:00 — 21:00\nC.tesi 09:00 — 18:00 · Pazar Kapalı' },
@@ -930,7 +930,7 @@ function Contact() {
           <div className="reveal rounded-card overflow-hidden border border-line shadow-soft" style={{ '--d': '180ms' }}>
             <iframe
               title="CİMCİMPARK konumu"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=36.92%2C37.55%2C36.96%2C37.59&layer=mapnik&marker=37.575%2C36.94"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=36.8928%2C37.5945%2C36.9028%2C37.6045&layer=mapnik&marker=37.5994632%2C36.8978342"
               className="w-full h-[300px] block"
               style={{ border: 0 }}
               loading="lazy"
@@ -938,9 +938,9 @@ function Contact() {
             <div className="bg-white px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
               <div className="flex items-center gap-2 text-[13.5px] text-ink-soft">
                 <I.Pin width="16" height="16" className="text-brand-deep" />
-                Tavşan Tepe, 69002. Sk No 88/A, Onikişubat / Kahramanmaraş
+                Tavşan Tepe, 69002. Sk Hürriyet Sitesi No 88/A B Blok Altı, 46100 Onikişubat / Kahramanmaraş
               </div>
-              <a href="https://www.google.com/maps/search/?api=1&query=Tav%C5%9Fan+Tepe+69002+Sk+No+88+Onikisubat+Kahramanmaras"
+              <a href="https://maps.app.goo.gl/N3JNkqDGhCf7K77m8"
                  target="_blank" rel="noreferrer"
                  className="text-[13px] font-semibold text-brand-deep hover:text-brand inline-flex items-center gap-1.5">
                 Yol tarifi al <I.ArrowUR width="13" height="13" />
@@ -995,7 +995,7 @@ function Footer() {
           <div className="lg:col-span-3">
             <div className="text-[12px] font-semibold uppercase tracking-wider text-ink-faint">İletişim</div>
             <ul className="mt-4 space-y-3 text-[14px] text-ink-soft">
-              <li className="flex items-start gap-2"><I.Pin width="15" height="15" className="mt-0.5 text-brand-deep flex-shrink-0" />Tavşan Tepe, 69002. Sk No 88/A, Onikişubat / Kahramanmaraş</li>
+              <li className="flex items-start gap-2"><I.Pin width="15" height="15" className="mt-0.5 text-brand-deep flex-shrink-0" />Tavşan Tepe, 69002. Sk Hürriyet Sitesi No 88/A B Blok Altı, 46100 Onikişubat / Kahramanmaraş</li>
               <li className="flex items-center gap-2"><I.Phone width="15" height="15" className="text-brand-deep" /><a href="tel:+905392437606" className="hover:text-brand-deep">0539 243 76 06</a></li>
               <li className="flex items-center gap-2"><I.Mail width="15" height="15" className="text-brand-deep" />info@cimcimpark.com</li>
             </ul>
