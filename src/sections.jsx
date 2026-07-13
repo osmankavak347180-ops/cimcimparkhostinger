@@ -930,7 +930,7 @@ function Contact() {
           <div className="reveal rounded-card overflow-hidden border border-line shadow-soft" style={{ '--d': '180ms' }}>
             <iframe
               title="CİMCİMPARK konumu"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=36.8928%2C37.5945%2C36.9028%2C37.6045&layer=mapnik&marker=37.5994632%2C36.8978342"
+              src="https://www.google.com/maps?q=CimCim+Park+SPOR+OKULLARI,+Tav%C5%9Fan+Tepe,+Onikişubat,+Kahramanmaraş&output=embed"
               className="w-full h-[300px] block"
               style={{ border: 0 }}
               loading="lazy"
