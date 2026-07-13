@@ -843,18 +843,19 @@ function Contact() {
     if (!form.name || !form.phone) return;
     setStatus('loading');
 
-    const gasUrl = import.meta.env.VITE_GAS_DEPLOYMENT_URL;
-    const params = new URLSearchParams({
-      action: 'contactForm',
-      name: form.name,
-      phone: form.phone,
-      branch: form.branch,
-      message: form.message,
-    });
-
-    fetch(gasUrl + '?' + params.toString())
+    fetch('https://formsubmit.co/ajax/info@cimcimpark.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        _subject: 'Yeni Deneme Dersi Talebi — ' + form.name,
+        'Ad Soyad': form.name,
+        'Telefon': form.phone,
+        'Branş': form.branch,
+        'Mesaj': form.message || '-',
+      }),
+    })
       .then((res) => res.json())
-      .then((data) => setStatus(data.success ? 'sent' : 'error'))
+      .then((data) => setStatus(data.success === 'true' || data.success === true ? 'sent' : 'error'))
       .catch(() => setStatus('error'));
   };
 
